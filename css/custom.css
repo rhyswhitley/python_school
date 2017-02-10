@@ -1,0 +1,114 @@
+.reveal section img {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #2f4f4f;
+  line-height: 0.9em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.reveal h2.invert {
+    color: white;
+}
+
+.reveal ul li {
+  padding: 20px 0px;
+}
+
+.reveal ul.smaller {
+  font-size: 25pt;
+  padding: 20px 0px;
+}
+
+.reveal div.block {
+  background: #F27C3A;
+  font-size: 25pt;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.reveal tr {
+  border: collapse;
+  color: #2f4f4f;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.reveal div.banner {
+    background-color: #2f4f4f;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+
+}
+
+.reveal #title-footer {
+    height: 3vh;
+    font-size: 14pt;
+}
+
+.reveal #title-footer a {
+    color: white;
+    word-spacing: 3px;
+}
+
+
+.reveal .progress {
+    height: 3px;
+    background-color: #2f4f4f;
+}
+
+.reveal .progress span {
+    background-color: gold;
+}
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+    border-left-color: gold;
+}
+
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+    border-right-color: gold;
+}
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+    border-bottom-color: gold;
+}
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+    border-top-color: gold;
+}
+
+
+/* custome blocks */
+
+.reveal div.sideblock {
+     background-color: gold; 
+     width: 100%; 
+     height: 600%; 
+     position: absolute; 
+     top: -100%; 
+     left: -50%; 
+     z-index: -1;
+     border: none;
+}

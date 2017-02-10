@@ -1,0 +1,27 @@
+{
+  "name": "reveal.js",
+  "version": "3.4.1",
+  "main": [
+    "js/reveal.js",
+    "css/reveal.css"
+  ],
+  "homepage": "http://www.github.com/rhyswhitley",
+  "license": "MIT",
+  "description": "The HTML Presentation for python lessons",
+  "authors": [
+    "Rhys Whitley <rhys.whitley@gmail.com>"
+  ],
+  "dependencies": {
+    "headjs": "~1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rhyswhitley/reveal.js.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}
