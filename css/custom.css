@@ -103,6 +103,10 @@
     border-top-color: gold;
 }
 
+.reveal mark {
+  color: black;
+}
+
 
 /* custome blocks */
 

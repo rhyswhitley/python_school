@@ -9,7 +9,6 @@
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/white.css">
-	<link rel="stylesheet" href="css/custom.css">
 
 	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 	<meta name="author" content="Hakim El Hattab">
@@ -23,6 +22,7 @@
 	<link rel="stylesheet" href="lib/css/zenburn.css">
 	<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
 
+	<link rel="stylesheet" href="css/custom.css">
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement('link');
@@ -70,27 +70,41 @@
 
 				<section>
 					<h2>Overall</h2>
-					<ul class='smaller'>
-						<li> Convince you of its utility in business - analytics, data viz, work-flow management</li>
-						<li> Instil good coding and curation practices</li>
-						<li> Empower you with with the knowledge to migrate from archaic tools like MS Office and SAS</li>
-						<li> Give you the confidence to go out and learn on your own, so you can even teach me!</li>
-					</ul>
+						<p class="fragment" data-fragment-index="1">Convince you of its utility in business - analytics, data viz, work-flow management</li>
+						<p class="fragment" data-fragment-index="2">Instil good coding and curation practices</p>
+						<p class="fragment" data-fragment-index="3">Empower you with with the knowledge to migrate from archaic tools like MS Office and SAS</li>
+						<p class="fragment" data-fragment-index="4">Give you the confidence to go out and learn on your own, so you can even teach me!</p>
 				</section>
+
+				<section>
+					<h2>What I plan to cover</h2>
+						<p class="fragment" data-fragment-index="1">The Basic Concepts</p>
+						<p class="fragment" data-fragment-index="2">Functions & Classes</p>
+						<p class="fragment" data-fragment-index="3">Data Munging</p>
+						<p class="fragment" data-fragment-index="4">Data Viz</p>
+						<p class="fragment" data-fragment-index="5">Geospatial Analysis</p>
+						<p class="fragment" data-fragment-index="6">Machine Learning</p>
+						<p class="fragment" data-fragment-index="7">*Bayesian Analysis</p>
+						<p class="fragment" style="color: crimson" data-fragment-index="8">Team Hack'athon</p>
+				</section>
+
 				<section>
 					<h2>Furthemore</h2>
 					<p>
 						Lessons are interactive and I encourage you to ask questions as we go.
 					</p>
 				</section>
+
 				<section>
 					<p>
 						I may throw around a lot of technical jargon, so just stop and ask me what the hell I'm talking about.
 					</p>
 				</section>
+
 				<section>
-					<h3>Most importantly, remember to have fun!</h3>
-					<p>Python (and coding in general) is here to make your life easier!</p>
+					<h4>Most importantly...</h4>
+					<h2 class="fragment" data-fragment-index="1">remember to have fun!</h2>
+					<p class="fragment" data-fragment-index="1">Python (and coding in general) is here to make your life easier!</p>
 				</section>
 			</section>
 
@@ -173,7 +187,7 @@
 					<p>...have a specific behaviour, but we're going to come back to this later on though</p>
 				</section>
 				<section data-background-color="orange">
-					<h3 style="color: white">There are also othere data types that you will come to find</h3>
+					<h3 style="color: white">There are also other data types that you will come to find</h3>
 					<hr />
 					<p class="fragment" style="color: white" data-fragment-index="1">Buffer</p>
 					<p class="fragment" style="color: white" data-fragment-index="2">File</p>
@@ -182,10 +196,12 @@
 				</section>
 			</section>
 
+<!--- LIST SECTION --->
+
 			<section>
 				<section data-background="#2f4f4f">
-					<h2>Data structures<h2>
-          <h3><i>or containers that can hold many items</i><h3>
+					<h2>Sequence Types<h2>
+          <h3><i>or containers that hold many items</i><h3>
 				</section>
         <section data-background="#2f4f4f">
 					<h3>Python has a number of container types</h3>
@@ -195,63 +211,79 @@
 					<p class="fragment" style="color: white" data-fragment-index="3">Dicts</p>
 					<p class="fragment" style="color: white" data-fragment-index="4">Sets</p>
 				</section>
+			</section>
+
+<!--- LIST SECTION --->
+
+			<section>
 				<section data-background="orange">
 					<h2 style="color: white">LISTS</h2>
 				</section>
+
 				<section>
 					<p>Always denoted by <b>square [...]</b> brackets</p>
 					<pre><code class='ipython' data-trim>
 					num_list = [1, 2, 6, 1, 2]
 					</code></pre>
 					<p>
-						and can be of one type
+						and are generally used to hold homogeneous data types
 					</p>
 					<pre><code class='ipython' data-trim>
 						char_list = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					</code></pre>
-					<p>
-						or many
+					<br />
+					<p class="fragment" data-fragment-index="1">
+						while mixed types are allowed, I would generally avoid
 					</p>
-					<pre><code class='ipython' data-trim>
+					<pre class="fragment" data-fragment-index="1"><code class='ipython' data-trim>
 						mix_list = [5., "h", 4, "r", "k", 9i]
 					</code></pre>
 				</section>
+
 				<section>
 					<p>The parts of a list are referred to as items (or elements)</p>
-					<pre><code class="ipython" data-trim>
-              ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
-              [ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
-          </code></pre>
+					<pre><code class="python" data-trim data-noescape><center>
+["A", "l", "e", "j", "a", "n", "d", "r", "o"]
+# --------------------------------------------------> #
+[ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
+					</center></code></pre>
 					<hr />
 					<p>the term <b>index</b> is used to denote position and <i>in Python</i> <b>always starts at 0</b>
 				</section>
+
 				<section>
 					<p>
 						and we can use the index to access specific items of the list
 					</p>
 					<pre><code class="ipython" data-trim>
-              In : name[0]
-              Out: "A"
+            In : name[0]
+            Out: "A"
 
-              In : name[5]
-              Out: "n"
+            In : name[5]
+            Out: "n"
           </code></pre>
 					<p>
 						or even chunks of it
 					</p>
 					<pre><code class="ipython" data-trim>
-              In : name[1:7]
-              Out: ["l", "e", "j", "a", "n", "d"]
+            In : name[1:7]
+            Out: ["l", "e", "j", "a", "n", "d"]
 
-              In : name[4:]
-              Out: ["a", "n", "d", "r", "o"]
+            In : name[4:]
+            Out: ["a", "n", "d", "r", "o"]
 					</code></pre>
 				</section>
+
+				<section data-background="orange">
+					<p style="color: black">The process of accessing parts of a list
+						(or any other container) is referred to as <b>slicing</b></p>
+				</section>
+
 				<section>
 					<p>
 						not only can we take parts of a list, but we can also change them
 					</p>
-					<pre><code class="ipython" data-trim>
+					<pre><code class="python" data-trim>
           name[3] = "x"
           name[7] = "e"
           name[8] = "r"
@@ -261,7 +293,7 @@
               Out: ["A", "l", "e", "x", "a", "n", "d", "e", "r"]
 					</code></pre>
 					<p>or</p>
-					<pre><code class="ipython" data-trim>
+					<pre><code class="python" data-trim>
           name[2] = 3
           name[7] = 3
 					</code></pre>
@@ -270,20 +302,22 @@
               Out: ["A", "l", 3, "x", "a", "n", "d", 3, "r"]
 					</code></pre>
 				</section>
+
 				<section>
-					<p>Python is also quite funky in that it not only allows you to index from left to right</p>
-					<pre><code class="ipython" data-trim>
-          ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
-						# -------------------------------------------------> #
-          [ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
-          </code></pre>
-					<p>but also from right to left</p>
-					<pre><code class="ipython" data-trim>
-          ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
-						# -------------------------------------------------> #
-          [-9 , -8 , -7 , -6 , -5 , -4 , -3 , -2 , -1 ]
-            </code></pre>
+					<p>Python is also quite funky in that it allows indexing from left to right</p>
+					<pre><code class="python" data-trim data-noescape><center>
+["A", "l", "e", "j", "a", "n", "d", "r", "o"]
+# --------------------------------------------------> #
+[ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
+					</center></code></pre>
+					<p>and from right to left!</p>
+					<pre><code class="python" data-trim data-noescape><center>
+["A", "l", "e", "j", "a", "n", "d", "r", "o"]
+# --------------------------------------------------> #
+[-9 , -8 , -7 , -6 , -5 , -4 , -3 , -2 , -1 ]
+        	</center></code></pre>
 				</section>
+
 				<section>
 					<p>
 						Position presuposes dimensioniality, and so lists also have a size attribute
@@ -295,31 +329,381 @@
 					<br/>
 					<p>
 						You will see later on that both position and size are powerful reference points in
-						creating effective python programs
+						automating processes
 					</p>
 				</section>
+
 				<section>
-					<h3>Tuples</h3>
-					<p>Denoted by <b>circle</b> brackets</p>
-					<pre><code class="ipython">
-                          tuple_ = (1, 3, True, "hello")
-                        </code></pre>
-					<p>Size is fixed and cannot be changed - immutable</p>
+					<h4>We can also modify lists by adding or removing items</h4>
+				</section>
+
+				<section>
+					<p>
+						Items can be added by insertion (<b>one item</b>)
+					</p>
+					<pre><code class='ipython' data-trim>
+						my_list = [0, 2, 1, 0, 1, 9, 4, 0]
+						extra_item = 99
+					</code></pre>
+					<pre><code class='ipython' data-trim data-noescape>
+						In : my_list.append(<mark>extra_item</mark>)
+						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>99</mark>]
+					</code></pre>
+				</section>
+
+				<section>
+					<p>
+						or by concatenation (<b>many items</b>)
+					</p>
+					<pre><code class='python' data-trim>
+						extra_list = [-1, -8]
+					</code></pre>
+					<pre><code class='ipython' data-trim data-noescape>
+						In : my_list.extend(<mark>extra_list</mark>)
+						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>-1, -8</mark>]
+					</code></pre>
+					<p>
+					<i>neat bit of syntatic sugar</i>
+					</p>
+					<pre><code class='ipython' data-trim data-noescape>
+						In : my_list + <mark>extra_list</mark>
+						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>-1, -8</mark>]
+					</code></pre>
+				</section>
+
+				<section>
+					<p>
+						Be careful with append(), it considers whatever is between the brackets as <b>one</b> item
+					</p>
+					<pre><code class='python' data-trim>
+						my_list = [0, 2, 1, 0, 1, 9, 4, 0]
+						extra_list = [-1, -8]
+					</code></pre>
+					<p>
+						and it will become the last item in the list
+					</p>
+					<pre><code class='ipython' data-trim data-noescape>
+						In : my_list.append(<mark>extra_list</mark>)
+						Out: [0, 2, 1, 0, 1, 9, 4, 0, [<mark>-1, -8</mark>]]
+					</code></pre>
+					<p>
+						such that you will end up with <b>nested</b>* items
+					</p>
+				<p>
+					<font size="4">*explained next</font>
+				</p>
+				</section>
+
+				<section>
+					<p>You can also delete items in a list</p>
+					<pre><code class='python' data-trim data-noescape>
+						my_list = [0, 2, 1, 0, 1, <mark>9</mark>, 4, 0]
+					</code></pre>
+					<p>by value (where it removes the first occurence)</p>
+					<pre><code class='ipython' data-trim data-noescape>
+						In : my_list.remove(9)
+						Out: [0, 2, 1, 0, 1, 4, 0]
+					</code></pre>
+					<p>or using the delete statement with an index</p>
+					<pre><code class='ipython' data-trim data-noescape>
+						In : del my_list[-3]
+						Out: [0, 2, 1, 0, 1, 4, 0]
+					</code></pre>
+				</section>
+
+				<section data-background="crimson">
+					<p>
+							I personally avoid deleting items in lists, as it's hard to to track how your list is changing
+					</p>
+					<hr />
+					<p class="fragment" data-fragment-index="1">
+						<span style="color: white; font-weight: bold">
+							I will show you later how you can use <i>filtering</i> to achieve the same thing without destroying your list
+						</span>
+					</p>
+				</section>
+
+				<section>
+					<h3>Lists can contain lists!</h3>
+					<p>
+						This is referred to as nesting, and allows us to create a greater number of dimensions
+					</p>
+					<pre><code class='python' data-trim>
+						# 1 dimesion (or flat)
+						list_1d = [0, 2, 1, 0, 1, 9, 4, 0]
+
+						# 2 dimesions
+						list_2d = [[0, 2, 1, 0], [1, 9, 4, 0]]
+
+						# 3 dimesions
+						list_3d = [[[0, 2], [1, 0]], [[1, 9], [4, 0]]]
+					</code></pre>
+				</section>
+
+				<section>
+					<p>
+						Items in nested lists are accessed similarly to flat lists
+					</p>
+					<pre><code class='python' data-trim data-noescape>
+						list_2d = [<mark>[0, 2, 1, 0]</mark>, [1, 9, 4, 0]]
+					</code></pre>
+					<pre><code class='ipython' data-trim>
+						In : list_2d[0]
+						Out: [0, 2, 1, 0]
+					</code></pre>
+					<p>
+						 just use extra brackets ([...]) to delve within
+					</p>
+					<pre><code class='python' data-trim data-noescape>
+						list_2d = [[0, <mark>2, 1</mark>, 0], [1, 9, 4, 0]]
+					</code></pre>
+					<pre><code class='ipython' data-trim>
+						In : list_2d[0][1:3]
+						Out: [2, 1]
+					</code></pre>
 				</section>
 			</section>
 
-      <section>
-        <h2>Universal attributes</h2>
-				<p>Items are accessed by <b>position</b> or reference <b>key</b></p>
-				<p><i>and</i></p>
-				<p>Are characterised by their <b>size</b> or <b>length</b></p>
+<!--- TUPLE SECTION --->
+
+			<section>
+				<section data-background="orange">
+					<h2 style="color: white">TUPLES</h2>
+				</section>
+
+				<section>
+					<p>Denoted by <b>circle (...)</b> brackets</p>
+					<pre><code class="python" data-trim>
+          num_tuple = (0, 3, "Bye", False)
+          </code></pre>
+					<p>
+						and tend to store <b>heterogeneous</b> sequences of values
+					</p>
+					<hr class="fragment" data-fragment-index="1" />
+					<p class="fragment" data-fragment-index="1">
+						They share <i>almost</i> the same funtionality with lists</p>
+				</section>
+
+				<section>
+					<p>They can be sliced in the same way</p>
+					<pre><code class="python" data-trim>
+		        my_tuple = (1, 4, 8, 1, 1)
+	        </code></pre>
+					<pre><code class="ipython" data-trim>
+						In : my_tuple[3]
+						Out: 1
+	        </code></pre>
+					<pre><code class="ipython" data-trim>
+						In : my_tuple[2:]
+						Out: (8, 1, 1)
+	        </code></pre>
+					<p>and expanded</p>
+					<pre><code class="ipython" data-trim data-noescape>
+						In :my_tuple + my_tuple[2:]
+						Out: (1, 4, 8, 1, 1, <mark>8, 1, 1</mark>)
+	        </code></pre>
+				</section>
+
+				<section>
+					<p>as well as being similarly nested,</p>
+					<pre><code class="python" data-trim>
+						# 2 dimesions
+						tuple_2d = ((0, 2, 1, 0), (1, 9, 4, 0))
+
+						# 3 dimesions
+						tuple_3d = (((0, 2), (1, 0)), ((1, 9), (4, 0)))
+					</code></pre>
+					<p>where access is the same</p>
+					<pre><code class='python' data-trim data-noescape>
+						list_2d = ((0, <mark>2, 1</mark>, 0), (1, 9, 4, 0))
+					</code></pre>
+					<pre><code class='ipython' data-trim>
+						In : list_2d[0][1:3]
+						Out: (2, 1)
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>There are some subtle differences however</h4>
+				</section>
+
+				<section>
+					<p>Have the unique attribute of <b>packing</b>, whereby comma
+						separated values are stored into a variable</p>
+					<pre><code class="python" data-trim>
+          pack_tuple = 1, 3, True, "hello"
+          </code></pre>
+					<pre><code class="ipython" data-trim>
+						In : print(pack_tuple)
+						Out: (1, 3, True, "hello")
+          </code></pre>
+					<p>and can be retrieved as follows</p>
+					<pre><code class="ipython" data-trim>
+						In : a, b, c, d = pack_tuple
+						Out: 1
+						Out: 3
+						Out: True
+						Out: "hello"
+          </code></pre>
+				</section>
+
+				<section>
+					<p>But the most important difference...</p>
+					<h3 class="fragment" data-fragment-index="1">
+						Tuples are immutable
+					</h3>
+					<p class="fragment", data-fragment-index="2">
+						<i>this means their items cannot be changed</i>
+					</p>
+					<p class="fragment", data-fragment-index="3">
+						<i>nor can they be deleted</i>
+					</p>
+				</section>
+
+				<section>
+					<p>for example: this is not allowed</p>
+					<pre><code class="python" data-trim>
+	        my_tuple = (1, 4, 8, 1, 1)
+	        </code></pre>
+					<pre><code class="ipython" data-trim>
+						In : my_tuple[1] = -9999
+						TypeError: 'tuple' object does not support item assignment
+	        </code></pre>
+					<p>nor this</p>
+					<pre><code class="ipython" data-trim>
+						In : del my_tuple[1]
+						TypeError: 'tuple' object does not support item deletion
+	        </code></pre>
+					<p>so the values are actually protected</p>
+				</section>
+
+				<section>
+					<h4>What is the point of immutability?</h4>
+					<p class="fragment" data-fragment-index="1">Can be <i>hashed</i>; i.e. fixed in memory,
+					which is more efficent/optimised</p>
+					<p class="fragment" data-fragment-index="3">Protects the programmer from themselves; can't accidently change values</p>
+					<hr class="fragment" data-fragment-index="4" />
+					<p class="fragment" style="color: crimson" data-fragment-index="4">We will come back to this when we look at functions in the next lesson</p>
+				</section>
 			</section>
+
+			<section>
+				<section data-background="orange">
+					<h2 style="color: white">Dicts</h2>
+					<p style="color: white"><i>dictionaries</i></p>
+        </section>
+
+				<section>
+					<p>Are defined by <b>key-value</b> pairs that are separated by a <b>colon</b>, between <b>curly braces {...}</b></p>
+					<pre><code class="python" data-trim>
+	        my_dict = {"key1": value1, "key2": value2, "key3": value3}
+	        </code></pre>
+					<p>
+						and are a powerful way of storing and retrieving data by reference
+					</p>
+					<pre><code class="python" data-trim>
+	        my_rec1 = {"Jack": 35, "John": 21, "Gunter": 103}
+	        </code></pre>
+					<p><i>or</i></p>
+					<pre><code class="python" data-trim>
+	        my_rec2 = {"name": ["Jack", "John", "Gunter"], \
+										   "ages": [35, 21, 103]}
+	        </code></pre>
+				</section>
+
+				<section>
+					<p>
+						To access values in the dictionary, you can reference them by their associated key
+					</p>
+					<pre><code class="ipython" data-trim>
+						In : my_rec1["Gunter"]
+						Out: 103
+	        </code></pre>
+					<pre><code class="ipython" data-trim>
+						In : my_rec2["name"]
+						Out: ["Jack", "John", "Gunter"]
+	        </code></pre>
+					<p>
+						then any subsequent slicing if the value is a sequence
+					</p>
+					<pre><code class="ipython" data-trim>
+						In : my_rec2["name"][-1]
+						Out: "Gunter"
+	        </code></pre>
+				</section>
+
+				<section>
+					<p>
+						You can also retrieve the key and value components separately from the dictionary
+					</p>
+					<pre><code class="ipython" data-trim>
+						In : my_rec1.keys()
+						Out: ["Jack", "John", "Gunter"]
+
+						In : my_rec1.values()
+						Out: [35, 21, 103]
+	        </code></pre>
+				</section>
+
+				<section>
+					<p>
+						While keys can be any data type or value, they <b>should be unique</b> as you want them to give specific reference.
+					</p>
+					<pre><code class="python" data-trim>
+	        bad_dict = {"key1": 14239, "key1": 599, "key2": 3430}
+	        </code></pre>
+					<p>
+						otherwise, replicate keys will just refer to the last occurence
+					</p>
+					<pre><code class="ipython" data-trim>
+						In : bad_dict["key1"]
+						Out: 599
+	        </code></pre>
+				</section>
+
+				<section>
+					<p>Finally, tuple pairs...</p>
+					<pre><code class="python" data-trim>
+	        tup2 = ("Jack": 35)
+	        </code></pre>
+					<p>are seen as key-values pairs, such that a list (or tuple) of these can be transformed
+					into a dict object</p>
+					<pre><code class="python" data-trim>
+		        tup_list = [("Jack", 35), ("John", 21), ("Gunter", 103)]
+	        </code></pre>
+					<pre><code class="ipython" data-trim>
+						In : dict(tup_list)
+						Out: {'Gunter': 103, 'Jack': 35, 'John': 21}
+	        </code></pre>
+					<p class="fragment" data-fragment-index="1">
+						Notice how the order of the dict is different to how it's stored in the list
+					</p>
+				</section>
+
+				<section data-background='crimson'>
+					<h4>
+						This is important to remember!
+					</h4>
+					<hr class="fragment" data-fragment-index="1" />
+					<span stype='color: white'>
+					<p class="fragment" data-fragment-index="1">
+							A dictionary <b>is not ordered</b> - values are retrieved by reference.
+					</p>
+					<p class="fragment" data-fragment-index="1">
+							Keys and values should therefore be considered inseperable.
+					</p>
+					</span>
+				</section>
+      </section>
+
+<!--- Iteration --->
 
 			<section>
 				<section data-background="#2f4f4f">
 					<h2>Iteration<h2>
         </section>
       </section>
+
 
 			</div>
 		</div>
