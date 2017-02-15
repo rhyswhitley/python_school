@@ -103,7 +103,7 @@
     border-top-color: gold;
 }
 
-.reveal mark {
+.reveal pre code mark {
   color: black;
 }
 
@@ -119,4 +119,46 @@
      left: -50%;
      z-index: -1;
      border: none;
+}
+
+.reveal div.lowblock {
+  background-color: gold;
+  color: black;
+  width: 200%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: -50%;
+  z-index: -1;
+}
+
+.reveal div.highblock {
+  background-color: white;
+  color: black;
+  width: 200%;
+  height: 100%;
+  position: fixed;
+  bottom: 50%;
+  left: -50%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#left {
+  left:-8.33%;
+  text-align: left;
+  float: left;
+  width:50%;
+  z-index:-10;
+}
+
+#right {
+  left:31.25%;
+  top: 75px;
+  float: right;
+  text-align: right;
+  z-index:-10;
+  width:50%;
 }
