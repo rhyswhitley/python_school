@@ -820,8 +820,8 @@ size = 9 # items
 
 				<section>
 					<p>
-						So in this code, the loop sequentially iterates through the list one
-						element at a time, and prints the current item
+						the loop sequentially iterates through the list one
+						element at a time, and <span style="color: crimson">does something</span> with the current item
 					</p>
 					<pre><code class="python" data-trim data-noescape>
 						my_list = [<mark>99</mark>, 22, 1, 93, 6, 3, 1, 1]
@@ -841,6 +841,26 @@ size = 9 # items
 						Out: 1
 						Out: 1
 					</code></pre>
+				</section>
+
+				<section>
+					<h3>example</h3>
+					<p>If we go back to our problem of adding 10 to a list of numbers then we can quite easily do so</p>
+					<pre><code class="python" data-trim>
+						mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
+	        </code></pre>
+					<pre class="fragment", data-fragment-index="1"><code class="python" data-trim>
+						new_list = []
+
+						for item in mega_list:
+
+						  new_value = item + 10
+
+						  new_list.append(new_value)
+	        </code></pre>
+					<p class="fragment", data-fragment-index="2">
+						we don't need to worry about how long the list is or which item we're using, just the calculation
+					</p>
 				</section>
 
 				<section>
@@ -905,7 +925,7 @@ size = 9 # items
 
 				<section>
 					<p>
-						dicts require use to use the .items() attribute to access their key:value pairs
+						dicts require use to use the .items()<span style="color: crimson">*</span> attribute to access their key:value pairs
 					</p>
 					<pre><code class="python" data-trim data-noescape>
 						my_dict = {"Jake": 35, "Finn": 16, "Gunter": 7}
@@ -929,23 +949,108 @@ size = 9 # items
 					<h2 style="color: white">WHILE</h2>
 				</section>
 
-				<section>
+				<section data-transition="fade">
 					<p>
-						while loops operate a bit differently until some condition is met
+						they operate a bit differently, in that they run <span style="color: crimson">infinitely</span> until some condition is met
 					</p>
 					<pre><code class="python" data-trim data-noescape>
 						i = 0
+
 						while i < len(my_list):
-							print(my_list[i])
-							i += 1
+
+						  print(my_list[i])
+
+						  i += 1
+					</code></pre>
+				</section>
+
+				<section data-transition="fade-in">
+					<p>
+						they operate a bit differently, in that they run <span style="color: crimson">infinitely</span> until some condition is met
+					</p>
+					<pre><code class="python" data-trim data-noescape>
+						i = 0
+
+						while <marK>i < len(my_list)</marK>:
+
+						  print(my_list[i])
+
+						  i += 1
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>Be careful when using while loops</h4>
+				</section>
+
+				<section>
+					<p>
+						make sure the condition is valid
+					</p>
+					<pre><code class="python" data-trim data-noescape>
+						i = 0
+						# will never run
+						while i <mark>></mark> len(my_list):
+
+						  print(my_list[i])
+
+						  i += 1
+						  # index is already greater than the list size
+
 					</code></pre>
 					<p>
-						as you can see, it's not as easy to read
+						and that it iterates correctly
+					</p>
+					<pre><code class="python" data-trim data-noescape>
+						i = 0
+						# this will run forever
+						while <marK>i < len(my_list)</marK>:
+
+						  print(my_list[i])
+
+						  # nothing to increment index
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>You are better of using for loops when working with lists</h4>
+					<p>
+						Iteration and edge conditions are taken care of for you
+					</p>
+					<hr />
+					<p class="fragment" data-fragment-index="1">
+						But if you want to control how we iterate through a list (skipping values, etc.)
+						we need to look at one last important concept
 					</p>
 				</section>
 			</section>
 
 			<section>
+				<section data-background="orange">
+					<h2 style="color: white">IF ELSE</h2>
+					<p style="color: white"><i>conditionals</i></p>
+				</section>
+
+				<section>
+					<p>
+					IF ELSE statements allow us to place constraints on a process
+					</p>
+					<pre><code class="python" data-trim data-noescape>
+						# program to close the door
+						door_open = True
+
+						if door_open == True:
+
+						  print("closing door")
+
+						  door_open = False
+
+						else:
+
+						  print("already closed")
+					</code></pre>
+				</section>
+
 				<section>
 					<p>
 						if we want index of the value, we can wrap our list/tuple with enumerate()
@@ -969,7 +1074,6 @@ size = 9 # items
 						Out: 7, 1
 					</code></pre>
 				</section>
-
       </section>
 
 
