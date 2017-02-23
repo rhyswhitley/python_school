@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/white.css">
 
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Hakim El Hattab">
+	<meta name="description" content="The basics of Python - data types and variables">
+	<meta name="author" content="Rhys Whitley">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -39,12 +39,12 @@
 		<div class="slides">
 
 			<section data-background="img/grass-bg.jpg">
-				<img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 80px' />
-				<br>
-				<img class=noborder src="img/title.png" alt="presentation title" style='height: 120px' />
-				<h2>Lesson 1</h2>
-				<br>
-				<br>
+				<img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 50px' />
+				<br />
+				<img class=noborder src="img/title.png" alt="presentation title" style='height: 80px' />
+				<br />
+				<br />
+				<br />
 			</section>
 
 			<section>
@@ -89,7 +89,6 @@
 				</section>
 
 				<section>
-					<h2>Furthemore</h2>
 					<p>
 						Lessons are interactive and I encourage you to ask questions as we go.
 					</p>
@@ -113,17 +112,168 @@
 					<h1>Why Python?</h1>
 				</section>
 
+				<section data-background-color="orange">
+					<h2 style="color: white">you want to code like a boss</h2>
+					<p class="fragment" style="color: black">without becoming a software engineer</p>
+				</section>
+
+				<section>
+					<div id="left">
+						<img src="img/Lesson_1/guido.jpg" alt="BDFL" height=600px/>
+					</div>
+					<div id="right">
+						<p>created by Guido von Rossum (BDFL)</p>
+						<p class="fragment"><i>"intended to make programming accessible to intelligent people"</i></p>
+						<!--p class="fragment">a small core system that can be extended infinitely</p-->
+					</div>
+				</section>
+
+				<section>
+					<h3>
+						A high-level language
+					</h3>
+					<font size="18" class="fragment" data-fragment-index="0">? o_O ?</font>
+					<hr class="fragment" data-fragment-index="1" />
+					<p class="fragment" data-fragment-index="1">
+						what you write is closer to human language (rather than machine)
+					</p>
+					<p class="fragment" data-fragment-index="2">
+					  significant areas of the computer system are automated for you (like memory managment)
+					</p>
+					<p class="fragment" data-fragment-index="3">
+					  code is interpretted, not compiled - execute as you go
+					</p>
+				</section>
+
+				<section>
+					<h3>Quick comparison</h3>
+					<div id="left">
+						<p style='color: black; font-weight: bold' align='center'
+							class="fragment" data-fragment-index="1">
+							Fortran (low-level)</p>
+						<pre class="fragment" data-fragment-index="1"><code class="fortran" data-trim>
+							! need to do this
+							integer(kind=1) :: i
+							real(kind=8) :: x
+							character(len=4) :: word
+
+							! before you can do this
+							i = 0
+							x = 14.23434324591
+							word = "noun"
+						</code></pre>
+					</div>
+					<div id="right">
+						<p style='color: black; font-weight: bold' align='center'
+							class="fragment" data-fragment-index="2">
+							Python (high-level)</p>
+						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
+							# done for you
+							i = 0
+							x = 14.23434324591
+							word = "noun"
+						</code></pre>
+					</div>
+				</section>
+<!---
+				<section data-transition="fade">
+					<h3>Like other langauges, there are specific rules</h3>
+					<p class="fragment" data-fragment-index="0">
+						statements are grouped by <code>tab</code> delimitation
+					</p>
+						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
+							def an_example():
+							  print("stuff")
+						</code></pre>
+						<p class="fragment" data-fragment-index="2">...or...</p>
+						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
+							for i in range(10):
+							  print(i)
+						</code></pre>
+				</section>
+
+				<section data-transition="fade">
+					<h3>Like other langauges, there are specific rules</h3>
+					<p>
+						statements are grouped by <code>tab</code> delimitation
+					</p>
+						<pre><code class="python" data-trim data-noescape>
+							def an_example()<mark>:</mark>
+							<mark>  </mark>print("stuff")
+						</code></pre>
+						<p>...or...</p>
+						<pre><code class="python" data-trim data-noescape>
+							for i in range(10)<mark>:</mark>
+							<mark>  </mark>print(i)
+						</code></pre>
+				</section>
+--->
+				<section data-background="orange">
+					<h3 style="color: white">Design philosophy</h3>
+					<p class="fragment">
+						free-form programming style that allows you to explore and make mistakes
+					</p>
+					<p class="fragment">
+						quick programming - you have an idea, so try it out
+					</p>
+					<p class="fragment">
+						supportive community - newbies always welcome
+					</p>
+				</section>
+
+				<section>
+					<p>
+						all encapsulated in the Zen of Python
+					</p>
+						<pre class="fragment"><code class="python" data-trim data-noescape>
+							import this
+						</code></pre>
+						<pre class="fragment"><code class="markdown" data-trim data-noescape>
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+					</code></pre>
+				</section>
+
+				<section data-background="orange">
+					<h3 style="color: white">and in case you were wondering about the name</h3>
+				</section>
+
 				<section data-background="img/Lesson_1/monty-python.jpg">
-					<h2 class='invert'>Irreverently named after Monty Python</h2>
+					<h3><span style="color: white; font-weight: bold">
+						it comes from Monty Python
+					</span></h3>
 					<br><br><br><br><br><br><br><br>
 				</section>
+
 			</section>
+
+<!--- THE BASICS --->
 
 			<section>
 				<section data-background-color="#2f4f4f">
-					<h3>The most important thing you'll learn is...</h3>
+					<p>so lets start with most important thing you'll ever learn</p>
 				</section>
 				<section data-background-color="orange">
+					<h4 style='color: white'>Episode 1</h4>
 					<h1 style='color: white'>The Basics</h1>
 				</section>
 			</section>
@@ -137,8 +287,86 @@
 				</section>
 
 				<section data-background-color="orange">
-					<p style='color: black'>Python works with both numeric and character data</p>
+					<h3 style="color: white">What is a variable?</h3>
 				</section>
+
+				<section data-transition="fade">
+					<p>is any type of named reference, that points to some arbitrarily stored
+						value on the computer</p>
+					<pre class="fragment"><code class="python" data-trim data-noescape><center>
+x = 12
+					</center></code></pre>
+				</section>
+
+				<section data-transition="fade">
+					<p>is any type of <span style="background-color: yellow">named reference</span>,
+						that points to some arbitrarily stored
+						<span style="background-color: red; color: cyan">value</span> on the computer</p>
+					<pre><code class="python" data-trim data-noescape><center>
+<mark>x</mark> = <mark style="background-color: red">12</mark>
+					</center></code></pre>
+				</section>
+
+				<section>
+					<h3>Behind the scenes</h3>
+					<div id="left" class="fragment">
+						<pre><code class="python" data-trim data-noescape>
+							x = 12
+						</code></pre>
+						<center>
+						<img src="img/Lesson_1/mem1.png" alt="mem1" height=350px />
+						</center>
+					</div>
+					<div id="right" class="fragment">
+						<pre><code class="python" data-trim data-noescape>
+							y = 27042
+						</code></pre>
+						<center>
+						<img src="img/Lesson_1/mem2.png" alt="mem1" height=350px />
+						</center>
+					</div>
+				</section>
+
+				<section>
+					<h3>Conventions on naming</h3>
+					<p class="fragment" data-fragment-index="1">
+						keep variables short-ish and relevant to what they store
+					</p>
+						<pre class="fragment" data-fragment-index="1"><code class="python" data-trim data-noescape>
+							age = 30 # good
+							my_mothers_uncles_sisters_boyfriends_age = 30 # bad
+						</code></pre>
+					<p class="fragment" data-fragment-index="2">
+						don't use names that also refer to python functions
+					</p>
+						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim data-noescape>
+							print = 300 # no
+							sum = 230 # no
+							def = 'Sally' # no
+						</code></pre>
+					<p class="fragment" data-fragment-index="3">
+						must always start with a character
+					</p>
+						<pre class="fragment" data-fragment-index="3"><code class="python" data-trim data-noescape>
+							amount = 300 # will work
+							300amount = 300 # error
+						</code></pre>
+				</section>
+
+				<section >
+					<p>before we go any further, type this into your notebook</p>
+						<pre class="fragment"><code class="python" data-trim data-noescape>
+							print("Hello world!")
+						</code></pre>
+					<p class="fragment">Congratulations, you've executed your first piece of Python code</p>
+				</section>
+
+				<section data-background-color="orange">
+					<p style='color: white; font-weight: bold'>
+						Python works with both numeric and character data</p>
+				</section>
+
+<!--- Data types --->
 
 				<section>
 					<h3>Integer</h3>
@@ -286,7 +514,7 @@
 				</section>
 
 				<section data-background="orange">
-					<p style="color: black">The process of accessing parts of a list
+					<p style="color: white; font-weight: bold">The process of accessing parts of a list
 						(or any other container) is referred to as <b>slicing</b></p>
 				</section>
 
@@ -609,7 +837,7 @@
 
 			<section>
 				<section data-background="orange">
-					<h3 style="color: black">One more thing</h3>
+					<h3 style="color: white">One more thing</h3>
 				</section>
 
 				<section>
@@ -797,554 +1025,38 @@
 				</section>
       </section>
 
-<!--- Iteration --->
+<!--- Sets --->
 
 			<section>
 				<section data-background="#2f4f4f">
-					<h2>Iteration<h2>
-        </section>
-
-				<section>
-					<p>What if I want to operate on <b>all</b> of the values?</p>
-					<p class="fragment" data-fragment-index="2">What if I only want to operate on <b>some</b> of the values?</p>
-					<p class="fragment" data-fragment-index="3">What if the operation is repetitive?</p>
-					<p class="fragment" data-fragment-index="4">What if the number of items is huge?</p>
-					<p class="fragment" data-fragment-index="5">What if?</p>
-					<p class="fragment" data-fragment-index="5">What if?</p>
-					<p class="fragment" data-fragment-index="5">WHAT IF?</p>
-					<p class="fragment" data-fragment-index="6">...Zzzzz...</p>
-					<p class="fragment" data-fragment-index="7">...Zzzzz...</p>
-				</section>
-
-				<section>
-					<p>Say I want to add 10 to a list of arbitrary numbers</p>
-					<pre><code class="python" data-trim>
-						mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
-	        </code></pre>
-					<p class="fragment", data-fragment-index="1">You wouldn't want to do this</p>
-					<pre class="fragment", data-fragment-index="1"><code class="python" data-trim>
-						x = 10
-
-						item0 = mega_list[0] + x
-						item1 = mega_list[1] + x
-						item2 = mega_list[2] + x
-						item3 = mega_list[3] + x
-						# ad nauseum
-
-						list_plusx = [item0, item1, item2, item3, ...]
-	        </code></pre>
-					<p class="fragment", data-fragment-index="1">
-						Ugh, how repetitive!
-					</p>
-				</section>
-
-				<section>
-					<h4>Hang on ...</h4>
-					<p>don't <b>lists</b>, <b>tuples</b> and <b>dicts</b> have reference
-						<span style="color: crimson">position</span> (index or key)
-						and <span style="color: crimson">size</span> (or length) attributes?</p>
-					<pre><code class="python" data-trim data-noescape><center>
-["A", "l", "e", "j", "a", "n", "d", "r", "o"]
-# --------------------------------------------------> #
-[ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
-
-size = 9 # items
-					</center></code></pre>
-					<p class="fragment" data-fragment-index="3">Surely I can use this
-						information to move around, knowing where I am and how far I can go
-						...</p>
-				</section>
-
-				<section>
-					<div class="highblock">
-						<p>We certainly can and it's called <b>iteration</b></p>
-					</div>
-					<div class="lowblock">
-						<p><font face="Times"><i>"the process of repeating a task many times"</i></font></p>
-					</div>
-				</section>
-
-				<section>
-					<h4>and Python provides two processes to do this</h4>
-					<hr />
-					<p class="fragment" data-fragment-index="1"><b>for</b> loops</p>
-					<p class="fragment" data-fragment-index="1">tend to run in a finite sense - beginning to end</p>
-					<p class="fragment" data-fragment-index="2">do-<b>while</b> loops</p>
-					<p class="fragment" data-fragment-index="2">tend to run in an infinite sense until some condition is met</p>
-				</section>
-      </section>
-
-<!--- FOR LOOPS --->
-
-      <section>
-				<section data-background="orange">
-					<h2 style="color: white">For</h2>
-				</section>
-
-				<section>
-					<p>Move in one diretion (default: left-to-right) along the sequence</p>
-					<pre><code class="python" data-trim data-noescape>
-						my_list = [99, 22, 1, 93, 6, 3, 1, 1]
-
-						for item in my_list:
-						   # print on screen the items in the list
-						   print(item)
-					</code></pre>
-					<p class="fragment" data-fragment-index="2">From a predefined start point (default = 0)</p>
-					<p class="fragment" data-fragment-index="3">At a predefined step (default = 1)</p>
-					<p class="fragment" data-fragment-index="4">Until the end of the sequence (end = size)</p>
-				</section>
-
-				<section>
-					<p>
-						the loop sequentially iterates through the list one
-						element at a time, and <span style="color: crimson">does something</span> with the current item
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						my_list = [<mark>99</mark>, 22, 1, 93, 6, 3, 1, 1]
-
-						for <mark>item</mark> in my_list:
-						   # print on screen the items in the list
-						   print(<mark>item</mark>)
-					</code></pre>
-					<p class="fragment" data-fragment-index="1">interprated as</p>
-					<pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
-						Out: 99
-						Out: 22
-						Out: 1
-						Out: 93
-						Out: 6
-						Out: 3
-						Out: 1
-						Out: 1
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>example</h3>
-					<p>If we go back to our problem of adding 10 to a list of numbers then we can quite easily do so</p>
-					<pre><code class="python" data-trim>
-						mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
-	        </code></pre>
-					<pre class="fragment", data-fragment-index="1"><code class="python" data-trim>
-						new_list = []
-
-						for item in mega_list:
-
-						  new_value = item + 10
-
-						  new_list.append(new_value)
-	        </code></pre>
-					<p class="fragment", data-fragment-index="2">
-						we don't need to worry about how long the list is or which item we're using, just the calculation
-					</p>
-				</section>
-
-				<section>
-					<p>
-						we can also loop through more than just one sequence, by using the
-						handy zip() function!
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						my_list1 = [99, 22, 1, 93, 6, 3, 1, 1]
-						my_list2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-
-						for (number, letter) in zip(my_list1, my_list2):
-
-						   print(number, letter)
-					</code></pre>
-					<pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
-						Out: 99, 'a'
-						Out: 22, 'b'
-						Out:  1, 'c'
-						...
-					</code></pre>
-					<p class="fragment" data-fragment-index="1">
-					 sequences need to be the same length to be zipped together
-					</p>
-				</section>
-
-				<section>
-					<h4>What about nested lists, tuples, etc.?</h4>
-					<p class="fragment" data-fragment-index="1">
-						Easy! Just add another <b>for</b> loop statement
-					</p>
-				</section>
-
-				<section>
-					<p>two dimensions</p>
-					<pre><code class="python" data-trim data-noescape>
-						list_2d = [<mark>[0, 2, 1, 0]</mark>, [1, 9, 4, 0]]
-
-						for <mark>level_1</mark> in list_2d:
-						   for item in <mark>level_1</mark>:
-						     # do something
-					</code></pre>
-
-					<p>three dimensions</p>
-					<pre><code class="python" data-trim data-noescape>
-						list_3d = [[<mark>[0, 2]</mark>, [1, 0]], [[1, 9], [4, 0]]]
-
-						for level_1 in list_2d:
-						   for <mark>level_2</mark> in level_1:
-						      for item in <mark>level_2</mark>:
-					          # do something
-					</code></pre>
-					<p>etc.</p>
-				</section>
-
-				<section>
-					<h4>What about Dictionaries?</h4>
-					<p class="fragment" data-fragment-index="1">
-						<b>dicts</b> play with iterative loops a bit differently as they work by key:value reference
-					</p>
-				</section>
-
-				<section>
-					<p>
-						dicts require use to use the .items()<span style="color: crimson">*</span> attribute to access their key:value pairs
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						my_dict = {"Jake": 35, "Finn": 16, "Gunter": 7}
-
-						for (key, value) in my_dict.items():
-						   print(key, value)
-					</code></pre>
-					<p>
-						just remember that entry-order != storage order
-					</p>
-					<pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
-						Out: Gunter, 7
-						Out: Jake, 35
-						Out: Finn, 16
-					</code></pre>
-				</section>
-			</section>
-
-			<section>
-				<section data-background="orange">
-					<h2 style="color: white">WHILE</h2>
+					<h3>other sequences</h3>
 				</section>
 
 				<section data-transition="fade">
-					<p>
-						they operate a bit differently, in that they run <span style="color: crimson">infinitely</span> until some condition is met
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						i = 0
-
-						while i < len(my_list):
-
-						  print(my_list[i])
-
-						  i += 1
-					</code></pre>
-				</section>
-
-				<section data-transition="fade-in">
-					<p>
-						they operate a bit differently, in that they run <span style="color: crimson">infinitely</span> until some condition is met
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						i = 0
-
-						while <marK>i < len(my_list)</marK>:
-
-						  print(my_list[i])
-
-						  i += 1
-					</code></pre>
-				</section>
-
-				<section>
-					<h4>Be careful when using while loops</h4>
-				</section>
-
-				<section>
-					<p>
-						make sure the condition is valid
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						i = 0
-						# will never run
-						while i <mark>></mark> len(my_list):
-
-						  print(my_list[i])
-
-						  i += 1
-						  # index is already greater than the list size
-
-					</code></pre>
-					<p>
-						and that it iterates correctly
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						i = 0
-						# this will run forever
-						while <marK>i < len(my_list)</marK>:
-
-						  print(my_list[i])
-
-						  # nothing to increment index
-					</code></pre>
-				</section>
-
-				<section>
-					<h4>You are better of using for loops when working with lists</h4>
-					<p>
-						Iteration and edge conditions are taken care of for you
-					</p>
-					<hr />
-					<p class="fragment" data-fragment-index="1">
-						But if you want to control how we iterate through a list (skipping values, etc.)
-						we need to look at one last important concept
-					</p>
-				</section>
-			</section>
-
-			<section>
-				<section data-background="orange">
-					<h2 style="color: white">IF ELSE</h2>
-					<p style="color: white"><i>conditionals</i></p>
-				</section>
-
-				<section>
-					<p>
-						<code style="font-weight: bold" class="python">if else</code>
-						statements allow us to control the flow of a process
-					</p>
-					<hr class="fragment" data-fragment-index="1"/>
-					<p class="fragment" data-fragment-index="1">
-						using simple <b>binary [0, 1]</b> outcomes
-					</p>
-				</section>
-
-				<section>
-					<h3>Example</h3>
-					<p>
-						we use conditionals to perform simple tests
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						# syntax to close a door
-						door_open = True
-
-						if door_open == True:
-						  print("closing door")
-						  door_open = False
-
-						else:
-						  pass
-						  print("already closed")
-					</code></pre>
-				</section>
-
-				<section>
-					<p>somtimes we may want to test more than one condition</p>
-					<pre><code class="python" data-trim data-noescape>
-						x = 15
-
-						if (x > 10) | (x < 20):
-						  print("within bounds")
-
-						else:
-						  print("outside bounds")
-					</code></pre>
-				</section>
-
-				<section>
-					<p>and we can also have many outcomes</p>
-					<pre><code class="python" data-trim data-noescape>
-						if age < 20:
-						  print("Person is young")
-
-						<mark>elif</mark> (age >= 20) & (age < 30):
-						  print("Person is young-ish")
-
-						elif (age >= 30) & (age < 40):
-						  print("Still quite young")
-
-						elif (age >= 40) & (age < 60):
-						  print("Person is in their prime")
-
-						else:
-						  print("errrr, no comment")
-					</code></pre>
-					<p class="fragment">that test different conditions</p>
-				</section>
-
-				<section>
-					<div class="highblock" style="background-color: #2f4f4f">
-						<h4 style="color: white">Now let's look at how we can combine</h4>
+					<div class="highblock" style="background-color: #2f4f4f; bottom: 66%">
+						<p style="color: white">
+							Python has other sequence objects that are commonly used
+						</p>
 					</div>
 					<br />
-					<p>
-						<code style="font-weight: bold; color: black" class="python">if else</code>
-						with
-						<code style="font-weight: bold; color: black" class="python">for</code>
-					</p>
-				</section>
-
-				<section>
-					<p>
-						imagine a list of random numbers where you're only interested in values
-						<b>greater than</b> 10
-					</p>
-					<hr class="fragment" data-fragment-index="1" />
+					<br />
 					<p class="fragment" data-fragment-index="1">
-						how can I filter my list to only deal with these numbers
+						<code class="python">numpy arrays</code>
 					</p>
-					<p class="fragment" data-fragment-index="1">
-					 ????????
+					<p class="fragment" data-fragment-index="2">
+						<code class="python">sets</code>
 					</p>
-				</section>
-
-				<section data-transition="fade">
-					<h3>Easy!</h3>
-					<p>
-						just throw an <code style="font-weight: bold; color: black" class="python">if</code>
-						statement into your list
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						my_list = [5, 3, 1, 77, 31, 24, 2, 4, -1, 100]
-
-						for item in my_list:
-
-						  if item > 10:
-						    # do something with it
-						    print(item)
-						  else:
-						    pass
-					</code></pre>
-				</section>
-
-				<section data-transition="fade">
-					<h3>Easy!</h3>
-					<p>
-						just throw an <code style="font-weight: bold; color: black" class="python">if</code>
-						statement into your list
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						my_list = [5, 3, 1, <mark>77, 31, 24</mark>, 2, 4, -1, <mark>100</mark>]
-
-						for item in my_list:
-
-						  if item > 10:
-						    # do something with it
-						    <mark>print(item)</mark>
-						  else:
-						    pass
-					</code></pre>
-				</section>
-
-				<section data-transition="fade">
-					<h3>Easy!</h3>
-					<p>
-						just throw an <code style="font-weight: bold; color: black" class="python">if</code>
-						statement into your list
-					</p>
-					<pre><code class="python" data-trim data-noescape>
-						my_list = [99, 22, 1, 93, 6, 3, 1, 1]
-
-						for item in my_list:
-
-						  if item > 10:
-						    # do something with it
-						    print(item)
-						  <mark>else:</mark>
-						    <mark>pass</mark>
-					</code></pre>
-				</section>
-
-				<section>
-					<p style="color: #2f4f4f; font-weight: bold">
-						What if we want to do something a bit more complicated?</p>
-					<hr />
-					<p>
-						like compare the current value with the previous one?
+					<hr class="fragment" data-fragment-index="3"/>
+					<p class="fragment" data-fragment-index="3">
+						we will cover these in future lessons
 					</p>
 				</section>
 
-				<section>
-					<p>
-						enter our good friend <code class="python" style="color: #2f4f4f; font-weight: bold">
-							enumerate()</code>
-					</p>
-					<p class="fragment">
-						which allows us to get the index along with the value
-					</p>
-					<pre class="fragment"><code class="python" data-trim data-noescape>
-						for <mark>(i, item)</mark> in enumerate(my_list):
 
-						   print(i, item)
-					</code></pre>
-					<p class="fragment">
-						returns a tuple of (index, value)
-					</p>
-					<pre class="fragment"><code class="ipython" data-trim>
-						Out: 0, 99
-						Out: 1, 22
-						Out: 2, 1
-						Out: 3, 93
-						Out: 4, 6
-						Out: 5, 3
-						Out: 6, 1
-						Out: 7, 1
-					</code></pre>
-				</section>
-
-				<section>
-					<p>
-						so in reference to our problem
-					</p>
-					<pre class="fragment"><code class="python" data-trim data-noescape>
-						for (i, item) in enumerate(my_list):
-
-						  # first element can't be compared
-						  if i > 0:
-
-						    if my_list[i-1] < item:
-						      print("bigger")
-
-						    else:
-						      print("smaller")
-
-					</code></pre>
-					<pre class="fragment"><code class="ipython" data-trim>
-						Out: "smaller"
-						Out: "smaller"
-						Out: "bigger"
-						Out: "smaller"
-						Out: "smaller"
-						Out: "smaller"
-						Out: "smaller"
-					</code></pre>
-				</section>
-
-				<section>
-					<p>
-						<code class="python" style="color: #2f4f4f; font-weight: bold">
-							enumerate()</code> is quite versatile - you can grab indices for
-							<code>zip</code>-ped lists
-					</p>
-					<pre class="fragment"><code class="ipython" data-trim>
-						for (i, (item1, item2)) in zip(list_1, list_2):
-						  # stuff happens
-					</code></pre>
-					<p class="fragment">
-						and <code>dicts</code>
-					</p>
-					<pre class="fragment"><code class="ipython" data-trim>
-						for (i, (key, value)) in my_dict.items():
-						  # stuff happens
-					</code></pre>
-					<p class="fragment">
-						just note that in these cases you are dealing with a nested tuple
-					</p>
-
-				</section>
-      </section>
+			</section>
 
 <!--- Summary --->
+
 			<section>
 				<section data-background="#2f4f4f">
 					<h3>summary</h3>
@@ -1352,13 +1064,13 @@ size = 9 # items
 
 				<section>
 					<hr class="fragment" data-fragment-index="5" />
-					<p>we <span style="color: hotpink">&hearts;</span> numbers and words</p>
+					<p>we <span style="color: hotpink">&hearts;</span>integers & floats</p>
 					<p class="fragment" data-fragment-index="2">
-						we <span style="color: pink">&hearts;</span> lists</p>
+						we <span style="color: pink">&hearts;</span>strings</p>
 					<p class="fragment" data-fragment-index="3">
-						we <span style="color: purple">&hearts;</span> iteration</p>
+						we <span style="color: purple">&hearts;</span>lists & tuples</p>
 					<p class="fragment" data-fragment-index="4">
-						we <span style="color: salmon">&hearts;</span> if else statements</p>
+						we <span style="color: salmon">&hearts;</span>dictionaries</p>
 					<hr class="fragment" data-fragment-index="5" />
 					<p class="fragment" data-fragment-index="5">
 						we <span style="color: red">&hearts;</span> Python</p>
@@ -1372,7 +1084,7 @@ size = 9 # items
 				</section>
 
 				<section>
-					<h3>Finally</h3>
+					<h3>also</h3>
 					<p class="fragment">don't be daunted</p>
 					<p class="fragment">be humble</p>
 					<p class="fragment">be adventurous</p>
@@ -1385,8 +1097,8 @@ size = 9 # items
 					<h2>Next time</h2>
 				</section>
 
-				<section>
-						$$y = f(x)$$
+				<section data-background="black">
+					<img src="img/Lesson_1/for_loop.gif" alt="for loop" />
 				</section>
 
 			</section>

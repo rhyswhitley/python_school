@@ -36,12 +36,12 @@
 }
 
 .reveal div.block {
-  background: #F27C3A;
+  background: rgb(255,255,255);
   font-size: 25pt;
   color: white;
   font-weight: bold;
   border-radius: 25px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .reveal tr {
