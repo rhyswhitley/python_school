@@ -722,6 +722,50 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				</section>
 
 				<section>
+					<h3>We can also retrieve items</h3>
+					<p class="fragment" data-fragment-index="1">
+						by considering lists as a stack; i.e. last in / first out
+					</p>
+					<pre class="fragment" data-fragment-index="1"><code class='python' data-trim>
+						my_list = [0, 2, 1, 0, 1, 9, 4, 0]
+					</code></pre>
+					<pre class="fragment" data-fragment-index="1"><code class='ipython' data-trim data-noescape>
+						In : my_list.pop()
+						Out: 0
+					</code></pre>
+					<p class="fragment" data-fragment-index="2">
+						which permanantly removes the last item from the list
+					</p>
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim data-noescape>
+						In : print(my_list)
+						Out: [0, 2, 1, 0, 1, 9, 4]
+					</code></pre>
+				</section>
+
+				<section>
+					<p>
+						and you can keep <code class="python">pop()</code>-ping until the list is empty
+					</p>
+					<pre class="fragment" data-fragment-index="1"><code class='ipython' data-trim data-noescape>
+						In : my_list.pop()
+						Out: 4
+						In : my_list.pop()
+						Out: 9
+						In : my_list.pop()
+						Out: 1
+						In : my_list.pop()
+						Out: 0
+						In : my_list.pop()
+						Out: 1
+						In : my_list.pop()
+						Out: 2
+						In : my_list.pop()
+						Out: 0
+					</code></pre>
+
+				</section>
+
+				<section>
 					<h3>Don't like something in your list</h3>
 					<p class="fragment" data-fragment-index="0">
 						<i>I really hate that 9</i></p>
@@ -931,8 +975,8 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					</code></pre>
 				</section>
 
-				<section>
-					<h4>There are some subtle differences however</h4>
+				<section data-background="orange">
+					<h4 style="color: white">There are some subtle differences however</h4>
 				</section>
 
 				<section>
@@ -945,7 +989,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						In : pack_tuple
 						Out: (1, 3, True, "hello")
           </code></pre>
-					<p>and can be retrieved as follows</p>
+					<p>and can be retrieved by <b>unpacking</b></p>
 					<pre><code class="python" data-trim>
           a, b, c, d = pack_tuple
           </code></pre>
@@ -964,28 +1008,26 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						Tuples are immutable
 					</h3>
 					<p class="fragment", data-fragment-index="2">
-						<i>this means their items cannot be changed</i>
-					</p>
-					<p class="fragment", data-fragment-index="3">
-						<i>nor can they be deleted</i>
+						<i>this means they cannot be changed</i>
 					</p>
 				</section>
 
 				<section>
 					<p>for example: this is not allowed</p>
-					<pre><code class="python" data-trim>
+					<pre class="fragment", data-fragment-index="2"><code class="python" data-trim>
 	        my_tuple = (1, 4, 8, 1, 1)
 	        </code></pre>
-					<pre><code class="ipython" data-trim>
+					<pre class="fragment", data-fragment-index="2"><code class="ipython" data-trim>
 						In : my_tuple[1] = -9999
 						TypeError: 'tuple' object does not support item assignment
 	        </code></pre>
-					<p>nor this</p>
-					<pre><code class="ipython" data-trim>
+					<p class="fragment", data-fragment-index="3">nor this</p>
+					<pre class="fragment", data-fragment-index="3"><code class="ipython" data-trim>
 						In : del my_tuple[1]
 						TypeError: 'tuple' object does not support item deletion
 	        </code></pre>
-					<p>so the values are actually protected</p>
+					<p class="fragment", data-fragment-index="4">
+						so the tuple and its values are actually protected</p>
 				</section>
 
 				<section>
@@ -1018,9 +1060,8 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				</section>
 
 				<section>
-					<h3>
-						Strings are a sequence of characters, and behave very much like lists
-					</h3>
+					<h3>Strings are a sequence of characters</h3>
+					<h5>and behave very much like lists</h5>
 					<p class="fragment" class="fragment" data-fragment-index="1">
 						so you can perform similar operations on them
 					</p>
