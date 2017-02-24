@@ -257,11 +257,11 @@ Namespaces are one honking great idea -- let's do more of those!
 					<h3 style="color: white">and in case you were wondering about the name</h3>
 				</section>
 
-				<section data-background="img/Lesson_1/monty-python.jpg">
-					<h3><span style="color: white; font-weight: bold">
+				<section data-background="img/Lesson_1/monty-python-emb.jpg">
+					<h3 align="left"><span style="color: black; font-weight: bold">
 						it comes from Monty Python
 					</span></h3>
-					<br><br><br><br><br><br><br><br>
+					<!--<br><br><br><br><br><br><br><br>-->
 				</section>
 
 			</section>
@@ -291,7 +291,7 @@ Namespaces are one honking great idea -- let's do more of those!
 				</section>
 
 				<section data-transition="fade">
-					<p>is any type of named reference, that points to some arbitrarily stored
+					<p>is any type of named reference, which points to a stored
 						value on the computer</p>
 					<pre class="fragment"><code class="python" data-trim data-noescape><center>
 x = 12
@@ -319,7 +319,7 @@ x = 12
 					</div>
 					<div id="right" class="fragment">
 						<pre><code class="python" data-trim data-noescape>
-							y = 27042
+							y = 27042110
 						</code></pre>
 						<center>
 						<img src="img/Lesson_1/mem2.png" alt="mem1" height=350px />
@@ -448,7 +448,7 @@ x = 12
 					<p class="fragment" style="color: white" data-fragment-index="1">Lists</p>
 					<p class="fragment" style="color: white" data-fragment-index="2">Tuples</p>
 					<p class="fragment" style="color: white" data-fragment-index="3">Dicts</p>
-					<p class="fragment" style="color: white" data-fragment-index="4">Sets</p>
+					<!--p class="fragment" style="color: white" data-fragment-index="4">Sets</p-->
 				</section>
 			</section>
 
@@ -462,20 +462,20 @@ x = 12
 				<section>
 					<p>Always denoted by <b>square [...]</b> brackets</p>
 					<pre><code class='ipython' data-trim>
-					num_list = [1, 2, 6, 1, 2]
+					number_list = [1, 2, 6, 1, 2]
 					</code></pre>
 					<p>
 						and are generally used to hold homogeneous data types
 					</p>
 					<pre><code class='ipython' data-trim>
-						char_list = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
+						name_list = ["Alex", "Lena", "Eva", "Jason", "Nancy"]
 					</code></pre>
 					<br />
 					<p class="fragment" data-fragment-index="1">
-						while mixed types are allowed, I would generally avoid
+						can also store mixed-types, but I would generally avoid
 					</p>
 					<pre class="fragment" data-fragment-index="1"><code class='ipython' data-trim>
-						mix_list = [5., "h", 4, "r", "k", 9i]
+						mixe	d_list = [5.4, "H", 4, "rope", "k", False]
 					</code></pre>
 				</section>
 
@@ -491,6 +491,9 @@ x = 12
 				</section>
 
 				<section>
+					<pre><code class="python" data-trim data-noescape>
+name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
+					</code></pre>
 					<p>
 						and we can use the index to access specific items of the list
 					</p>
@@ -531,7 +534,7 @@ x = 12
               In : print(name)
               Out: ["A", "l", "e", "x", "a", "n", "d", "e", "r"]
 					</code></pre>
-					<p>or</p>
+<!--					<p>or</p>
 					<pre><code class="python" data-trim>
           name[2] = 3
           name[7] = 3
@@ -540,6 +543,7 @@ x = 12
               In : print(name)
               Out: ["A", "l", 3, "x", "a", "n", "d", 3, "r"]
 					</code></pre>
+-->
 				</section>
 
 				<section>
@@ -559,6 +563,23 @@ x = 12
 
 				<section>
 					<p>
+						let's take the last letter
+					</p>
+					<pre><code class="ipython" data-trim>
+            In : name[-1]
+            Out: "o"
+					</code></pre>
+					<p class="fragment" data-fragment-index="2">
+						and the last 4 letters
+					</p>
+					<pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
+            In : name[-4:]
+            Out: ["a", "n", "d", "r", "o"]
+					</code></pre>
+				</section>
+
+				<section>
+					<p>
 						Position presuposes dimensioniality, and so lists also have a size attribute
 					</p>
 					<pre><code class="ipython" data-trim>
@@ -572,19 +593,93 @@ x = 12
 					</p>
 				</section>
 
-				<section>
-					<h4>We can also modify lists by adding or removing items</h4>
+				<section data-background="orange">
+					<h3 style="color: white">Manipulating lists</h3>
 				</section>
 
 				<section>
 					<p>
-						Items can be added by insertion (<b>one item</b>)
+						lists have a number builtin <span style="color: crimson">methods</span>
+						that allow you to easily change their <b>size</b>,
+						<b>contents</b>, and <b>order</b>
 					</p>
-					<pre><code class='ipython' data-trim>
+					<pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
+					dir(list)
+					</code></pre>
+					<pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
+['__add__',
+ '__class__',
+ '__contains__',
+ '__delattr__',
+ '__delitem__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getitem__',
+ '__gt__',
+ '__hash__',
+ '__iadd__',
+ '__imul__',
+ '__init__',
+ '__iter__',
+ '__le__',
+ '__len__',
+ '__lt__',
+ '__mul__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__reversed__',
+ '__rmul__',
+ '__setattr__',
+ '__setitem__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ 'append',
+ 'clear',
+ 'copy',
+ 'count',
+ 'extend',
+ 'index',
+ 'insert',
+ 'pop',
+ 'remove',
+ 'reverse',
+ 'sort']
+					</code></pre>
+				</section>
+
+<!--
+				<section data-background="orange">
+					<p style="color: white; font-weight: bold">
+						Python object methods are accessed using a dot after your variable name
+						followed by the name of the method
+					</p>
+					<code data-noescape>
+						<span style="color: blue">variable</span><span style="color: red">.</span><span style="color: green">method</span>(args)</code>
+					<hr class="fragment" data-fragment-index="2"/>
+					<p class="fragment" data-fragment-index="2" style="color: white">
+						We'll come back to this in a future lesson, but keep in mind the structure
+						of this syntax
+					</p>
+				</section>
+-->
+				<section>
+					<h4>Items can be added...</h4>
+					<p class="fragment" data-fragment-index="2">
+						by attaching them to the end of list
+					</p>
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim>
 						my_list = [0, 2, 1, 0, 1, 9, 4, 0]
 						extra_item = 99
 					</code></pre>
-					<pre><code class='ipython' data-trim data-noescape>
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim data-noescape>
 						In : my_list.append(<mark>extra_item</mark>)
 						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>99</mark>]
 					</code></pre>
@@ -592,77 +687,140 @@ x = 12
 
 				<section>
 					<p>
-						or by concatenation (<b>many items</b>)
+						or by inserting them somewhere specific
 					</p>
 					<pre><code class='python' data-trim>
-						extra_list = [-1, -8]
+						extra_item = 99
 					</code></pre>
 					<pre><code class='ipython' data-trim data-noescape>
-						In : my_list.extend(<mark>extra_list</mark>)
-						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>-1, -8</mark>]
-					</code></pre>
-					<p>
-					<i>neat bit of syntatic sugar</i>
-					</p>
-					<pre><code class='ipython' data-trim data-noescape>
-						In : my_list + <mark>extra_list</mark>
-						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>-1, -8</mark>]
+						In : my_list.insert(<mark>4</mark>, <mark>extra_list</mark>)
+						Out: [0, 2, 1, 0, <mark>99</mark>, 1, 9, 4, 0]
 					</code></pre>
 				</section>
 
 				<section>
-					<p>
-						Be careful with append(), it considers whatever is between the
-						brackets as <b>one</b> item
+					<h3 style="color: crimson">Caution</h3>
+					<p class="fragment" data-fragment-index="1">
+						Python considers whatever is between the
+						brackets () as <b>one</b> item and will add it in like so
 					</p>
-					<pre><code class='python' data-trim>
+					<pre class="fragment" data-fragment-index="1"><code class='python' data-trim>
 						my_list = [0, 2, 1, 0, 1, 9, 4, 0]
 						extra_list = [-1, -8]
 					</code></pre>
-					<p>
-						and it will become the last item in the list
-					</p>
-					<pre><code class='ipython' data-trim data-noescape>
-						In : my_list.append(<mark>extra_list</mark>)
-						Out: [0, 2, 1, 0, 1, 9, 4, 0, [<mark>-1, -8</mark>]]
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim data-noescape>
+						In : my_list.append(extra_list)
+						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>[-1, -8]</mark>]
 					</code></pre>
-					<p>
-						such that you will end up with <b>nested</b>* items
+					<p class="fragment" data-fragment-index="3">
+					 and
 					</p>
-				<p>
-					<font size="4">*explained next</font>
-				</p>
+					<pre class="fragment" data-fragment-index="3"><code class='ipython' data-trim data-noescape>
+						In : my_list.insert(4, extra_list)
+						Out: [0, 2, 1, 0, <mark>[-1, -8]</mark>, 1, 9, 4, 0]
+					</code></pre>
 				</section>
 
 				<section>
-					<p>You can also delete items in a list</p>
-					<pre><code class='python' data-trim data-noescape>
+					<h3>Don't like something in your list</h3>
+					<p class="fragment" data-fragment-index="0">
+						<i>I really hate that 9</i></p>
+					<pre class="fragment" data-fragment-index="0"><code class='python' data-trim data-noescape>
 						my_list = [0, 2, 1, 0, 1, <mark>9</mark>, 4, 0]
 					</code></pre>
-					<p>by value (where it removes the first occurence)</p>
-					<pre><code class='ipython' data-trim data-noescape>
+					<p class="fragment" data-fragment-index="1">no problem, you can delete them</p>
+					<p class="fragment" data-fragment-index="2">
+						by value</p>
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim data-noescape>
 						In : my_list.remove(9)
 						Out: [0, 2, 1, 0, 1, 4, 0]
 					</code></pre>
-					<p>or using the delete statement with an index</p>
-					<pre><code class='ipython' data-trim data-noescape>
+					<p class="fragment" data-fragment-index="3">
+						or index</p>
+					<pre class="fragment" data-fragment-index="3"><code class='ipython' data-trim data-noescape>
 						In : del my_list[-3]
 						Out: [0, 2, 1, 0, 1, 4, 0]
 					</code></pre>
 				</section>
 
-				<section data-background="crimson">
-					<p>
-						I personally avoid doing this, as it's hard to to track how your list
-						is changing in the program
+				<section>
+					<h3>We can also sort lists</h3>
+					<p class="fragment" data-fragment-index="0">
+						in numerical
 					</p>
-					<hr />
+					<pre class="fragment" data-fragment-index="0"><code class='python' data-trim data-noescape>
+						num_list = [0, 2, 1, 0, 1, 4, 0]
+					</code></pre>
+					<pre class="fragment" data-fragment-index="0"><code class='ipython' data-trim data-noescape>
+						In : num_list.sort()
+						Out: [0, 0, 0, 1, 1, 2, 4]
+					</code></pre>
 					<p class="fragment" data-fragment-index="1">
-						<span style="color: white; font-weight: bold">
-							I will show you later how you can use <i>filtering</i> to achieve
-							the same thing without destroying your list
-						</span>
+						and alphabetical order*
 					</p>
+					<pre class="fragment" data-fragment-index="2"><code class='python' data-trim data-noescape>
+						name_list = ["S", "t", "e", "v", "e"]
+					</code></pre>
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim data-noescape>
+						In : my_list.sort()
+						Out: ["S", "e", "e", "t", "v"]
+					</code></pre>
+				</section>
+
+				<section>
+					<p>
+					 perhaps you prefer everything backwards...
+					</p>
+					<p class="fragment" data-fragment-index="0">
+						then just pass a reverse argument to the sort method!
+					</p>
+					<pre class="fragment" data-fragment-index="0"><code class='ipython' data-trim data-noescape>
+						In : num_list.sort(reverse=True)
+						Out: [4, 2, 1, 1, 0, 0, 0]
+					</code></pre>
+				</section>
+
+				<section data-background="crimson">
+					<p class="fragment" data-fragment-index="1" style="color: white">
+						you'll notice that all of these methods, permanantly change the list itself
+					</p>
+					<hr class="fragment" data-fragment-index="2" />
+					<p class="fragment" data-fragment-index="2" style="color: white">
+						unless you have good reason, then it's best to avoid
+					</p>
+					<hr class="fragment" data-fragment-index="3" />
+					<p class="fragment" data-fragment-index="3" style="color: white">
+						later I will show how <i>filtering</i> can achieve
+						the same thing without destroying your list
+					</p>
+				</section>
+
+				<section data-background="orange">
+					<h3 style="color: white">that's not all though</h3>
+					<p style="color: black; font-weight: bold">
+					 there are other cool things we can do with lists
+					</p>
+				</section>
+
+				<section>
+					<h3>We can also join lists together...</h3>
+					<p class="fragment" data-fragment-index="0">using concatenation...</p>
+					<pre class="fragment" data-fragment-index="0"><code class='python' data-trim>
+						my_list = [0, 2, 1, 0, 1, 9, 4, 0]
+						other_list = [-1, -8, 1, 0, 20, 55]
+					</code></pre>
+					<p class="fragment" data-fragment-index="1">to make bigger lists!</p>
+					<pre class="fragment" data-fragment-index="1"><code class='ipython' data-trim data-noescape>
+						In : my_list.extend(other_list)
+						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>-1, -8, 1, 0, 20, 55</mark>]
+					</code></pre>
+					<p class="fragment" data-fragment-index="2">
+					<i>neat bit of syntatic sugar</i>
+					</p>
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim data-noescape>
+						In : my_list <mark>+</mark> other_list
+						Out: [0, 2, 1, 0, 1, 9, 4, 0, <mark>-1, -8, 1, 0, 20, 55</mark>]
+					</code></pre>
 				</section>
 
 				<section>
@@ -694,16 +852,23 @@ x = 12
 						In : list_2d[0]
 						Out: [0, 2, 1, 0]
 					</code></pre>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						 just use extra brackets ([...]) to delve within
 					</p>
-					<pre><code class='python' data-trim data-noescape>
+					<pre class="fragment" data-fragment-index="2"><code class='python' data-trim data-noescape>
 						list_2d = [[0, <mark>2, 1</mark>, 0], [1, 9, 4, 0]]
 					</code></pre>
-					<pre><code class='ipython' data-trim>
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim>
 						In : list_2d[0][1:3]
 						Out: [2, 1]
 					</code></pre>
+				</section>
+
+				<section data-background="orange">
+					<p style="color: white; font-weight: bold">
+						for your own sanity, try to keep your lists down to the smallest number
+						of dimensions possible
+					</p>
 				</section>
 			</section>
 
