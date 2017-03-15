@@ -7,8 +7,8 @@
 
 	<title>Lesson 1b</title>
 
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/white.css">
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/white.css">
 
 	<meta name="description" content="Lesson 1b on the basics of python - iteration">
 	<meta name="author" content="Rhys Whitley">
@@ -19,10 +19,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="lib/css/zenburn.css">
-	<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+	<link rel="stylesheet" href="reveal/plugin/title-footer/title-footer.css">
 
-	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="reveal/css/custom.css">
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement('link');
@@ -39,24 +39,25 @@
 		<div class="slides">
 
 			<section data-background="img/grass-bg.jpg">
-				<img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 80px' />
-				<br>
-				<img class=noborder src="img/title.png" alt="presentation title" style='height: 120px' />
-				<h2>Lesson 1b // Iteration</h2>
-				<br>
-				<br>
+				<img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 50px' />
+				<br />
+				<img class=noborder src="img/title.png" alt="presentation title" style='height: 80px' />
+				<br />
+				<br />
+				<br />
 			</section>
-
+<!--
 			<section data-background="#2f4f4f">
 				<h3>Previously on Python School</h3>
 			</section>
+-->
 
-<!--- Iteration --->
+<!--- Iteration -->
 
-			<section>
-				<section data-background="#2f4f4f">
-					<h2>Iteration<h2>
-        </section>
+				<section data-background-color="#2f4f4f">
+					<h4 style='color: white'>Episode 2</h4>
+					<h1 style='color: white'>Iteration &amp; flow control</h1>
+				</section>
 
 				<section>
 					<p>What if I want to operate on <b>all</b> of the values?</p>
@@ -75,8 +76,8 @@
 					<pre><code class="python" data-trim>
 						mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
 	        </code></pre>
-					<p class="fragment", data-fragment-index="1">You wouldn't want to do this</p>
-					<pre class="fragment", data-fragment-index="1"><code class="python" data-trim>
+					<p class="fragment" data-fragment-index="1">You wouldn't want to do this</p>
+					<pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
 						x = 10
 
 						item0 = mega_list[0] + x
@@ -87,7 +88,7 @@
 
 						list_plusx = [item0, item1, item2, item3, ...]
 	        </code></pre>
-					<p class="fragment", data-fragment-index="1">
+					<p class="fragment" data-fragment-index="1">
 						Ugh, how repetitive!
 					</p>
 				</section>
@@ -130,7 +131,7 @@ size = 9 # items
 
 <!--- FOR LOOPS --->
 
-      <section>
+          <section>
 				<section data-background="orange">
 					<h2 style="color: white">For</h2>
 				</section>
@@ -180,7 +181,7 @@ size = 9 # items
 					<pre><code class="python" data-trim>
 						mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
 	        </code></pre>
-					<pre class="fragment", data-fragment-index="1"><code class="python" data-trim>
+					<pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
 						new_list = []
 
 						for item in mega_list:
@@ -189,7 +190,7 @@ size = 9 # items
 
 						  new_list.append(new_value)
 	        </code></pre>
-					<p class="fragment", data-fragment-index="2">
+					<p class="fragment" data-fragment-index="2">
 						we don't need to worry about how long the list is or which item we're using, just the calculation
 					</p>
 				</section>
@@ -335,7 +336,7 @@ size = 9 # items
 					<pre><code class="python" data-trim data-noescape>
 						i = 0
 						# this will run forever
-						while <marK>i < len(my_list)</marK>:
+						while <mark>i < len(my_list)</mark>:
 
 						  print(my_list[i])
 
@@ -598,7 +599,7 @@ size = 9 # items
 				</section>
       </section>
 
-<!--- Summary --->
+<!--- Summary -->
 			<section>
 				<section data-background="#2f4f4f">
 					<h3>summary</h3>
@@ -606,9 +607,6 @@ size = 9 # items
 
 				<section>
 					<hr class="fragment" data-fragment-index="5" />
-					<p>we <span style="color: hotpink">&hearts;</span> numbers and words</p>
-					<p class="fragment" data-fragment-index="2">
-						we <span style="color: pink">&hearts;</span> lists</p>
 					<p class="fragment" data-fragment-index="3">
 						we <span style="color: purple">&hearts;</span> iteration</p>
 					<p class="fragment" data-fragment-index="4">
@@ -616,23 +614,6 @@ size = 9 # items
 					<hr class="fragment" data-fragment-index="5" />
 					<p class="fragment" data-fragment-index="5">
 						we <span style="color: red">&hearts;</span> Python</p>
-				</section>
-
-				<section>
-					<h4>remember</h4>
-					<h2 class="fragment">the basics are hard!</h2>
-					<h6 class="fragment">..but</h2>
-					<h5 class="fragment" style="color: black">it gets easier the more you use it</h5>
-				</section>
-
-				<section>
-					<h3>Finally</h3>
-					<p class="fragment">don't be daunted</p>
-					<p class="fragment">be humble</p>
-					<p class="fragment">be adventurous</p>
-					<p class="fragment">practice</p>
-					<p class="fragment">practice</p>
-					<p class="fragment">practice</p>
 				</section>
 
 				<section data-background="#2f4f4f">
@@ -648,8 +629,8 @@ size = 9 # items
 			</div>
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+		<script src="reveal/lib/js/head.min.js"></script>
+		<script src="reveal/js/reveal.js"></script>
 
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
@@ -658,16 +639,16 @@ size = 9 # items
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/math/math.js', async: true },
-					{ src: 'plugin/title-footer/title-footer.js',
+					{ src: 'reveal/plugin/markdown/marked.js' },
+					{ src: 'reveal/plugin/markdown/markdown.js' },
+					{ src: 'reveal/plugin/math/math.js', async: true },
+					{ src: 'reveal/plugin/title-footer/title-footer.js',
                         async: true, callback: function() { title_footer.initialize(
                           // Change footer here
-                          'Natural Perils Pricing • Suncorp Group Limited • March 2017', '#2f4f4f'
+                          'Rhys Whitley • Natural Perils Pricing • March 2017', '#2f4f4f'
                           ); } },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'reveal/plugin/notes/notes.js', async: true },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
