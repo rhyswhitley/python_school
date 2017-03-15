@@ -64,7 +64,7 @@
 				</section>
 
 				<section data-background-color="black">
-					<p>Automate your tasks and use the power of your machine</p>
+					<p>Automate your tasks // use the power of the machines</p>
 					<img src="img/Lesson_1/terminator.gif" style='height: 410px' alt='animated' />
 				</section>
 
@@ -153,15 +153,21 @@
 							class="fragment" data-fragment-index="1">
 							Fortran (low-level)</p>
 						<pre class="fragment" data-fragment-index="1"><code class="fortran" data-trim>
-							! need to do this
-							integer(kind=1) :: i
-							real(kind=8) :: x
-							character(len=4) :: word
+                            ! need to define the program
+                            program example
 
-							! before you can do this
-							i = 0
-							x = 14.23434324591
-							word = "noun"
+                                implicit none
+                                ! need to do this
+                                integer(kind=1) :: i
+                                real(kind=8) :: x
+                                character(len=4) :: word
+                                ! before you can do this
+                                i = 0
+                                x = 14.23434324591
+                                word = "noun"
+
+                                write(*,*) word
+                            end program example
 						</code></pre>
 					</div>
 					<div id="right">
@@ -169,46 +175,43 @@
 							class="fragment" data-fragment-index="2">
 							Python (high-level)</p>
 						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
-							# done for you
-							i = 0
-							x = 14.23434324591
-							word = "noun"
+                        # done for you
+                        i = 0
+                        x = 14.23434324591
+                        word = "noun"
+
+                        print(word)
 						</code></pre>
 					</div>
 				</section>
-<!---
-				<section data-transition="fade">
-					<h3>Like other langauges, there are specific rules</h3>
-					<p class="fragment" data-fragment-index="0">
-						statements are grouped by <code>tab</code> delimitation
-					</p>
-						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
-							def an_example():
-							  print("stuff")
+
+				<section>
+					<h3>Quick comparison</h3>
+					<div id="left">
+						<p style='color: black; font-weight: bold' align='center'
+							class="fragment" data-fragment-index="1">
+							Fortran (compiled)</p>
+						<pre style="width: 450px" class="fragment" data-fragment-index="1"><code class="bash" data-trim>
+                            # compile program ...
+                            $ gfortran -o example example.f
+
+                            # to exectute
+                            $ ./example
+                            $ noun
 						</code></pre>
-						<p class="fragment" data-fragment-index="2">...or...</p>
-						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
-							for i in range(10):
-							  print(i)
+					</div>
+					<div id="right">
+						<p style='color: black; font-weight: bold' align='center'
+							class="fragment" data-fragment-index="2">
+							Python (interpreted)</p>
+						<pre class="fragment" data-fragment-index="2"><code class="bash" data-trim>
+                            # just execute
+                            $ python example.py
+                            $ noun
 						</code></pre>
+					</div>
 				</section>
 
-				<section data-transition="fade">
-					<h3>Like other langauges, there are specific rules</h3>
-					<p>
-						statements are grouped by <code>tab</code> delimitation
-					</p>
-						<pre><code class="python" data-trim data-noescape>
-							def an_example()<mark>:</mark>
-							<mark>  </mark>print("stuff")
-						</code></pre>
-						<p>...or...</p>
-						<pre><code class="python" data-trim data-noescape>
-							for i in range(10)<mark>:</mark>
-							<mark>  </mark>print(i)
-						</code></pre>
-				</section>
--->
 				<section data-background="orange">
 					<h3 style="color: white">Design philosophy</h3>
 					<p class="fragment">
@@ -265,11 +268,109 @@ Namespaces are one honking great idea -- let's do more of those!
 					<!--<br><br><br><br><br><br><br><br>-->
 				</section>
 
+                <section data-background="orange">
+                    <h2 style="color: white">The python interpreter</h2>
+                </section>
+
+                <section>
+                    <p>the interpreter allows communication between you and the machine</p>
+                    <div id="left" style="background-color: orange; padding: 100px 0;">
+                        <center>
+                        Input: print(message)
+                        </center>
+                    </div>
+                    <div id="right" style="color: white; background-color: #2f4f4f; padding: 100px 0;">
+                        <center>
+                        Output: Hello world!
+                        </center>
+                    </div>
+                    <p class="fragment" data-fragment-index="4" style="color: white">...</p>
+                    <p>reads and executes commands interactively (input/output)</p>
+                </section>
+
+                <section>
+                    <p>two interpreters currently exist for Python</p>
+                    <br />
+                    <div class="fragment" data-fragment-index="1" id="left" style="background-color: #3776ab">
+                        <center>
+                        <p></p>
+                        <h1 class="fragment" data-fragment-index="1" style="color: white">2.7.13</h1>
+                        <p class="fragment" data-fragment-index="2" style="color: white">end of life: 2020</p>
+                        </center>
+                    </div>
+                    <div class="fragment" data-fragment-index="1" id="right" style="background-color: gold">
+                        <center>
+                        <p></p>
+                        <h1 class="fragment" data-fragment-index="1" style="color: black">3.6.0</h1>
+                        <p class="fragment" data-fragment-index="3" style="color: black">now standard</p>
+                        </center>
+                    </div>
+                    <p class="fragment" data-fragment-index="4" style="color: white">...</p>
+                    <p class="fragment" data-fragment-index="4">there are some slight differences behaviour</p>
+                    <p class="fragment" data-fragment-index="5" style="background-color: gold">were going to be using <b>3.6.0</b></p>
+                </section>
+
+                <section data-background="https://www.continuum.io/downloads">
+                    <p>all nicely packaged together in</p>
+                    <img src=https://www.continuum.io/sites/all/themes/continuum/assets/images/logos/logo-horizontal-large-white.svg style="width: 50%" alt="anaconda" />
+                    <p class="fragment" data-fragment-index="2">if you haven't already, download from</p>
+                    <center>
+                        <a class="fragment" data-fragment-index="2" href="http://www.continuum.io/downloads" data-preview-link>https://www.continuum.io/downloads</a>
+                    </center>
+                    <p class="fragment" data-fragment-index="2">and install it on your H: driver</p>
+                </section>
+<!---
+				<section data-transition="fade">
+					<h3>Like other langauges, there are specific rules</h3>
+					<p class="fragment" data-fragment-index="0">
+						statements are grouped by <code>tab</code> delimitation
+					</p>
+						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
+							def an_example():
+							  print("stuff")
+						</code></pre>
+						<p class="fragment" data-fragment-index="2">...or...</p>
+						<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
+							for i in range(10):
+							  print(i)
+						</code></pre>
+				</section>
+
+				<section data-transition="fade">
+					<h3>Like other langauges, there are specific rules</h3>
+					<p>
+						statements are grouped by <code>tab</code> delimitation
+					</p>
+						<pre><code class="python" data-trim data-noescape>
+							def an_example()<mark>:</mark>
+							<mark>  </mark>print("stuff")
+						</code></pre>
+						<p>...or...</p>
+						<pre><code class="python" data-trim data-noescape>
+							for i in range(10)<mark>:</mark>
+							<mark>  </mark>print(i)
+						</code></pre>
+				</section>
+-->
+                <section data-background="orange">
+                    <h2 style="color: white">setup with jupyter notebook</h2>
+                </section>
+
+				<section>
+					<p>type this into your notebook</p>
+						<pre class="fragment"><code class="python" data-trim data-noescape>
+							print("Hello world!")
+						</code></pre>
+					<p class="fragment">Congratulations, you've executed your first piece of Python code</p>
+				</section>
+
+
 			</section>
 
 <!--- THE BASICS -->
 
 			<section>
+
 				<section data-background-color="#2f4f4f">
 					<p>so lets start with most important thing you'll ever learn</p>
 				</section>
@@ -1181,19 +1282,24 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					<p style="color: white"><i>dictionaries</i></p>
         </section>
 
+                <section>
+					<p>are a powerful way of storing and retrieving record data, based on the concept of</p>
+                    <h2>{key : value}</h2>
+                    <p>pairing</p>
+					<p class="fragment" data-fragment-index="1">key-values pairs always separated by a <b>colon</b>, between <b>curly braces {...}</b></p>
+					<pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
+	        my_dict = {"key1": value1, "key2": value2, "key3": value3, ...}
+                    </code></pre>
+                </section>
+
 				<section>
-					<p>Are defined by <b>key-value</b> pairs that are separated by a <b>colon</b>, between <b>curly braces {...}</b></p>
-					<pre><code class="python" data-trim>
-	        my_dict = {"key1": value1, "key2": value2, "key3": value3}
-	        </code></pre>
-					<p>
-						and are a powerful way of storing and retrieving data by reference
-					</p>
-					<pre><code class="python" data-trim>
+                    <h4>keys can reference practically anything</h4>
+                    <p class="fragment" data-fragment-index="1">could be single value entries</p>
+					<pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
 	        my_rec1 = {"Jake": 35, "Finn": 16, "Gunter": 7}
 	        </code></pre>
-					<p><i>or</i></p>
-					<pre><code class="python" data-trim>
+					<p class="fragment" data-fragment-index="2">or lists, tuples, or more complex data types</p>
+					<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
 	        my_rec2 = {"name": ["Jake", "Finn", "Gunter"], \
 										   "ages": [35, 16, 7]}
 	        </code></pre>
@@ -1211,10 +1317,10 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						In : my_rec2["name"]
 						Out: ["Jake", "Finn", "Gunter"]
 	        </code></pre>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						then any subsequent slicing if the value is a sequence
 					</p>
-					<pre><code class="ipython" data-trim>
+					<pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
 						In : my_rec2["name"][-1]
 						Out: "Gunter"
 	        </code></pre>
@@ -1227,14 +1333,14 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					<pre><code class="python" data-trim>
 	        my_rec1["Marcy"] = 21
 	        </code></pre>
-					<pre><code class="ipython" data-trim>
+					<pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
 						In : my_rec1
 						Out: {"Marcy": 21, "Gunter": 7, "Jake": 35, "Finn": 16}
 	        </code></pre>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						and entries similarly deleted as with lists
 					</p>
-					<pre><code class="ipython" data-trim>
+					<pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
 						In : del my_rec1["Marcy"]
 						Out: {"Gunter": 7, "Jake": 35, "Finn": 16}
 	        </code></pre>
@@ -1242,7 +1348,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 
 				<section>
 					<p>
-						You can also retrieve the key and value components separately from the dictionary
+                    <code>dict</code> types also have some nice methods to grab keys and values separately
 					</p>
 					<pre><code class="ipython" data-trim>
 						In : my_rec1.keys()
@@ -1255,35 +1361,35 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 
 				<section>
 					<p>
-						While keys can be any data type or value, they <b>should be unique</b> as you want them to give specific reference.
+                    keys <b>should be unique</b> as you want them to give specific reference.
 					</p>
 					<pre><code class="python" data-trim>
 	        bad_dict = {"key1": 14239, "key1": 599, "key2": 3430}
 	        </code></pre>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						otherwise, replicate keys will just refer to the last occurence
 					</p>
-					<pre><code class="ipython" data-trim>
+					<pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
 						In : bad_dict["key1"]
 						Out: 599
 	        </code></pre>
 				</section>
 
 				<section>
-					<p>Finally, tuple pairs...</p>
+					<p>Finally, tuple <b>pairs</b>...</p>
 					<pre><code class="python" data-trim>
-	        tup2 = ("Jake": 35)
-	        </code></pre>
-					<p>are seen as key-values pairs, such that a list (or tuple) of these can be transformed
-					into a dict object</p>
-					<pre><code class="python" data-trim>
+	        tup2 = ("Jake", 35)
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="2">are seen as key-values <b>pairs</b></p>
+					<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
 		        tup_list = [("Jake", 35), ("Finn", 16), ("Gunter", 7)]
-	        </code></pre>
-					<pre><code class="ipython" data-trim>
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="3">such that a list of tuples can be converted to a dict object</p>
+					<pre class="fragment" data-fragment-index="3"><code class="ipython" data-trim>
 						In : dict(tup_list)
-						Out: {'Gunter': 7, 'Jake': 35, 'Finn': 16}
-	        </code></pre>
-					<p class="fragment" data-fragment-index="1">
+						Out: {"Gunter": 7, "Jake": 35, "Finn": 16}
+                    </code></pre>
+					<p class="fragment" data-fragment-index="4">
 						Notice how the order of the dict is different to how it's stored in the list
 					</p>
 				</section>
@@ -1370,14 +1476,6 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					<p class="fragment">practice</p>
 				</section>
 
-				<section>
-					<p>before we go any further, type this into your notebook</p>
-						<pre class="fragment"><code class="python" data-trim data-noescape>
-							print("Hello world!")
-						</code></pre>
-					<p class="fragment">Congratulations, you've executed your first piece of Python code</p>
-				</section>
-
 				<section data-background="#2f4f4f">
 					<h2>Next time</h2>
 				</section>
@@ -1407,7 +1505,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					{ src: 'reveal/plugin/title-footer/title-footer.js',
                         async: true, callback: function() { title_footer.initialize(
                           // Change footer here
-                          'Natural Perils Pricing • Suncorp Group Limited • March 2017', '#2f4f4f'
+                          'Rhys Whitley • Natural Perils Pricing • March 2017', '#2f4f4f'
                           ); } },
 					{ src: 'reveal/plugin/notes/notes.js', async: true },
 					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
