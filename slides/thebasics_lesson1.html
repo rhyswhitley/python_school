@@ -7,8 +7,8 @@
 
 	<title>Lesson 1</title>
 
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/white.css">
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/white.css">
 
 	<meta name="description" content="The basics of Python - data types and variables">
 	<meta name="author" content="Rhys Whitley">
@@ -19,10 +19,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="lib/css/zenburn.css">
-	<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+	<link rel="stylesheet" href="reveal/plugin/title-footer/title-footer.css">
 
-	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="reveal/css/custom.css">
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement('link');
@@ -55,43 +55,44 @@
 
 				<section data-background-color="rgb(33,42,53)">
 					<p>Manipulate and move around the language; create programs and scripts</p>
-					<img src="img/Lesson_1/pycode.gif" style='height: 500px' />
+					<img src="img/Lesson_1/pycode.gif" style='height: 500px' alt='animated' />
 				</section>
 
 				<section>
 					<p>Using notebooks to prototype code, test analysis, produce reports</p>
-					<img src="img/Lesson_1/jupyter.gif" style='height: 500px' />
+					<img src="img/Lesson_1/jupyter.gif" style='height: 500px' alt='animated' />
 				</section>
 
 				<section data-background-color="black">
 					<p>Automate your tasks and use the power of your machine</p>
-					<img src="img/Lesson_1/terminator.gif" style='height: 410px' />
+					<img src="img/Lesson_1/terminator.gif" style='height: 410px' alt='animated' />
 				</section>
 
 				<section>
 					<h2>Overall</h2>
-						<p class="fragment" data-fragment-index="1">Convince you of its utility in business - analytics, data viz, work-flow management</li>
-						<p class="fragment" data-fragment-index="2">Instil good coding and curation practices</p>
-						<p class="fragment" data-fragment-index="3">Empower you with with the knowledge to migrate from archaic tools like MS Office and SAS</li>
-						<p class="fragment" data-fragment-index="4">Give you the confidence to go out and learn on your own, so you can even teach me!</p>
+                    <p class="fragment" data-fragment-index="1">Convince you of its utility in business - analytics, data viz, work-flow management</p>
+                    <p class="fragment" data-fragment-index="2">Instil good coding and curation practices</p>
+                    <p class="fragment" data-fragment-index="3">Empower you with with the knowledge to migrate from archaic tools like MS Office and SAS</p>
+                    <p class="fragment" data-fragment-index="4">Give you the confidence to go out and learn on your own, so you can even teach me!</p>
 				</section>
 
 				<section>
 					<h2>What I plan to cover</h2>
-						<p class="fragment" data-fragment-index="1">Basic Concepts</p>
-						<p class="fragment" data-fragment-index="2">Functions & Classes</p>
-						<p class="fragment" data-fragment-index="3">Data Analytics</p>
-						<p class="fragment" data-fragment-index="4">Data Viz</p>
-						<p class="fragment" data-fragment-index="5">Geospatial Analysis</p>
-						<p class="fragment" data-fragment-index="6">Machine Learning</p>
-						<p class="fragment" data-fragment-index="7">Scripts, Jobs & Optimisation</p>
-						<p class="fragment" style="color: crimson" data-fragment-index="8">Team Hack'athon</p>
+                    <p class="fragment" data-fragment-index="1">Basic Concepts</p>
+                    <p class="fragment" data-fragment-index="2">Functions &amp; Classes</p>
+                    <p class="fragment" data-fragment-index="3">Data Analytics</p>
+                    <p class="fragment" data-fragment-index="4">Data Viz</p>
+                    <p class="fragment" data-fragment-index="5">Geospatial Analysis</p>
+                    <p class="fragment" data-fragment-index="6">Machine Learning</p>
+                    <p class="fragment" data-fragment-index="7">Scripts, Jobs &amp; Optimisation</p>
+                    <p class="fragment" style="color: crimson" data-fragment-index="8">Team Hack'athon</p>
 				</section>
 
 				<section>
-					<p>
-						Lessons are interactive and I encourage you to ask questions as we go.
-					</p>
+                    <h3>Lessons are interactive</h3>
+                    <p class="fragment">Play with the code as I talk</p>
+                    <p class="fragment">Feel free to ask questions as we go</p>
+                    <p class="fragment">Help the person next to you</p>
 				</section>
 
 				<section>
@@ -113,13 +114,13 @@
 				</section>
 
 				<section data-background-color="orange">
-					<h2 style="color: white">you want to code like a boss</h2>
+					<h2 style="color: white">you want to write powerful and effective code</h2>
 					<p class="fragment" style="color: black">without becoming a software engineer</p>
 				</section>
 
 				<section>
 					<div id="left">
-						<img src="img/Lesson_1/guido.jpg" alt="BDFL" height=600px/>
+						<img src="img/Lesson_1/guido.jpg" alt="BDFL" height=600px />
 					</div>
 					<div id="right">
 						<p>created by Guido von Rossum (BDFL)</p>
@@ -135,13 +136,13 @@
 					<font size="18" class="fragment" data-fragment-index="0">? o_O ?</font>
 					<hr class="fragment" data-fragment-index="1" />
 					<p class="fragment" data-fragment-index="1">
-						what you write is closer to human language (rather than machine)
+						what you write is closer to human language
 					</p>
 					<p class="fragment" data-fragment-index="2">
-					  significant areas of the computer system are automated for you (like memory managment)
+					  significant areas of the computer system are automated for you
 					</p>
 					<p class="fragment" data-fragment-index="3">
-					  code is interpretted, not compiled - execute as you go
+					  code is interpretted
 					</p>
 				</section>
 
@@ -207,7 +208,7 @@
 							<mark>  </mark>print(i)
 						</code></pre>
 				</section>
---->
+-->
 				<section data-background="orange">
 					<h3 style="color: white">Design philosophy</h3>
 					<p class="fragment">
@@ -266,7 +267,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 			</section>
 
-<!--- THE BASICS --->
+<!--- THE BASICS -->
 
 			<section>
 				<section data-background-color="#2f4f4f">
@@ -278,7 +279,7 @@ Namespaces are one honking great idea -- let's do more of those!
 				</section>
 			</section>
 
-<!--- Variables --->
+<!--- Variables -->
 
 			<section>
 				<section data-background-color="#2f4f4f">
@@ -301,7 +302,8 @@ x = 12
 				<section data-transition="fade">
 					<p>is any type of <span style="background-color: yellow">named reference</span>,
 						that points to some arbitrarily stored
-						<span style="background-color: red; color: cyan">value</span> on the computer</p>
+						<span style="background-color: red; color: cyan">value</span> on the computer
+                    </p>
 					<pre><code class="python" data-trim data-noescape><center>
 <mark>x</mark> = <mark style="background-color: red">12</mark>
 					</center></code></pre>
@@ -353,20 +355,12 @@ x = 12
 						</code></pre>
 				</section>
 
-				<section >
-					<p>before we go any further, type this into your notebook</p>
-						<pre class="fragment"><code class="python" data-trim data-noescape>
-							print("Hello world!")
-						</code></pre>
-					<p class="fragment">Congratulations, you've executed your first piece of Python code</p>
-				</section>
-
 				<section data-background-color="orange">
-					<p style='color: white; font-weight: bold'>
-						Python works with both numeric and character data</p>
+					<h3 style="color: white">let's look at some of python's data types</h3>
+                    <p class='fragment' style="color: black"><i>and how they behave</i></p>
 				</section>
 
-<!--- Data types --->
+<!--- Data types -->
 
 				<section>
 					<h3>Integer</h3>
@@ -434,7 +428,7 @@ x = 12
 				</section>
 			</section>
 
-<!--- LIST SECTION --->
+<!--- LIST SECTION -->
 
 			<section>
 				<section data-background="#2f4f4f">
@@ -452,7 +446,7 @@ x = 12
 				</section>
 			</section>
 
-<!--- LIST SECTION --->
+<!--- LIST SECTION -->
 
 			<section>
 				<section data-background="orange">
@@ -479,6 +473,41 @@ x = 12
 					</code></pre>
 				</section>
 
+
+                <section data-background="orange">
+                    <h2 style="color: white">Creating lists</h2>
+                </section>
+
+                <section>
+                    <p>put stuff between <b>[...]</b> and separate with a comma</p>
+					<pre><code class="python" data-trim>
+                    some_list = [1, 2, 0, 1193, -1]
+					</code></pre>
+                    <br />
+                    <p class="fragment"><b>thankfully</b> you rarely need to do this</p>
+                </section>
+
+                <section>
+                    <p>repeating something?</p>
+					<pre class="fragment"><code class="python" data-trim>
+                    In : [6]*6
+                    Out: [6, 6, 6, 6, 6, 6]
+					</code></pre>
+                    <p class="fragment">TOO EASY!</p>
+                </section>
+
+                <section>
+                    <p>Need a sequence of numbers?</p>
+                    <p class="fragment" data-fragment-index="2">meet our good friend <code>range()</code></p>
+					<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
+                    In : list(range(6))
+                    Out: [0, 1, 2, 3, 4, 5]
+					</code></pre>
+                    <p class="fragment" data-fragment-index="3" style="color: crimson">make sure you wrap this in a <code>list()</code> call</p>
+                    <hr class="fragment" data-fragment-index="4" />
+                    <p class="fragment" data-fragment-index="4">we <span style="color: crimson">&hearts;</span> <code>range()</code></p>
+                    <p class="fragment" data-fragment-index="4">but we'll cover that in the next lesson</p>
+                </section>
 				<section>
 					<p>The parts of a list are referred to as items (or elements)</p>
 					<pre><code class="python" data-trim data-noescape><center>
@@ -487,27 +516,30 @@ x = 12
 [ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
 					</center></code></pre>
 					<hr />
-					<p>the term <b>index</b> is used to denote position and <i>in Python</i> <b>always starts at 0</b>
+                    <p>the term <b>index</b> is used to denote position and <i>in Python</i> <b>always starts at 0</b></p>
 				</section>
 
 				<section>
+					<p>
+						and we can use the index to access parts of the list
+					</p>
 					<pre><code class="python" data-trim data-noescape>
 name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					</code></pre>
-					<p>
-						and we can use the index to access specific items of the list
+					<p class='fragment' data-fragment-index='1'>
+						specific items
 					</p>
-					<pre><code class="ipython" data-trim>
+					<pre class='fragment' data-fragment-index='1'><code class="ipython" data-trim>
             In : name[0]
             Out: "A"
 
             In : name[5]
             Out: "n"
           </code></pre>
-					<p>
-						or even chunks of it
+					<p class='fragment' data-fragment-index='2'>
+						or chunks
 					</p>
-					<pre><code class="ipython" data-trim>
+					<pre class='fragment' data-fragment-index='2'><code class="ipython" data-trim>
             In : name[1:7]
             Out: ["l", "e", "j", "a", "n", "d"]
 
@@ -517,20 +549,24 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				</section>
 
 				<section data-background="orange">
-					<p style="color: white; font-weight: bold">The process of accessing parts of a list
-						(or any other container) is referred to as <b>slicing</b></p>
+                    <h4 style="color: black">This is referred to as</h4>
+                    <h1 style="color: white">SLICING</h1>
 				</section>
 
 				<section>
 					<p>
 						not only can we take parts of a list, but we can also change them
 					</p>
-					<pre><code class="python" data-trim>
+					<pre class='fragment' data-fragment-index='1'><code class="ipython" data-trim>
+              In : print(name)
+              Out: ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
+					</code></pre>
+					<pre class='fragment' data-fragment-index='2'><code class="python" data-trim>
           name[3] = "x"
           name[7] = "e"
           name[8] = "r"
 					</code></pre>
-					<pre><code class="ipython" data-trim>
+					<pre class='fragment' data-fragment-index='2'><code class="ipython" data-trim>
               In : print(name)
               Out: ["A", "l", "e", "x", "a", "n", "d", "e", "r"]
 					</code></pre>
@@ -553,8 +589,8 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 # --------------------------------------------------> #
 [ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
 					</center></code></pre>
-					<p>and from right to left!</p>
-					<pre><code class="python" data-trim data-noescape><center>
+					<p class='fragment' data-fragment-index='2'>and from right to left!</p>
+					<pre class='fragment' data-fragment-index='2'><code class="python" data-trim data-noescape><center>
 ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 # --------------------------------------------------> #
 [-9 , -8 , -7 , -6 , -5 , -4 , -3 , -2 , -1 ]
@@ -587,14 +623,14 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					Out: 9
 					</code></pre>
 					<br/>
-					<p>
+					<p class='fragment' data-fragment-index='2'>
 						You will see later on that both position and size are powerful reference points in
 						automating processes
 					</p>
 				</section>
 
 				<section data-background="orange">
-					<h3 style="color: white">Manipulating lists</h3>
+					<h2 style="color: white">Manipulating lists</h2>
 				</section>
 
 				<section>
@@ -702,7 +738,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 					<h3 style="color: crimson">Caution</h3>
 					<p class="fragment" data-fragment-index="1">
 						Python considers whatever is between the
-						brackets () as <b>one</b> item and will add it in like so
+						brackets (...) as <b>one</b> item and will add it in like so
 					</p>
 					<pre class="fragment" data-fragment-index="1"><code class='python' data-trim>
 						my_list = [0, 2, 1, 0, 1, 9, 4, 0]
@@ -720,6 +756,23 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						Out: [0, 2, 1, 0, <mark>[-1, -8]</mark>, 1, 9, 4, 0]
 					</code></pre>
 				</section>
+
+                <section>
+                    <p>if you actually wanted to expand a list somewhere in the middle...</p>
+					<pre><code class='python' data-trim>
+						my_list = [0, 2, 1, 0, 1, 9, 4, 0]
+						extra_list = [-1, -8]
+					</code></pre>
+                    <p class="fragment" data-fragment-index="1">you need to insert at the sliced point of interest</p>
+					<pre class="fragment" data-fragment-index="1"><code class='python' data-trim>
+						my_list[4:4] = extra_list
+					</code></pre>
+					<pre class="fragment" data-fragment-index="2"><code class='ipython' data-trim data-noescape>
+						In : print(my_list)
+						Out: [0, 2, 1, 0, <mark>-1, -8</mark>, 1, 9, 4, 0]
+					</code></pre>
+                    <p class="fragment" data-fragment-index="3">...don't know why you would though...</p>
+                </section>
 
 				<section>
 					<h3>We can also retrieve items</h3>
@@ -762,7 +815,6 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						In : my_list.pop()
 						Out: 0
 					</code></pre>
-
 				</section>
 
 				<section>
@@ -870,7 +922,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				<section>
 					<h3>Lists can contain lists!</h3>
 					<p>
-						This is referred to as nesting, and allows us to create a greater
+						This is referred to as NESTING, and allows us to create a greater
 						number of dimensions
 					</p>
 					<pre><code class='python' data-trim>
@@ -916,7 +968,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				</section>
 			</section>
 
-<!--- TUPLE SECTION --->
+<!--- TUPLE SECTION -->
 
 			<section>
 				<section data-background="orange">
@@ -949,8 +1001,8 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						In : my_tuple[2:]
 						Out: (8, 1, 1)
 	        </code></pre>
-					<p>and expanded</p>
-					<pre><code class="ipython" data-trim data-noescape>
+					<p class="fragment" data-fragment-index="1">and expanded</p>
+					<pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim data-noescape>
 						In :my_tuple + my_tuple[2:]
 						Out: (1, 4, 8, 1, 1, <mark>8, 1, 1</mark>)
 	        </code></pre>
@@ -965,18 +1017,19 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						# 3 dimesions
 						tuple_3d = (((0, 2), (1, 0)), ((1, 9), (4, 0)))
 					</code></pre>
-					<p>where access is the same</p>
-					<pre><code class='python' data-trim data-noescape>
+					<p class="fragment" data-fragment-index="1">where access is the same</p>
+					<pre class="fragment" data-fragment-index="1"><code class='python' data-trim data-noescape>
 						list_2d = ((0, <mark>2, 1</mark>, 0), (1, 9, 4, 0))
 					</code></pre>
-					<pre><code class='ipython' data-trim>
+					<pre class="fragment" data-fragment-index="1"><code class='ipython' data-trim>
 						In : list_2d[0][1:3]
 						Out: (2, 1)
 					</code></pre>
 				</section>
 
 				<section data-background="orange">
-					<h4 style="color: white">There are some subtle differences however</h4>
+					<h4 style="color: white">however</h4>
+					<h2 style="color: black">Their behaviour is different</h2>
 				</section>
 
 				<section>
@@ -989,11 +1042,11 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						In : pack_tuple
 						Out: (1, 3, True, "hello")
           </code></pre>
-					<p>and can be retrieved by <b>unpacking</b></p>
-					<pre><code class="python" data-trim>
+					<p class="fragment" data-fragment-index="1">and can be retrieved by <b>unpacking</b></p>
+					<pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
           a, b, c, d = pack_tuple
           </code></pre>
-					<pre><code class="ipython" data-trim>
+					<pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
 						In : a, b, c, d
 						Out: 1
 						Out: 3
@@ -1002,31 +1055,51 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
           </code></pre>
 				</section>
 
-				<section>
-					<p>But the most important difference...</p>
-					<h3 class="fragment" data-fragment-index="1">
+                <section>
+                    <p>tuples of single values <b>require</b> a trailing <b>comma</b></p>
+					<pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
+						single_tup = (1, )
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="2">otherwise they are considered as the value between the (...)</p>
+					<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
+						bad_tup = (1)
+                    </code></pre>
+        <pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
+                        In : bad_tup == 1
+                        Out: True
+        </code></pre>
+                    <p class="fragment" data-fragment-index="3">...rather...</p>
+        <pre class="fragment" data-fragment-index="3"><code class="ipython" data-trim>
+                        In : single_tup == 1
+                        Out: False
+        </code></pre>
+                </section>
+
+				<section data-background="orange">
+					<p>most importantly...</p>
+					<h2 class="fragment" data-fragment-index="1" style="color: white">
 						Tuples are immutable
-					</h3>
-					<p class="fragment", data-fragment-index="2">
+					</h2>
+					<p class="fragment" data-fragment-index="2">
 						<i>this means they cannot be changed</i>
 					</p>
 				</section>
 
 				<section>
 					<p>for example: this is not allowed</p>
-					<pre class="fragment", data-fragment-index="2"><code class="python" data-trim>
+					<pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
 	        my_tuple = (1, 4, 8, 1, 1)
 	        </code></pre>
-					<pre class="fragment", data-fragment-index="2"><code class="ipython" data-trim>
+					<pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
 						In : my_tuple[1] = -9999
 						TypeError: 'tuple' object does not support item assignment
 	        </code></pre>
-					<p class="fragment", data-fragment-index="3">nor this</p>
-					<pre class="fragment", data-fragment-index="3"><code class="ipython" data-trim>
+					<p class="fragment" data-fragment-index="3">nor this</p>
+					<pre class="fragment" data-fragment-index="3"><code class="ipython" data-trim>
 						In : del my_tuple[1]
 						TypeError: 'tuple' object does not support item deletion
 	        </code></pre>
-					<p class="fragment", data-fragment-index="4">
+					<p class="fragment" data-fragment-index="4">
 						so the tuple and its values are actually protected</p>
 				</section>
 
@@ -1040,7 +1113,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				</section>
 			</section>
 
-<!--- STRINGS --->
+<!--- STRINGS -->
 
 			<section>
 				<section data-background="orange">
@@ -1062,7 +1135,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				<section>
 					<h3>Strings are a sequence of characters</h3>
 					<h5>and behave very much like lists</h5>
-					<p class="fragment" class="fragment" data-fragment-index="1">
+					<p class="fragment" data-fragment-index="1">
 						so you can perform similar operations on them
 					</p>
 					<pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
@@ -1100,7 +1173,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				</section>
 			</section>
 
-<!--- DICTIONARIES --->
+<!--- DICTIONARIES -->
 
 			<section>
 				<section data-background="orange">
@@ -1220,18 +1293,20 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 						This is important to remember!
 					</h4>
 					<hr class="fragment" data-fragment-index="1" />
-					<span stype='color: white'>
 					<p class="fragment" data-fragment-index="1">
+					<span style='color: white'>
 						A dictionary <b>is not ordered</b> in the obvious sense.
+					</span>
 					</p>
 					<p class="fragment" data-fragment-index="1">
+					<span style='color: white'>
 						The order of key:values entered != the order of key:values stored
-					</p>
 					</span>
+					</p>
 				</section>
       </section>
 
-<!--- Sets --->
+<!--- Sets -->
 
 			<section>
 				<section data-background="#2f4f4f">
@@ -1261,7 +1336,7 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 
 			</section>
 
-<!--- Summary --->
+<!--- Summary -->
 
 			<section>
 				<section data-background="#2f4f4f">
@@ -1270,11 +1345,11 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 
 				<section>
 					<hr class="fragment" data-fragment-index="5" />
-					<p>we <span style="color: hotpink">&hearts;</span>integers & floats</p>
+					<p>we <span style="color: hotpink">&hearts;</span>integers &amp; floats</p>
 					<p class="fragment" data-fragment-index="2">
 						we <span style="color: pink">&hearts;</span>strings</p>
 					<p class="fragment" data-fragment-index="3">
-						we <span style="color: purple">&hearts;</span>lists & tuples</p>
+						we <span style="color: purple">&hearts;</span>lists &amp; tuples</p>
 					<p class="fragment" data-fragment-index="4">
 						we <span style="color: salmon">&hearts;</span>dictionaries</p>
 					<hr class="fragment" data-fragment-index="5" />
@@ -1284,19 +1359,23 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 
 				<section>
 					<h4>remember</h4>
-					<h2 class="fragment">the basics are hard!</h2>
-					<h6 class="fragment">..but</h2>
-					<h5 class="fragment" style="color: black">it gets easier the more you use it</h5>
+					<h3 class="fragment">coding is hard!</h3>
+					<h4 class="fragment">..but easy at the same time</h4>
 				</section>
 
 				<section>
-					<h3>also</h3>
-					<p class="fragment">don't be daunted</p>
-					<p class="fragment">be humble</p>
-					<p class="fragment">be adventurous</p>
+					<h3>finally</h3>
 					<p class="fragment">practice</p>
 					<p class="fragment">practice</p>
 					<p class="fragment">practice</p>
+				</section>
+
+				<section>
+					<p>before we go any further, type this into your notebook</p>
+						<pre class="fragment"><code class="python" data-trim data-noescape>
+							print("Hello world!")
+						</code></pre>
+					<p class="fragment">Congratulations, you've executed your first piece of Python code</p>
 				</section>
 
 				<section data-background="#2f4f4f">
@@ -1312,8 +1391,8 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 			</div>
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+		<script src="reveal/lib/js/head.min.js"></script>
+		<script src="reveal/js/reveal.js"></script>
 
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
@@ -1322,16 +1401,16 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/math/math.js', async: true },
-					{ src: 'plugin/title-footer/title-footer.js',
+					{ src: 'reveal/plugin/markdown/marked.js' },
+					{ src: 'reveal/plugin/markdown/markdown.js' },
+					{ src: 'reveal/plugin/math/math.js', async: true },
+					{ src: 'reveal/plugin/title-footer/title-footer.js',
                         async: true, callback: function() { title_footer.initialize(
                           // Change footer here
                           'Natural Perils Pricing • Suncorp Group Limited • March 2017', '#2f4f4f'
                           ); } },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'reveal/plugin/notes/notes.js', async: true },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
