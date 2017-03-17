@@ -7,8 +7,8 @@
 
 	<title>Lesson 1</title>
 
-	<link rel="stylesheet" href="reveal/css/reveal.css">
-	<link rel="stylesheet" href="reveal/css/theme/white.css">
+	<link rel="stylesheet" href="../reveal/css/reveal.css">
+	<link rel="stylesheet" href="../reveal/css/theme/white.css">
 
 	<meta name="description" content="The basics of Python - data types and variables">
 	<meta name="author" content="Rhys Whitley">
@@ -19,16 +19,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
-	<link rel="stylesheet" href="reveal/plugin/title-footer/title-footer.css">
+	<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+	<link rel="stylesheet" href="../reveal/plugin/title-footer/title-footer.css">
 
-	<link rel="stylesheet" href="reveal/css/custom.css">
+	<link rel="stylesheet" href="../reveal/css/custom.css">
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 
@@ -1129,8 +1129,8 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				</section>
 
 				<section data-background="orange">
-					<h4 style="color: white">however</h4>
-					<h2 style="color: black">Their behaviour is different</h2>
+					<h4 style="color: black">however</h4>
+					<h2 style="color: white">Their behaviour is different</h2>
 				</section>
 
 				<section>
@@ -1420,13 +1420,9 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 				</section>
 
 				<section data-transition="fade">
-					<div class="highblock" style="background-color: #2f4f4f; bottom: 66%">
-						<p style="color: white">
+						<h3>
 							Python has other sequence objects that are commonly used
-						</p>
-					</div>
-					<br />
-					<br />
+						</h3>
 					<p class="fragment" data-fragment-index="1">
 						<code class="python">numpy arrays</code>
 					</p>
@@ -1489,8 +1485,8 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 			</div>
 		</div>
 
-		<script src="reveal/lib/js/head.min.js"></script>
-		<script src="reveal/js/reveal.js"></script>
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.js"></script>
 
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
@@ -1499,16 +1495,16 @@ name = ["A", "l", "e", "j", "a", "n", "d", "r", "o"]
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'reveal/plugin/markdown/marked.js' },
-					{ src: 'reveal/plugin/markdown/markdown.js' },
-					{ src: 'reveal/plugin/math/math.js', async: true },
-					{ src: 'reveal/plugin/title-footer/title-footer.js',
+					{ src: '../reveal/plugin/markdown/marked.js' },
+					{ src: '../reveal/plugin/markdown/markdown.js' },
+					{ src: '../reveal/plugin/math/math.js', async: true },
+					{ src: '../reveal/plugin/title-footer/title-footer.js',
                         async: true, callback: function() { title_footer.initialize(
                           // Change footer here
                           'Rhys Whitley • Natural Perils Pricing • March 2017', '#2f4f4f'
                           ); } },
-					{ src: 'reveal/plugin/notes/notes.js', async: true },
-					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: '../reveal/plugin/notes/notes.js', async: true },
+					{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
