@@ -38,3 +38,6 @@ jspm_packages
 
 # mac garbage
 .DS_Store
+
+# extras
+decktape-1.0.0

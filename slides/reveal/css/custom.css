@@ -104,7 +104,8 @@
 }
 
 .reveal pre code mark {
-  color: black;
+  color: black !important;
+  background-color: yellow !important;
 }
 
 
