@@ -333,18 +333,38 @@ for item in mega_list:
                    </p>
                 </section>
 
+                <section data-background="img/Lesson_2/enumerate.jpg">
+                    <h3 class="low" style="color: white; position: absolute; left: 50px; top: -130px;">introducing</h3>
+                    <h1 class="low" style="color: white; position: absolute; left: 50px; top: -90px;">
+                         <code>enumerate(...)</code>
+                    </h1>
+                    <h1 style="color: white; position: absolute; left: 150px; bottom: -400px;">
+                        <span class="fragment">AH</span> 
+                        <span class="fragment">AH</span> 
+                        <span class="fragment">AH</span> 
+                    </h1>
+                </section>
+
                 <section>
-                    <h4 class="low">ENTER &rarr; <code>enumerate(...)</code></h4>
-                    <pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
+                    <h4 class="low"><code>enumerate(...)</code> belongs to a special class of data type</h4>
+                    <p>aptly called an <b>iterator</b></p>
+                    <hr />
+                    <p>iterator types are designed to work with iteration</p>
+                </section>
+
+                <section>
+                    <h4 class="low"><code>enumerate(...)</code> works as follows</h4>
+                    <p>for each item, also return its index</p>
+                    <pre class="fragment" data-fragment-index="1"><code class="python" data-trim data-noescape>
 my_list = [4, 6, 1, 0]
 
-for (i, item) in enumerate(my_list):
+for <span class="fragment highlight-red" data-fragment-index="3">(i, item)</span> in enumerate(my_list):
 
      # print to screen
      print("value at index %d = %d" % (i, item))
 	               </code></pre>
                    <p class="fragment" data-fragment-index="2">
-                       returns not only the item <b>value</b>, but the <b>position</b>
+                   index and value is always returned as a <span class="fragment highlight-red" data-fragment-index="3">tuple</span>
                    </p>
                     <pre class="fragment" data-fragment-index="2"><code class="python" data-trim>
 "value at index 0 = 4"
@@ -378,9 +398,16 @@ Out: [11, 13, 14, 11, 14, 17, 19, 1009, 353 ,9, ...]
         	        </code></pre>
                 </section>
 
+                <section data-background="img/Lesson_2/range.jpg">
+                    <h3 class="low" style="color: black; position: absolute; left: -50px; top: -280px;">we can also use</h3>
+                    <h1 class="low" style="color: black; position: absolute; left: -50px; top: -220px;">
+                         <code>range(...)</code>
+                    </h1>
+                </section>
+
                 <section>
-                    <h4 class="low">WE CAN ALSO USE range(...)</h4>
-                    <p>which creates a special type of sequence called an <i>iterator</i></p>
+                    <h4 class="low">range(...) is also an iterator type</h4>
+                    <p>and aptly creates a sequence of numbers</p>
                     <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
 for i in range(5):
     print(i)
@@ -422,9 +449,10 @@ for i in range(ml_len):
                 <section data-background="orange">
                     <h3 class="low" style="color: white">you can also loop through multiple lists...</h3>
                 </section>
+
                 <section data-background="img/Lesson_2/zip.jpg">
-                    <h3 style="color: black; position: absolute; left: 50px; top: 380px;">using</h3>
-                    <h1 style="color: black; position: absolute; left: 50px; top: 440px;">
+                    <h3 style="color: black; position: absolute; left: 0px; top: 380px;">using</h3>
+                    <h1 style="color: black; position: absolute; left: 0px; top: 440px;">
                          <code>zip(...)</code>
                     </h1>
                 </section>
@@ -466,20 +494,29 @@ Out: '1c'
                     <p class="fragment" data-fragment-index="3">will <span style="color: crimson; font-weight: bold">chop</span> on the smallest one</p>
                 </section>
 
+                <section data-background="orange">
+                    <h4 class="low" style="color: white">finally we can dynamically</h4>
+                    <h2 class="fragment grow" style="color: white">grow lists</h2>
+                </section>
+
                 <section>
-                    <h4>growing lists</h4>
-                    <p><code>for</code> loops can also dynamically build lists</p>
-                    <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
-my_list = []
+                    <h4>list can be grown as follows</h4>
+                    <p class="fragment" data-fragment-index="1">first, initialise an empty list</p>
+                    <pre><code class="ipython" data-trim data-noescape>
+<span class="fragment" data-fragment-index="1">my_list = []</span>
 
-for i in range(10):
+for i in <span class="fragment" data-fragment-index="2">range(10):</span>
 
-    # add a new item to the list
-    my_list.append(i)
+    <span class="fragment" data-fragment-index="3"># add a new item to the list
+    my_list.append(i)</span>
 					</code></pre>
                     <p>
-                        <span class="fragment">define empty list</span> &rarr; set a list size &rarr; add new item(s)
-                    </p>
+                    <span class="fragment" data-fragment-index="2">set a list size </span><span class="fragment" data-fragment-index="3">&rarr; add new item(s)</span>
+                     <pre class="fragment" data-fragment-index="4"><code class="ipython" data-trim>
+                     In : my_list
+                     Out: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+					</code></pre>
+                   </p>
                 </section>
 
                 <section data-background="orange">
@@ -543,9 +580,9 @@ Out: "value for Finn = 16"
                 </section>
 
                 <section>
-                    <h4>How do I deal with nested lists, tuples, etc.?</h4>
+                    <h4>nested sequences?</h4>
                     <p class="fragment" data-fragment-index="1">
-                        Easy! Just add another <b>for</b> loop statement with an indent
+                        Just add another <b>for</b> loop statement with an indent
                     </p>
                 </section>
 
