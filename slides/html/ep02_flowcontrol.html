@@ -39,10 +39,14 @@
         <div class="slides">
 
             <section data-background="img/grass-bg.jpg">
+                <br />
                 <img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 50px' />
                 <br />
-                <img class=noborder src="img/title.png" alt="presentation title" style='height: 80px' />
-                <br />
+                <img class=noborder src="img/title.png" alt="presentation title" style='height: 100px' />
+                <font size="6">
+                <p style="line-height: 0.5em; color: #2f4f4f; font-weight: bold">Rhys Whitley</p>
+                <p style="line-height: 1em; color: #2f4f4f; font-weight: bold">Natural Perils Pricing</p>
+                </font>
                 <br />
                 <br />
             </section>
@@ -77,11 +81,9 @@
                 </section>
 
                 <section data-transition="fade-in">
-                    <h4>If we were to group these data types into two</h4>
-                    <p><span style="color: crimson">ints :</span> 3</p>
-                    <p><span style="color: crimson">floats :</span> 5.134</p>
-                    <hr class="fragment" data-fragment-index="0" />
+                    <h4>in particular sequence types</h4>
                     <p class="fragment highlight-green" data-fragment-index="0"><span style="color: crimson">strings :</span> "Barry"</p>
+                    <hr class="fragment" data-fragment-index="0" />
                     <p class="fragment highlight-blue" data-fragment-index="0"><span style="color: crimson">lists :</span> [1, 4, 0, 7]</p>
                     <p class="fragment highlight-blue" data-fragment-index="0"><span style="color: crimson">tuples :</span> (1, 4, 0, 7)</p>
                     <p class="fragment highlight-blue" data-fragment-index="0"><span style="color: crimson">dicts :</span> {"key1": 100, "key2": -8}</p>
@@ -89,16 +91,18 @@
 
                 <section>
                     <h3>previously...</h3>
-                    <p>we learnt how to manipulate the contents of python sequence types, using:</p>
+                    <p>we learnt how to manipulate sequence types, using:</p>
                     <p class="fragment" data-fragment-index="1">slicing &rarr; <code>[:]</code></p>
-                    <p class="fragment" data-fragment-index="2">and inbuilt methods &rarr; <code>.method()</code></p>
+                    <p class="fragment" data-fragment-index="2">&amp;</p>
+                    <p class="fragment" data-fragment-index="2">inbuilt methods &rarr; <code>.append() etc.</code></p>
                 </section>
 
                 <section>
-                    <h3>manual manipulation of sequences</h3>
+                    <h3>working with sequences</h3>
+                    <p>in a repetitive manner</p>
                     <p class="fragment shrink">possible when our sequences are small</p>
                     <p class="fragment grow highlight-red">almost impossible when sequences are large</p>
-                    <p class="fragment"><br />how can we efficiently operate on sequences no matter their size?</p>
+                    <p class="fragment"><br />how do we work with sequences of any size?</p>
                 </section>
             </section>
 
@@ -106,7 +110,7 @@
                 <section data-background="black">
                     <h4 style='color: white'>Episode 2</h4>
                     <img style="position: relative" src="img/Lesson_1/for_loop.gif" alt="for loop" />
-                    <h1 class="fragment" style='color: white; position: absolute; top: 280px; left: 100px'>flow control</h1>
+                    <h1 class="fragment" style='color: white; position: absolute; top: 290px; left: 100px'>flow control</h1>
                 </section>
 
                 <section>
@@ -121,47 +125,28 @@
                     <p class="fragment" data-fragment-index="9">...ZZZZZ...</p>
                 </section>
 
+
                 <section>
-                    <p>Say I want to add 10 to a list of arbitrary numbers</p>
-                    <pre><code class="python" data-trim>
-                        mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
-            </code></pre>
-                    <p class="fragment" data-fragment-index="1">You wouldn't want to do this</p>
-                    <pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
-                        x = 10
-
-                        item0 = mega_list[0] + x
-                        item1 = mega_list[1] + x
-                        item2 = mega_list[2] + x
-                        item3 = mega_list[3] + x
-                        # ad nauseum
-
-                        list_plusx = [item0, item1, item2, item3, ...]
-            </code></pre>
+                    <h4>rather</h4>
+                    <p>I want a process that can do this many times</p>
+                    <pre><code class="python">
+# PSEUDO CODE
+#
+# repeat // for all items in my list:
+#    1. take the item in my list
+#    2. and add 10 to it
+                    </code></pre>
                     <p class="fragment" data-fragment-index="1">
-                        Ugh, how repetitive!
+                        which leads us to...
                     </p>
                 </section>
 
                 <section>
-                    <h4>Hang on ...</h4>
-                    <p>don't <b>lists</b>, <b>tuples</b> and <b>dicts</b> have reference
-                        <span style="color: crimson">position</span> (index or key) and <span style="color: crimson">size</span> (or length) attributes?</p>
-                    <pre><code class="python" data-trim data-noescape><center>
-["A", "l", "e", "j", "a", "n", "d", "r", "o"]
-# --------------------------------------------------> #
-[ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
-
-size = 9 # items
-                    </center></code></pre>
-                    <p class="fragment" data-fragment-index="3">Surely I can use this information to move around, knowing where I am and how far I can go ...
-                    </p>
-                </section>
-
-                <section>
-                    <div class="highblock">
-                        <p>We certainly can and it's called <b>iteration</b></p>
-                    </div>
+                        <p>our first concept of flow control</p>
+                        <h2>iteration</h2>
+                        <br />
+                        <br />
+                        <br />
                     <div class="lowblock" style="background-color: orange">
                         <p>
                             <font face="Times"><i>"the process of repeating a task many times"</i></font>
@@ -169,8 +154,25 @@ size = 9 # items
                     </div>
                 </section>
 
+                <section data-background="white">
+                    <h2>iteration is powerful</h2>
+                    <hr class="fragment" data-fragment-index="1" />
+                    <span class="fragment" data-fragment-index="1">
+                    <h4 class="low">it allow us to:</h4>
+                    </span>
+                    <h5 class="fragment" data-fragment-index="1" style="color: black">move through &amp; modify</h5>
+                    <h5 class="fragment" data-fragment-index="1" style="color: black"></h5>
+                    <p class="fragment" data-fragment-index="1" style="color: black">sequences</p>
+                    <hr class="fragment" data-fragment-index="2" />
+                    <span class="fragment" data-fragment-index="2">
+                    <h4 class="low">and:</h4>
+                    </span>
+                    <h4 class="fragment" data-fragment-index="2" style="color: black">build</h4>
+                    <p class="fragment" data-fragment-index="2" style="color: black">new ones</p>
+                </section>
+
                 <section>
-                    <p>and Python provides two control processes to do this</p>
+                    <p>Python provides two control processes for iteration</p>
                     <div class="fragment" data-fragment-index="1" id="left" style="background-color: #2f4f4f">
                         <center>
                             <p></p>
@@ -182,11 +184,31 @@ size = 9 # items
                     <div class="fragment" data-fragment-index="2" id="right" style="background-color: orange">
                         <center>
                             <p></p>
-                            <p class="fragment" data-fragment-index="1" style="color: black; font-weight: bold">
+                            <p class="fragment" data-fragment-index="1" style="color: white; font-weight: bold">
                                 <font size="10">while</font>
                             </p>
                         </center>
                     </div>
+                </section>
+
+                <section>
+                    <h4>both of which</h4>
+                    <p>use
+                        <span style="color: crimson">position</span> and <span style="color: crimson">size</span> for flow control</p>
+                    <pre><code class="python" data-trim data-noescape><center>
+["A", "l", "e", "j", "a", "n", "d", "r", "o"]
+# --------------------------------------------------> #
+[ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ]
+
+size = 9 # items
+                    </center></code></pre>
+                    <p class="fragment">
+                        attributes which all <b>lists</b>, <b>tuples</b> and <b>dicts</b> have
+                    </p>
+                </section>
+
+                <section data-background="orange">
+                    <h4 class="low" style="color: white">we will now look at how each process handles flow control</h4>
                 </section>
             </section>
 
@@ -213,7 +235,7 @@ size = 9 # items
 
                 <section>
                     <p>
-                     what might this look like?
+                     so I can move through the list like so...
                     </p>
                     <pre><code class="python" data-trim data-noescape>
 						my_list = [99, 22, 1, 93, 6, 3, 1, 1]
@@ -223,7 +245,7 @@ size = 9 # items
 						   # print item to screen
 						   print(item)
 					</code></pre>
-                    <p class="fragment" data-fragment-index="1">output</p>
+                    <p class="fragment" data-fragment-index="1">and print out every item</p>
                     <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
 						99
 						22
@@ -250,6 +272,7 @@ for item in my_list:
 					</code></pre>
                     <p style="color: white">...</p>
                     <p style="color: white">...</p>
+                    <p style="color: white">...</p>
                 </section>
 
                 <section data-transition="fade-in">
@@ -269,12 +292,33 @@ for item in my_list<mark>:</mark>
                 </section>
 
                 <section>
-                    <h3>going back to our large list</h3>
-                    <p>... where we want to add 10 to all items</p>
+                    <p>Say I want to add 10 to a list of arbitrary numbers</p>
+                    <pre><code class="python" data-trim>
+                        mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
+            </code></pre>
+                    <p class="fragment" data-fragment-index="1">You wouldn't want to do this</p>
+                    <pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
+                        x = 10
+
+                        item0 = mega_list[0] + x
+                        item1 = mega_list[1] + x
+                        item2 = mega_list[2] + x
+                        item3 = mega_list[3] + x
+                        # ad nauseum
+
+                        list_plusx = [item0, item1, item2, item3, ...]
+            </code></pre>
+                    <p class="fragment" data-fragment-index="1">
+                        repetitive!
+                    </p>
+                </section>
+
+                <section>
+                    <p class="low">instead, we can use a <code>for</code> loop</p>
                     <pre><code class="python" data-trim>
 mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
 	                </code></pre>
-                    <p class="fragment" data-fragment-index="1">we can quite easily do so using a for loop</p>
+                    <p class="fragment" data-fragment-index="1">which will do it for us</p>
                     <pre class="fragment" data-fragment-index="1"><code class="python" data-trim>
 for item in mega_list:
 
@@ -285,12 +329,8 @@ for item in mega_list:
     print(new_value)
 	               </code></pre>
                    <p class="fragment" data-fragment-index="2">
-                    ... not modifying the list though ...
+                    but how do we modify the current value?
                    </p>
-                </section>
-
-                <section data-background="orange">
-                    <h3 class="low" style="color: white">two ways to modify our list</h3>
                 </section>
 
                 <section>
@@ -312,13 +352,10 @@ for (i, item) in enumerate(my_list):
 "value at index 2 = 1"
 "value at index 3 = 0"
 	               </code></pre>
-                   <p class="fragment" data-fragment-index="3">
-                       we can use this to modify the items of a list
-                   </p>
                 </section>
 
                 <section>
-                    <h4 class="low">USE enumerate() TO MODIFY OUR LIST</h4>
+                    <p class="low">now we can modify our list</p>
                     <pre><code class="python" data-trim>
 mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
         	        </code></pre>
@@ -333,40 +370,67 @@ for (i, item) in enumerate(mega_list):
 
      <span class="fragment" data-fragment-index="3"># replace old value with new value
      mega_list[i] = new_value</span>
-	               </code></pre>
-                   <p class="fragment" data-fragment-index="4">
-                       <i>rinse and repeat for all items</i>
-                   </p>
+	                </code></pre>
+                    <p class="fragment" data-fragment-index="4">voila</p>
+                    <pre class="fragment" data-fragment-index="4"><code class="ipython" data-trim>
+In : mega_list
+Out: [11, 13, 14, 11, 14, 17, 19, 1009, 353 ,9, ...]
+        	        </code></pre>
                 </section>
 
                 <section>
                     <h4 class="low">WE CAN ALSO USE range(...)</h4>
-                    <p>to create a list of indices for each item</p>
+                    <p>which creates a special type of sequence called an <i>iterator</i></p>
+                    <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
+for i in range(5):
+    print(i)
+        	        </code></pre>
+                    <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
+Out: 0, 1, 2, 3, 4
+        	        </code></pre>
+                    <p class="fragment" data-fragment-index="1">given the upper limit (assumes <code>start</code> = 0)</p>
+                    <pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
+for i in range(5, 10, 2):
+    print(i)
+        	        </code></pre>
+                    <pre class="fragment" data-fragment-index="2"><code class="ipython" data-trim>
+Out: 5, 7, 9
+        	        </code></pre>
+                    <p class="fragment" data-fragment-index="2">
+                        or we can explicity state the <code>start</code>, <code>end</code> and <code>step</code></p>
+                </section>
+
+                <section>
+                    <p>
+                        in the context of modifying our list...
+                    </p>
                     <pre><code class="python" data-trim>
 mega_list = [1, 3, 4, 1, 4, 7, 9, 999, 343 ,-1, ...]
-        	        </code></pre>
-                    <p class="fragment" data-fragment-index="1">given the size of the list</p>
-                    <pre class="fragment" data-fragment-index="1"><code class="python" data-trim data-noescape>
-list_size = len(mega_list)
 
-In : range(list_size)
-Out: [0, 1, 2, 3, ...]
-	               </code></pre>
-                   <p class="fragment" data-fragment-index="2">we can modify it via index</p>
+list_size = len(mega_list)
+        	        </code></pre>
+                    <p class="fragment" data-fragment-index="1">create an iterator from the list size</p>
                     <pre class="fragment" data-fragment-index="2"><code class="python" data-trim data-noescape>
 for i in range(ml_len):
 
      # replace old value with new value
-     mega_list[i] = mega_list[i] + 10
+     mega_list[i] += 10
 	               </code></pre>
+                    <p class="fragment" data-fragment-index="2">then modify it via index</p>
                 </section>
 
                 <section data-background="orange">
-                    <h3 class="low" style="color: white">maybe you want to loop through multiple lists...</h3>
+                    <h3 class="low" style="color: white">you can also loop through multiple lists...</h3>
+                </section>
+                <section data-background="img/Lesson_2/zip.jpg">
+                    <h3 style="color: black; position: absolute; left: 50px; top: 380px;">using</h3>
+                    <h1 style="color: black; position: absolute; left: 50px; top: 440px;">
+                         <code>zip(...)</code>
+                    </h1>
                 </section>
 
                 <section>
-                    <h4 class="low">ENTER &rarr; <code>zip(...)</code></h4>
+                    <h4 class="low"><code>zip(...)</code></h4>
                     <p>joins two lists together for simultaneously looping!</p>
                     <pre><code class="python" data-trim data-noescape>
 my_list1 = [99, 22, 1, 93, 6, 3, 1, 1]
@@ -402,15 +466,31 @@ Out: '1c'
                     <p class="fragment" data-fragment-index="3">will <span style="color: crimson; font-weight: bold">chop</span> on the smallest one</p>
                 </section>
 
+                <section>
+                    <h4>growing lists</h4>
+                    <p><code>for</code> loops can also dynamically build lists</p>
+                    <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim>
+my_list = []
+
+for i in range(10):
+
+    # add a new item to the list
+    my_list.append(i)
+					</code></pre>
+                    <p>
+                        <span class="fragment">define empty list</span> &rarr; set a list size &rarr; add new item(s)
+                    </p>
+                </section>
+
                 <section data-background="orange">
-                    <h3 class="low", style="color: white">
-                        tuples loop in the same way as lists
-                    </h3>
+                    <h4 class="low", style="color: white">
+                        tuples iterate in the same way as lists
+                    </h4>
                     <span class="fragment">
                     <hr line-color='white' />
-                    <h3 class="low", style="color: white">
-                        as long their behaviour is not violated
-                    </h3>
+                    <h4 class="low", style="color: white">
+                        you just can't modify them
+                    </h4>
                     </span>
                 </section>
 
