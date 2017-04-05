@@ -43,3 +43,7 @@ jspm_packages
 decktape-1.0.0
 
 Thumbs.db
+
+# ignore files
+.ipynb_checkpoints
+.DS_Store
