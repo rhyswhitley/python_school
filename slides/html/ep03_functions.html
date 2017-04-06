@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lesson 1b</title>
+
+    <link rel="stylesheet" href="../reveal/css/reveal.css">
+    <link rel="stylesheet" href="../reveal/css/theme/white.css">
+
+    <meta name="description" content="Lesson 1b on the basics of python - iteration">
+    <meta name="author" content="Rhys Whitley">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../reveal/plugin/title-footer/title-footer.css">
+
+    <link rel="stylesheet" href="../reveal/css/custom.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-background="img/grass-bg.jpg">
+                <br />
+                <br />
+                <img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 50px' />
+                <br />
+                <img class=noborder src="img/title.png" alt="presentation title" style='height: 100px' />
+                <font size="18">
+                <p style="line-height: 1em; color: black; font-weight: bold">Lesson 3</p>
+                </font>
+                <font size="6">
+                <p style="line-height: 0.5em; color: #000000; font-weight: bold">13 April 2017</p>
+                </font>
+                <br />
+                <br />
+            </section>
+
+<!--- Recap -->
+
+            <section>
+                <section data-background="#2f4f4f">
+                    <h3>Previously on Python School</h3>
+                </section>
+
+                <section data-transition="fade">
+                    <h4>We looked at</h4>
+                    <h2>flow control!</h2>
+                    <p class="fragment"><span style="color: crimson">for</span> loops</p>
+                    <p class="fragment"><span style="color: crimson">while</span> loops</p>
+                    <p class="fragment"><span style="color: crimson">ifelse</span> statements</p>
+                </section>
+
+                <section>
+                    Statements that allow us to <b>control</b> processes and <b>repeat</b> them many times
+                </section>
+
+            </section>
+
+<!--- Functions -->
+            <section data-background="img/Lesson_3/functions_green.jpg">
+                <h1 style="color: white">functions</h1>
+            </section>
+
+<!--- Summary -->
+
+            <section>
+                <section data-background="#2f4f4f">
+                    <h3>summary</h3>
+                </section>
+
+                <section>
+                    <hr class="fragment" data-fragment-index="5" />
+                    <p class="fragment" data-fragment-index="3">
+                        we <span style="color: purple">&hearts;</span> for</p>
+                    <p class="fragment" data-fragment-index="3">
+                        we <span style="color: hotpink">&hearts;</span> while</p>
+                    <p class="fragment" data-fragment-index="4">
+                        we <span style="color: salmon">&hearts;</span> if else statements</p>
+                    <hr class="fragment" data-fragment-index="5" />
+                    <p class="fragment" data-fragment-index="5">
+                        we <span style="color: red">&hearts;</span> Python</p>
+                </section>
+
+                <section data-background="#2f4f4f">
+                    <h2>Next time</h2>
+                </section>
+
+                <section>
+                    <font size="8">
+                        input/output
+                    </font>
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../reveal/lib/js/head.min.js"></script>
+    <script src="../reveal/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [{
+                src: '../reveal/plugin/markdown/marked.js'
+            }, {
+                src: '../reveal/plugin/markdown/markdown.js'
+            }, {
+                src: '../reveal/plugin/math/math.js',
+                async: true
+            }, {
+                src: '../reveal/plugin/title-footer/title-footer.js',
+                async: true,
+                callback: function() {
+                    title_footer.initialize(
+                        // Change footer here
+                        'Rhys Whitley • Python School • 30 March 2017', '#2f4f4f'
+                    );
+                }
+            }, {
+                src: '../reveal/plugin/notes/notes.js',
+                async: true
+            }, {
+                src: '../reveal/plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }]
+        });
+    </script>
+</body>
+
+</html>
