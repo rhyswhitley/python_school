@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../reveal/css/reveal.css">
     <link rel="stylesheet" href="../reveal/css/theme/white.css">
 
-    <meta name="description" content="Lesson 1b on the basics of python - iteration">
+    <meta name="description" content="Lesson 3 on functions and classes">
     <meta name="author" content="Rhys Whitley">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -76,10 +76,78 @@
             </section>
 
 <!--- Functions -->
-            <section data-background="img/Lesson_3/functions_green.jpg">
-                <h1 style="color: white">functions</h1>
-            </section>
+            <section>
+                <section data-background="img/Lesson_3/functions_green.jpg">
+                    <h1 style="color: white">functions</h1>
+                    <h4 class="fragment", style="color: white">&amp; classes</h4>
+                </section>
 
+                <section>
+                    <h3>what is a function?</h3>
+                    <p>anything that <span class="fragment highlight-blue" data-fragment-index="1">operates</span> on some 
+                        <span class="fragment highlight-red" data-fragment-index="1">input</span></p> 
+                    <p style="font-size: 120px">
+                    <font face="Verdana">                
+                        <span class="fragment" data-fragment-index="1">
+                            <i><span class="fragment highlight-blue" data-fragment-index="1">
+                                    f</span>(<span class="fragment highlight-red" data-fragment-index="1">x</span>)</i></span>
+                                    <span class="fragment" data-fragment-index="3"> &rarr; 
+                                        <i><span class="fragment highlight-green" data-fragment-index="3">y</span></i></span>
+                    </font>
+                    <p class="fragment" data-fragment-index="3">to determine an <span class="fragment highlight-green" data-fragment-index="3">output</span></p> 
+                </section>
+
+                <section>
+                    <h3>for example</h3>
+                    <p>the <u>area of a circle</u> is a <b>function</b> of its <u>radius</u></p>
+                    \[
+                    A = \pi r^{2}
+                    \]
+                    <span class="fragment">
+                        or
+                    \[
+                    f(x) = \pi x^{2}
+                    \]
+                    </span>
+                </section>
+                <section>
+                    <h3>mathematically</h3>
+                    <div id="left" style="background-color: orange; padding: 4px 0; height: 450px">
+                        <center>rather than write out this</center>
+                        <br />
+                        \[
+                        \pi 2^{2} = 12.57 \\
+                        \pi 3^{2} = 28.27 \\
+                        \pi 4^{2} = 50.27 \\
+                        ...
+                        \]
+                    </div>
+                    <span class="fragment">
+                    <div id="right" style="background-color: #2f4f4f; color: white; padding: 4px 0; height: 450px">
+                        <center>I can simplify to</center>
+                        <br />
+                        \[
+                        f(2) = 12.57 \\
+                        f(3) = 28.27 \\
+                        f(4) = 50.27 \\
+                        ...
+                        \]
+                    </div></span>
+                </section>
+
+                <section>
+                    <h3>what does this have to do with coding?</h3>
+                    <hr />
+                    <p>we can use this mathematical abstraction</p> 
+                    <p>to <b>encapsulate</b> and <u>execute</u> any arbitrary process at will</p> 
+                </section>
+
+                <section>
+                    <h3>introducing functions</h3>
+                </section>
+
+
+            </section>
 <!--- Summary -->
 
             <section>
