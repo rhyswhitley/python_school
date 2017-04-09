@@ -76,10 +76,11 @@
             </section>
 
 <!--- Functions -->
+
             <section>
                 <section data-background="img/Lesson_3/functions_green.jpg">
                     <h1 style="color: white">functions</h1>
-                    <h4 class="fragment", style="color: white">&amp; classes</h4>
+                    <h4 class="fragment" style="color: white">&amp; classes</h4>
                 </section>
 
                 <section>
@@ -90,7 +91,7 @@
                     <font face="Verdana">                
                         <span class="fragment" data-fragment-index="1">
                             <i><span class="fragment highlight-blue" data-fragment-index="1">
-                                    f</span>(<span class="fragment highlight-red" data-fragment-index="1">x</span>)</i></span>
+                                f</span>(<span class="fragment highlight-red" data-fragment-index="1">x</span>)</i></span>
                                     <span class="fragment" data-fragment-index="3"> &rarr; 
                                         <i><span class="fragment highlight-green" data-fragment-index="3">y</span></i></span>
                     </font>
@@ -142,10 +143,105 @@
                     <p>to <b>encapsulate</b> and <u>execute</u> any arbitrary process at will</p> 
                 </section>
 
-                <section>
+                <section data-background="orange">
                     <h3>introducing functions</h3>
                 </section>
 
+                <section data-transition="fade-in">
+                    <p>functions are expressed in Python as follows:</p>
+                    <pre><code class="python" data-notrim data-noescape>
+<mark class="fragment" data-fragment-index="1">def</mark> function(x):
+    """
+    docstring
+    """
+
+    # do something with x
+    new_x = x + 10
+
+    return new_x
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1">use <code>def</code> to tell Python we're creating a function</p>
+                </section>
+
+                <section data-transition="fade">
+                    <p>functions are expressed in Python as follows:</p>
+                    <pre><code class="python" data-notrim data-noescape>
+def <mark>function</mark>(x):
+    """
+    docstring
+    """
+
+    # do something with x
+    new_x = x + 10
+
+    return new_x
+                    </code></pre>
+                    <p>we also have to give the function a name, for reference</p>
+                </section>
+
+                <section data-transition="fade">
+                    <p>functions are expressed in Python as follows:</p>
+                    <pre><code class="python" data-notrim data-noescape>
+def function(<mark>x</mark>):
+    """
+    docstring
+    """
+
+    # do something with x
+    new_x = x + 10
+
+    return new_x
+                    </code></pre>
+                    <p>and tell it the number of <b>input variables</b> it accepts</p>
+                </section>
+
+                <section data-transition="fade">
+                    <p>functions are expressed in Python as follows:</p>
+                    <pre><code class="python" data-notrim data-noescape>
+def function(x):
+    """
+    docstring
+    """
+
+    # do something with x
+    <mark>new_x = x + 10</mark>
+
+    return new_x
+                    </code></pre>
+                    <p>where we do something with the input(s) in the code block</p>
+                </section>
+
+                <section data-transition="fade">
+                    <p>functions are expressed in Python as follows:</p>
+                    <pre><code class="python" data-notrim data-noescape>
+def function(x):
+    """
+    docstring
+    """
+
+    # do something with x
+    new_x = x + 10
+
+    <mark>return new_x</mark>
+                    </code></pre>
+                    <p>the outcome of which is then <b>returned</b> to the user</p>
+                </section>
+
+                <section data-transition="fade">
+                    <p>functions are expressed in Python as follows:</p>
+                    <pre><code class="python" data-notrim data-noescape>
+def function(x):
+    <mark>"""</mark>
+    <mark>docstring</mark>
+    <mark>"""</mark>
+
+    # do something with x
+    new_x = x + 10
+
+    return new_x
+                    </code></pre>
+                    <p>lastly, we define what the function does for reference</p>
+                </section>
 
             </section>
 <!--- Summary -->
@@ -155,7 +251,7 @@
                     <h3>summary</h3>
                 </section>
 
-                <section>
+                <section data-background="img/python_kaa.gif">
                     <hr class="fragment" data-fragment-index="5" />
                     <p class="fragment" data-fragment-index="3">
                         we <span style="color: purple">&hearts;</span> for</p>
