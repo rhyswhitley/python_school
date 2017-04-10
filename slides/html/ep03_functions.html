@@ -187,7 +187,7 @@ def <mark>quadratic</mark>(x):
     determines the square of a number
     """
 
-    y = x**2Y
+    y = x**2
 
     return y
                     </code></pre>
@@ -254,28 +254,53 @@ def quadratic(x):
                     <p>lastly, we define what the function does for reference</p>
                 </section>
 
+                <section data-background="orange">
+                    <p style="color: white">variables in functions can only affect that specific process</p>
+                    <hr class="fragment" data-fragment-index="1" style="line-color: white">
+                    <p class="fragment" data-fragment-index="1">&there4; outside the function, they hold no purpose</p>
+                    <p class="fragment" data-fragment-index="2">...</p>
+                    <p class="fragment" data-fragment-index="2">this leads on to our next concept</p>
+                </section>
+
 <!-- LEXICAL SCOPING -->
 
                 <section data-background="black">
-                    <p>functions also operate by what is called</p>
-                    <h2>lexical scoping</h2>
-                    <img class="fragment" style="position: absolute; top: 150px; left: 350px" src="img/Lesson_3/eye2.gif" alt="counter"/>
+                    <h1>scope</h1>
+                    <img class="fragment" src="img/Lesson_3/eye2.gif" alt="counter"/>
+                    <p class="fragment" data-fragment-index="1">a variable's visabilty and ability to affect the program</p>
                 </section>
 
                 <section>
-                    <p>variables that are defined within a function</p>
+                    <p>when we talk about scope, variables come in two contexts</p>
+                    <h1 class="fragment" data-fragment-index="1">local</h1>
+                    <h1 class="fragment" data-fragment-index="2">&amp; global</h1>
+                    <p class="fragment" data-fragment-index="3">let's look at both of these</p>
+                </section>
+            </section>
+
+<!-- Local -->
+
+            <section>
+                <section data-background="orange">
+                    <h1 style="color: white">local</h1> 
+                    <h4 style="color: white">variables</h4>
+                </section>
+
+                <section>
+                    <p><b>local</b> variables are those defined within a function</p>
                     <pre><code class="python" data-trim data-noescape>
 def quadratic(x)<mark>:</mark>
     """
     determines the square of a number
     """
 
-    <span style="color: lime">y</span> = x**2
+    <span style="color: lime">a</span> = 2
+    <span style="color: lime">y</span> = a*x**2
 
     return y
                     </code></pre>
-                    <p>exist <b>only within</b> the <u>scope</u> or <mark>code block</mark> of the function</p>
-                    <p class="fragment">i.e. only the function can see them</p>
+                    <p>exist <b>only within</b> the <u>scope</u> &rarr; <mark>code block</mark> of the function</p>
+                    <p class="fragment">once the function ends, the variable is <u>destroyed</u></p>
                 </section>
 
                 <section>
@@ -285,29 +310,20 @@ def quadratic(x):
     """
     determines the square of a number
     """
-    y = x**2
+    a = 2
+    y = a*x**2
 
     return y
-
-print(y)
                     </code></pre>
-                    <p>any reference to the <code>y</code> variable outside this function</p>
+                    <p>any reference to the <code>a</code> variable outside this function</p>
                     <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim data-noescape>
-In : print(y)
-Out: <span style="color: orangered">NameError:</span> name 'y' is not defined
+In : print(a)
+Out: <span style="color: orangered">NameError:</span> name 'a' is not defined
                     </code></pre>
                     <p class="fragment" data-fragment-index="1"><b style="color: crimson">will fail</b> &rarr; as it exists <b>ONLY</b> within the function</p>
                 </section>
 
-                <section>
-                    <p>function variables are commonly referred to as</p>
-                    <h4>local</h4>
-                    <p>or</p>
-                    <h4>private</h4>
-                    <hr class="fragment" data-fragment-index="2" />
-                    <p class="fragment" data-fragment-index="2">i.e. they belong to something / there is ownership</p>
-                </section>
-
+<!--
                 <section data-transition="fade-in">
                     <p>and there is an <b>order</b> and <b>direction</b> to how these variables are seen</p>
                     <pre><code class="python" data-trim data-noescape>
@@ -349,9 +365,10 @@ def shifted_quadratic(x):
                     </code></pre>
                     <p>but <code>shifted_quadratic()</code> can <b>NOT</b> see <code>y</code></p>
                 </section>
+                -->
 
                 <section data-transition="fade-in">
-                    <p>things get different if I define the functions separately though</p>
+                    <p>this is apparent when we have a function that calls another</p>
                     <div id="left">
                     <pre><code class="python" data-trim data-noescape>
 def quadratic(x):
@@ -374,7 +391,7 @@ def shifted_quadratic(x):
                     </div>
                     <div id="right">
                         <p class="fragment"><code>quadratic()</code> will <b style="color: crimson">fail</b> because it has no idea what <code>shift</code> is!</p>
-                        <p class="fragment"><code>shift</code> belongs to <code>shifted_quadratic()</code> and only IT can see it</p>
+                        <p class="fragment"><code>shift</code> belongs to <code>shifted_quadratic()</code> which only IT can see it</p>
                     </div>
                 </section>
 
@@ -434,30 +451,32 @@ def shifted_quadratic(x):
                         <p><code>quadratic()</code> now accepts both <code>x</code> and <span style="color: lime; background-color: gray"><code>shift</code></span> as inputs</p>
                     </div>
                 </section>
+            </section>
 
-                <section>
-                    <p style="color: black; line-height: 0.6em"><i>finally</i></p>
-                    <p style="color: black">any variable defined outside a function is referred to as</p>
-                    <h1>GLOBAL</h1>
-                    <h4>or public</h4>
+<!-- Global -->
+
+            <section>
+                <section data-background="orange">
+                    <h1 style="color: white">GLOBAL</h1>
+                    <h4 style="color: white">variables</h4>
                 </section>
 
                 <section data-transition="fade-in">
-                    <p>this means the variable can be accessed by any part of the program</p>
+                    <p>a variable that can be accessed by any part of the program</p>
                     <pre class="fragment" data-fragment-index="1"><code class="python" data-trim data-noescape>
-shift = 10
+glob_shift = 10
 
 def quadratic(x):
     """
     determines the square of a number
     """
-    y = x**2 + shift
+    y = x**2 + glob_shift
 
     return y
                     </code></pre>
-                    <p class="fragment" data-fragment-index="1">here <code style="color: crimson">shift</code> is seen by
-                    <code>quadratic()</code>as it has been declared at the top level</p>
-                    <p class="fragment" data-fragment-index="2">everything in the program can access it</p>
+                    <p class="fragment" data-fragment-index="1">here <code style="color: crimson">glob_shift</code> is seen by
+                    <code>quadratic()</code>as it has full scope</p>
+                    <p class="fragment" data-fragment-index="2">declared outside any function / top level</p>
                 </section>
 
                 <section data-background="orange">
@@ -467,27 +486,41 @@ def quadratic(x):
                 <section>
                     <h4>there is no rule...but</h4>
                     <p>best to explicitly pass all variables the function will need</p>
-                    <div id="left">
-                    <p class="fragment">if it needs x, y, and z</p>
-                    <pre class='fragment'><code class="python" data-trim>
+                    <hr />
+                    <div id="left" class='fragment'>
+                    <center>
+                    <p>if it needs x, y, and z</p>
+                    </center>
+                    <pre><code class="python" data-trim>
 def operation():
+"""adds 3 together"""
     axis = x + y + z
+
     return axis
                     </code></pre>
                     </div>
-                    <div id="right">
-                    <p class="fragment">then pass it x, y, and z</p>
-                    <pre class='fragment'><code class="python" data-trim>
+                    <div id="right" class="fragment">
+                    <center>
+                    <p>then pass it x, y, and z</p>
+                    </center>
+                    <pre><code class="python" data-trim>
 def operation(x, y, z):
+"""adds 3 together"""
     axis = x + y + z
+
     return axis
                     </code></pre>
                     </div>
+                    <p class="fragment">you then directly control what goes in and out of your functions</p>
+                </section>
+
+                <section data-background="#2f4f4f">
+                    <h3>now let's look at how we can use functions to simplify a process</h3>
                 </section>
 
                 <section>
-                    <h4>for example</h4>
-                    <p>we could create a function to calculate the area of a circle</p>
+                    <h4>case study</h4>
+                    <p>what if I want the area of 10 circles of increasing radii?</p>
                         <pre class='fragment'><code class="python" data-trim data-noescape>
 def circle_area(radius):
     """
