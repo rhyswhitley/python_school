@@ -85,12 +85,14 @@
 
                 <section>
                     <h3>what is a function?</h3>
-                    <p>anything that <span class="fragment highlight-blue" data-fragment-index="1">operates</span> on some 
+                    <p>anything that <span class="fragment highlight-blue" data-fragment-index="1">operates</span> on an 
                         <span class="fragment highlight-red" data-fragment-index="1">input</span></p> 
                     <p style="font-size: 120px">
                     <font face="Verdana">                
                         <span class="fragment" data-fragment-index="1">
-                            <i><span class="fragment highlight-blue" data-fragment-index="1">
+                        <i>
+                            <span class="fragment highlight-red" data-fragment-index="1">x</span> &rarr;
+                            <span class="fragment highlight-blue" data-fragment-index="1">
                                 f</span>(<span class="fragment highlight-red" data-fragment-index="1">x</span>)</i></span>
                                     <span class="fragment" data-fragment-index="3"> &rarr; 
                                         <i><span class="fragment highlight-green" data-fragment-index="3">y</span></i></span>
@@ -144,106 +146,424 @@
                 </section>
 
                 <section data-background="orange">
-                    <h3>introducing functions</h3>
+                    <h3 style="color: white">introducing functions</h3>
                 </section>
 
                 <section data-transition="fade-in">
                     <p>functions are expressed in Python as follows:</p>
-                    <pre><code class="python" data-notrim data-noescape>
-<mark class="fragment" data-fragment-index="1">def</mark> function(x):
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x):
     """
-    docstring
+    determines the square of a number
     """
 
-    # do something with x
-    new_x = x + 10
+    y = x**2
 
-    return new_x
+    return y
                     </code></pre>
-                    <p class="fragment" data-fragment-index="1">use <code>def</code> to tell Python we're creating a function</p>
+                    <p style="color: white">...</p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>functions are expressed in Python as follows:</p>
+                    <pre><code class="python" data-trim data-noescape>
+<mark>def</mark> quadratic(x):
+    """
+    determines the square of a number
+    """
+
+    y = x**2
+
+    return y
+                    </code></pre>
+                    <p>use <code>def</code> to tell Python we're creating a function</p>
                 </section>
 
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
-                    <pre><code class="python" data-notrim data-noescape>
-def <mark>function</mark>(x):
+                    <pre><code class="python" data-trim data-noescape>
+def <mark>quadratic</mark>(x):
     """
-    docstring
+    determines the square of a number
     """
 
-    # do something with x
-    new_x = x + 10
+    y = x**2Y
 
-    return new_x
+    return y
                     </code></pre>
                     <p>we also have to give the function a name, for reference</p>
                 </section>
 
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
-                    <pre><code class="python" data-notrim data-noescape>
-def function(<mark>x</mark>):
+                <pre><code class="python" data-trim data-noescape>
+def quadratic(<mark>x</mark>):
     """
-    docstring
+    determines the square of a number
     """
 
-    # do something with x
-    new_x = x + 10
+    y = x**2
 
-    return new_x
+    return y
                     </code></pre>
-                    <p>and tell it the number of <b>input variables</b> it accepts</p>
+                    <p>and tell it what <b>input variables</b> it accepts</p>
                 </section>
 
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
-                    <pre><code class="python" data-notrim data-noescape>
-def function(x):
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x):
     """
-    docstring
+    determines the square of a number
     """
 
-    # do something with x
-    <mark>new_x = x + 10</mark>
+    <mark>y = x**2</mark>
 
-    return new_x
+    return y
                     </code></pre>
-                    <p>where we do something with the input(s) in the code block</p>
+                    <p>the input(s) are then operated on in some way</p>
                 </section>
 
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
-                    <pre><code class="python" data-notrim data-noescape>
-def function(x):
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x):
     """
-    docstring
+    determines the square of a number
     """
 
-    # do something with x
-    new_x = x + 10
+    y = x**2
 
-    <mark>return new_x</mark>
+    <mark>return y</mark>
                     </code></pre>
-                    <p>the outcome of which is then <b>returned</b> to the user</p>
+                    <p>to determine an outcome, which is <b>returned</b> to the user</p>
                 </section>
 
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
-                    <pre><code class="python" data-notrim data-noescape>
-def function(x):
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x):
     <mark>"""</mark>
-    <mark>docstring</mark>
+    <mark>determines the square of a number</mark>
     <mark>"""</mark>
 
-    # do something with x
-    new_x = x + 10
+    y = x**2
 
-    return new_x
+    return y
                     </code></pre>
                     <p>lastly, we define what the function does for reference</p>
                 </section>
 
+<!-- LEXICAL SCOPING -->
+
+                <section data-background="black">
+                    <p>functions also operate by what is called</p>
+                    <h2>lexical scoping</h2>
+                    <img class="fragment" style="position: absolute; top: 150px; left: 350px" src="img/Lesson_3/eye2.gif" alt="counter"/>
+                </section>
+
+                <section>
+                    <p>variables that are defined within a function</p>
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x)<mark>:</mark>
+    """
+    determines the square of a number
+    """
+
+    <span style="color: lime">y</span> = x**2
+
+    return y
+                    </code></pre>
+                    <p>exist <b>only within</b> the <u>scope</u> or <mark>code block</mark> of the function</p>
+                    <p class="fragment">i.e. only the function can see them</p>
+                </section>
+
+                <section>
+                    <h4>for example</h4>
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x):
+    """
+    determines the square of a number
+    """
+    y = x**2
+
+    return y
+
+print(y)
+                    </code></pre>
+                    <p>any reference to the <code>y</code> variable outside this function</p>
+                    <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim data-noescape>
+In : print(y)
+Out: <span style="color: orangered">NameError:</span> name 'y' is not defined
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1"><b style="color: crimson">will fail</b> &rarr; as it exists <b>ONLY</b> within the function</p>
+                </section>
+
+                <section>
+                    <p>function variables are commonly referred to as</p>
+                    <h4>local</h4>
+                    <p>or</p>
+                    <h4>private</h4>
+                    <hr class="fragment" data-fragment-index="2" />
+                    <p class="fragment" data-fragment-index="2">i.e. they belong to something / there is ownership</p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>and there is an <b>order</b> and <b>direction</b> to how these variables are seen</p>
+                    <pre><code class="python" data-trim data-noescape>
+def shifted_quadratic(x):
+    """describes a square number shifted along x-axis"""
+
+    <span class="fragment highlight-green" data-fragment-index="1">shift</span> = 10
+
+    def quadratic(x):
+
+        y = x**2 + <span class="fragment highlight-green" data-fragment-index="1">shift</span>
+
+        return y
+
+    ans = quadratic(x)
+
+    return ans 
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1"><code>quadratic()</code> can see <code>shift</code></p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>and there is an <b>order</b> and <b>direction</b> to how these variables are seen</p>
+                    <pre><code class="python" data-trim data-noescape>
+def shifted_quadratic(x):
+    """describes a square number shifted along x-axis"""
+
+    shift = 10
+
+    def quadratic(x):
+
+        <span style="color: red">y</span> = x**2 + shift
+
+        return y
+
+    ans = quadratic(x)
+
+    return ans 
+                    </code></pre>
+                    <p>but <code>shifted_quadratic()</code> can <b>NOT</b> see <code>y</code></p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>things get different if I define the functions separately though</p>
+                    <div id="left">
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x):
+    """returns the square"""
+    y = x**2 + shift
+
+    return y
+                    </code></pre>
+                    <pre><code class="python" data-trim data-noescape>
+
+def shifted_quadratic(x):
+    """
+    shifts the square along x
+    """
+    shift = 10
+    ans = quadratic(x)
+
+    return ans 
+                    </code></pre>
+                    </div>
+                    <div id="right">
+                        <p class="fragment"><code>quadratic()</code> will <b style="color: crimson">fail</b> because it has no idea what <code>shift</code> is!</p>
+                        <p class="fragment"><code>shift</code> belongs to <code>shifted_quadratic()</code> and only IT can see it</p>
+                    </div>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>defined separately, the functions do <b>NOT</b> see each other</p>
+                    <div id="left">
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x):
+    """returns the square"""
+    y = x**2 + shift
+
+    return y
+                    </code></pre>
+                    <pre><code class="python" data-trim data-noescape>
+
+def shifted_quadratic(x):
+    """
+    shifts the square along x
+    """
+    shift = 10
+    ans = quadratic(x)
+
+    return ans 
+                    </code></pre>
+                    </div>
+                    <div id="right">
+                        <p class="fragment">but we can fix this code so that they don't need to</p>
+                        <p class="fragment">we just change <code>quadratic()</code> to accept an extra variable &rarr; <code>shift</code></p>
+                    </div>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>defined separately, the functions do <b>NOT</b> see each other</p>
+                    <div id="left">
+                    <pre><code class="python" data-trim data-noescape>
+def quadratic(x, <span style="color: lime">shift</span>):
+    """returns the square"""
+    y = x**2 + shift
+
+    return y
+                    </code></pre>
+                    <pre><code class="python" data-trim data-noescape>
+
+def shifted_quadratic(x):
+    """
+    shifts the square along x
+    """
+    shift = 10
+    ans = quadratic(x, <span style="color: lime">shift</span>)
+
+    return ans 
+                    </code></pre>
+                    </div>
+                    <div id="right">
+                        <p>but we can fix this code so that they don't need to</p>
+                        <p>we just change <code>quadratic()</code> to accept an extra variable &rarr; <code>shift</code></p>
+                        <p><code>quadratic()</code> now accepts both <code>x</code> and <span style="color: lime; background-color: gray"><code>shift</code></span> as inputs</p>
+                    </div>
+                </section>
+
+                <section>
+                    <p style="color: black; line-height: 0.6em"><i>finally</i></p>
+                    <p style="color: black">any variable defined outside a function is referred to as</p>
+                    <h1>GLOBAL</h1>
+                    <h4>or public</h4>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>this means the variable can be accessed by any part of the program</p>
+                    <pre class="fragment" data-fragment-index="1"><code class="python" data-trim data-noescape>
+shift = 10
+
+def quadratic(x):
+    """
+    determines the square of a number
+    """
+    y = x**2 + shift
+
+    return y
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1">here <code style="color: crimson">shift</code> is seen by
+                    <code>quadratic()</code>as it has been declared at the top level</p>
+                    <p class="fragment" data-fragment-index="2">everything in the program can access it</p>
+                </section>
+
+                <section data-background="orange">
+                    <h5 style="color: white">so what is the best way to define your function?</h5>
+                </section>
+
+                <section>
+                    <h4>there is no rule...but</h4>
+                    <p>best to explicitly pass all variables the function will need</p>
+                    <div id="left">
+                    <p class="fragment">if it needs x, y, and z</p>
+                    <pre class='fragment'><code class="python" data-trim>
+def operation():
+    axis = x + y + z
+    return axis
+                    </code></pre>
+                    </div>
+                    <div id="right">
+                    <p class="fragment">then pass it x, y, and z</p>
+                    <pre class='fragment'><code class="python" data-trim>
+def operation(x, y, z):
+    axis = x + y + z
+    return axis
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>for example</h4>
+                    <p>we could create a function to calculate the area of a circle</p>
+                        <pre class='fragment'><code class="python" data-trim data-noescape>
+def circle_area(radius):
+    """
+    Calculates the area of a circle
+    """
+
+    # define pi (I would usually import this)
+    pi = 3.14159265359
+
+    # calculate area
+    area = pi*radius**2
+
+    # return value
+    return area
+                        </code></pre>
+                </section>
+
+                <section>
+                    <p>we can also <b>call</b> functions from inside other functions</p>
+                        <pre class='fragment'><code class="python" data-trim data-noescape>
+def cylinder_volume(height, radius):
+    """
+    Calculates the volume of a cylinder
+    """
+    
+    # calculate area
+    x_area = <span class="fragment highlight-red">circle_area</span>(radius)
+
+    # calculate volume
+    volume = x_area*height
+
+    # return value
+    return volume
+                        </code></pre>
+                </section>
+
+                <section>
+                    
+                </section>
+
+                <section>
+                    <h4>some conventions</h4>
+                    <hr />
+                    <p class='fragment' data-fragment-index="1">the name should <u>clearly state</u> what it does</p>
+                    <p class='fragment' data-fragment-index="2" style="line-height: 0.5em; color: crimson">&diams;</p>
+                    <p class='fragment' data-fragment-index="2">the process should be as <b>simple</b> as possible</p>
+                    <p class='fragment' data-fragment-index="3" style="line-height: 0.5em; color: crimson">&diams;</p>
+                    <p class='fragment' data-fragment-index="3"><b>always</b> have a <i>docstring</i> <u>describing its purpose</u></p>
+                    <p class='fragment' data-fragment-index="4" style="line-height: 0.5em; color: crimson">&diams;</p>
+                    <p class='fragment' data-fragment-index="4" style="line-height: 1.0em">anyone should be able to use it</p>
+                </section>
+
+
+                <section>
+                    <h4>note</h4>
+                    <p>the <i>docstring</i> may seem trivial, however its presence allows you to reference its purpose at any time like so</p>
+                    <pre><code class="ipython" data-trim>
+In : help(circle_area)
+                    </code></pre>
+                    <pre class="fragment"><code class="bash" data-trim data-noescape>
+<span style="color: limegreen">circle_area</span>(radius)
+    <span style="color: orangered">Calculates the area of a circle
+                    </code></pre>
+                    <p class="fragment">incredibly important for &rarr; other people &rarr; future reference &rarr; your sanity</p>
+                </section>
+
+                <section>
+                    <h4>why use functions?</h4>
+                    <p>we can break down a program into much smaller parts, which can:</p>
+                    <p>be repeatedly executed</p>
+                    <p>tested in isolation</p>
+                    <p>overall, simplify a much larger problem</p>
+                </section>
+
             </section>
+
 <!--- Summary -->
 
             <section>
@@ -270,7 +590,7 @@ def function(x):
 
                 <section>
                     <font size="8">
-                        input/output
+                        PROGRAM IO
                     </font>
                 </section>
 
