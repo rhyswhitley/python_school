@@ -510,6 +510,8 @@ def operation(x, y, z):
                     <p class="fragment">you then directly control what goes in and out of your functions<span class="fragment"> &rarr; process</span></p>
                 </section>
 
+<!-- FUNCTION ACTION -->
+
                 <section data-background="#2f4f4f">
                     <h3>now let's look at functions in action</h3>
                 </section>
@@ -696,9 +698,149 @@ iter_sum(10)
                 </section>
 
                 <section data-background="orange" style="color: white; font-weight: bold">
-                    <p>organising your functions into modules is an efficient</p>
-                    <h2 style="color: white">and recommended</h2>
+                    <p>storing your functions in modules is an efficient</p>
+                    <h4 style="color: white"> &amp; recommended</h4>
                     <p>way of building your program</p>
+                    <span class="fragment">
+                    <hr />
+                    <h2 style="color: black">however</h2>
+                    <p style="color: black">a <b>LOT</b> of extra modules are already available to you</p>
+                    </span>
+                </section>
+
+            </section>
+
+<!-- EXTENSIONS -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h1>EXTENDED PYTHON</h1>
+                </section>
+
+                <section>
+                    <div class="highblock" style="background-color: orange; bottom: 80%">
+                    <h4 style="color: black">Python already has impressive standard library</h4>
+                    </div>
+                    <br />
+                    <br />
+                    <h2>however</h2>
+                    <span class="fragment">
+                    <p style="background-color: gold; color: black">
+                    this has been extended by the community, to provide modules for almost anything you can think of!
+                    </p>
+                    <font size="5">
+                    <table style="background-color: white; color: white; width: 100%">
+                        <tr style="border: none">
+                        <td align="center">linear algebra</td>
+                        <td align="center">scientific plotting</td>
+                        <td align="center">image recognition</td>
+                        <td align="center">geospatial analysis</td>
+                        </tr>
+                        <tr>
+                        <td align="center">statistics</td>
+                        <td align="center">machine learning</td>
+                        <td align="center">Bayesian inference</td>
+                        <td align="center">web scraping</td>
+                        </tr>
+                        <tr>
+                        <td align="center">HTML, XML, JSON</td>
+                        <td align="center">network analysis</td>
+                        <td align="center">database management</td>
+                        <td align="center">App. development</td>
+                        </tr>
+                    </table>
+                    </font>
+                    </span>
+                    <center>
+                        <p class="fragment">and much much more!</p>
+                    </center>
+                </section>
+
+                <section data-background="orange">
+                    <h4 style="color: white">here are some examples</h4>
+                </section>
+
+                <section>
+                    <p>want to do some basic math and geometry?</p>
+                    <span class="fragment">
+                    <hr />
+                    <p><code style="color: crimson">math</code> has got you covered</p>
+                    <pre><code class="python" data-trim>
+from math import pi
+
+r = 5
+# area of a circle
+area = pi*r**2
+                    </code></pre>
+                    </span>
+                    <span class="fragment">
+                    <pre><code class="python" data-trim>
+from math import sqrt
+
+a = 3
+b = 4
+# hypotenuse
+c = sqrt(a**2 + b**2)
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section>
+                    <p>what about some linear algebra?</p>
+                    <span class="fragment">
+                    <hr />
+                    <p>hello <code style="color: crimson">numpy</code>!</p>
+                    <pre><code class="python" data-trim>
+import numpy as np
+
+# define two vectors
+x_vec = np.arange(1, 8)[:, None]
+y_vec = np.arange(1, 6)[:, None]
+
+# and determine their dot product
+matrix = np.dot(x_vec, y_vec.T)
+                    </code></pre>
+                    <pre><code class="python" data-trim>
+Out: array([[ 1,  2,  3,  4,  5],
+           [ 2,  4,  6,  8, 10],
+           [ 3,  6,  9, 12, 15],
+           [ 4,  8, 12, 16, 20],
+           [ 5, 10, 15, 20, 25],
+           [ 6, 12, 18, 24, 30],
+           [ 7, 14, 21, 28, 35]])                    
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>need to plot something?</p>
+                    <span class="fragment">
+                    <hr />
+                    <p>our good friend <code style="color: crimson">matplotlib</code></p>
+                    <pre><code class="python" data-trim>
+import matplotlib.pyplot as plt
+
+def fquad(x):
+    return 3+x**2 + 1
+
+xs = list(range(-4, 5, 1))
+ys = list(map(fquad, xs))
+
+plt.plot(xs, ys, '-', color='crimson', alpha=0.5)
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section data-transition="fade-in">
+                    <img src="img/Lesson_3/quadplot.png" alt='hyperbola' />
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">and many many more</h3>
+                    <a class="fragment" href="https://www.python.org">www.python.org</a>
                 </section>
 
             </section>
@@ -717,8 +859,8 @@ iter_sum(10)
                     <p class="fragment">numbers, strings, lists, dicts, even other functions</p>
                 </section>
 
-                <section>
-                    <h4>example</h4>
+                <section data-transition="fade-in">
+                    <h4>SEQUENCES</h4>
                     <p>here we accept a <b>number</b> and return a <u>dict</u></p>
                     <pre class='fragment'><code class="python" data-trim data-noescape>
 def sphere_object(radius):
@@ -738,9 +880,56 @@ def sphere_object(radius):
                     </code></pre>
                 </section>
 
+               <section data-transition="fade-in">
+                    <h4>SEQUENCES</h4>
+                    <p>or if you prefer...a <u>tuple</u></p>
+                    <pre><code class="python" data-trim data-noescape>
+def sphere_object(radius):
+    """
+    determine sphere attributes
+    """
+    # define pi (I would usually import this)
+    pi = 3.14159265359
+
+    # calculate volume
+    volume = 4/3*pi*radius**3
+    # calculate surface area
+    surf_area = 4*pi*radius**2
+
+    # return value
+    return volume, surf_area
+                    </code></pre>
+                </section>
+
+
+                <section>
+                    <h4>CLOSURES</h4>
+                    <p>or we can return an incomplete function to be used later</p>
+                    <pre class='fragment'><code class="python" data-trim data-noescape>
+                    def linear_model(a, b):
+                        """y = a*x + b"""
+
+                        def x_response(x):
+                            return a*x + b
+
+                        return x_response
+                    
+                    # define two models
+                    model_1 = linear_model(3, 0)
+                    model_2 = linear_model(1, 6)
+                    </code></pre>
+                    <pre class='fragment'><code class="ipython" data-trim data-noescape>
+                    In : model_1(4)
+                    Out: 12
+
+                    In : model_2(4)
+                    Out: 10
+                    </code></pre>
+                </section>
+
                 <section>
                     <h3>argument versatility</h3>
-                    <p>this behaviour that functions that can take an arbitrary number of inputs, leads us to our next set of concepts</p>
+                    <p>this behaviour of functions leads us to our next set of concepts</p>
                 </section>
 
                 <section data-background="#2f4f4f">
