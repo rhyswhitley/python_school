@@ -80,7 +80,7 @@
             <section>
                 <section data-background="img/Lesson_3/functions_green.jpg">
                     <h1 style="color: white">functions</h1>
-                    <h4 class="fragment" style="color: white">&amp; classes</h4>
+                    <!--<h4 class="fragment" style="color: white">&amp; classes</h4>-->
                 </section>
 
                 <section>
@@ -94,15 +94,7 @@
                             <span class="fragment highlight-red" data-fragment-index="1">x</span> &rarr;
                             <span class="fragment highlight-blue" data-fragment-index="1">
                                 f</span>(<span class="fragment highlight-red" data-fragment-index="1">x</span>)</i></span>
-                                    <span class="fragment" data-fragment-index="3"> &rarr; 
-                                        <i><span class="fragment highlight-green" data-fragment-index="3">y</span></i></span>
-                    </font>
-                    <p class="fragment" data-fragment-index="3">to determine an <span class="fragment highlight-green" data-fragment-index="3">output</span></p> 
-                </section>
-
-                <section>
-                    <h3>for example</h3>
-                    <p>the <u>area of a circle</u> is a <b>function</b> of its <u>radius</u></p>
+                                    <span class="fragment" data-fragment-index="3"> &rarr; <i><span class="fragment highlight-green" data-fragment-index="3">y</span></i></span> </font> <p class="fragment" data-fragment-index="3">to determine an <span class="fragment highlight-green" data-fragment-index="3">output</span></p> </section> <section> <h3>for example</h3> <p>the <u>area of a circle</u> is a <b>function</b> of its <u>radius</u></p>
                     \[
                     A = \pi r^{2}
                     \]
@@ -112,41 +104,46 @@
                     f(x) = \pi x^{2}
                     \]
                     </span>
-                </section>
-                <section>
-                    <h3>mathematically</h3>
-                    <div id="left" style="background-color: orange; padding: 4px 0; height: 450px">
-                        <center>rather than write out this</center>
-                        <br />
-                        \[
-                        \pi 2^{2} = 12.57 \\
-                        \pi 3^{2} = 28.27 \\
-                        \pi 4^{2} = 50.27 \\
-                        ...
-                        \]
-                    </div>
-                    <span class="fragment">
-                    <div id="right" style="background-color: #2f4f4f; color: white; padding: 4px 0; height: 450px">
-                        <center>I can simplify to</center>
-                        <br />
-                        \[
-                        f(2) = 12.57 \\
-                        f(3) = 28.27 \\
-                        f(4) = 50.27 \\
-                        ...
-                        \]
-                    </div></span>
+                    <p class="fragment">so why do we like them?</p>
                 </section>
 
                 <section>
-                    <h3>what does this have to do with coding?</h3>
-                    <hr />
-                    <p>we can use this mathematical abstraction</p> 
+                    <p>functions allow for</p>
+                    <h1>brevity</h1>
+                    <p>in describing one or many processes</p>
+                </section>
+
+                <section>
+                    <h4>for example</h4>
+                    <p>say I have this quadratic solution for $x$</p>
+                    <p style="line-height: 0.1em; color: white">..</p>
+                    \[
+                    x={\frac {-b\pm {\sqrt {b^{2}-4ac\ }}}{2a}}
+                    \]
+                    <p style="line-height: 0.1em; color: white">..</p>
+                    <p class="fragment">it would laborious to write this out every time I have some different permutation of $a$, $b$, and $c$</p>
+                </section>
+
+
+                <section>
+                    <p>rather I would be better defining it like so</p>
+                    \[
+                    f(a,b,c)={\frac {-b\pm {\sqrt {b^{2}-4ac\ }}}{2a}}
+                    \]
+                    <p style="line-height: 0.1em; color: white">..</p>
+                    <p class="fragment" data-fragment-index="1">so that we can just write</p>
+                    <span class="fragment" data-fragment-index="1">
+                    \[
+                    x = f(a,b,c)
+                    \]
+                    </span>
+                </section>
+
+                <section>
+                    <p>this mathematical abstraction</p>
                     <p>to <b>encapsulate</b> and <u>execute</u> any arbitrary process at will</p> 
-                </section>
-
-                <section data-background="orange">
-                    <h3 style="color: white">introducing functions</h3>
+                    <h3>applies to programming as well</h3>
+                    <hr />
                 </section>
 
                 <section data-transition="fade-in">
@@ -255,7 +252,7 @@ def quadratic(x):
                 </section>
 
                 <section data-background="orange">
-                    <p style="color: white">variables in functions can only affect that specific process</p>
+                    <p style="color: white; font-weight: bold">variables in functions can only affect that specific process</p>
                     <hr class="fragment" data-fragment-index="1" style="line-color: white">
                     <p class="fragment" data-fragment-index="1">&there4; outside the function, they hold no purpose</p>
                     <p class="fragment" data-fragment-index="2">...</p>
@@ -266,7 +263,7 @@ def quadratic(x):
 
                 <section data-background="black">
                     <h1>scope</h1>
-                    <img class="fragment" src="img/Lesson_3/eye2.gif" alt="counter"/>
+                    <img src="img/Lesson_3/eye2.gif" alt="counter"/>
                     <p class="fragment" data-fragment-index="1">a variable's visabilty and ability to affect the program</p>
                 </section>
 
@@ -293,7 +290,6 @@ def quadratic(x)<mark>:</mark>
     """
     determines the square of a number
     """
-
     <span style="color: lime">a</span> = 2
     <span style="color: lime">y</span> = a*x**2
 
@@ -493,7 +489,7 @@ def quadratic(x):
                     </center>
                     <pre><code class="python" data-trim>
 def operation():
-"""adds 3 together"""
+    """adds 3 together"""
     axis = x + y + z
 
     return axis
@@ -505,60 +501,252 @@ def operation():
                     </center>
                     <pre><code class="python" data-trim>
 def operation(x, y, z):
-"""adds 3 together"""
+    """adds 3 together"""
     axis = x + y + z
 
     return axis
                     </code></pre>
                     </div>
-                    <p class="fragment">you then directly control what goes in and out of your functions</p>
+                    <p class="fragment">you then directly control what goes in and out of your functions<span class="fragment"> &rarr; process</span></p>
                 </section>
 
                 <section data-background="#2f4f4f">
-                    <h3>now let's look at how we can use functions to simplify a process</h3>
+                    <h3>now let's look at functions in action</h3>
                 </section>
 
                 <section>
-                    <h4>case study</h4>
-                    <p>what if I want the area of 10 circles of increasing radii?</p>
-                        <pre class='fragment'><code class="python" data-trim data-noescape>
-def circle_area(radius):
-    """
-    Calculates the area of a circle
-    """
+                    <h4>here's a task</h4>
+                    <p>imagine I want to sum all the numbers from $0\rightarrow N$</p>
+                    \[
+                    y = \sum_{i=0}^{N}i
+                    \]
+                    <p class="fragment">how would I go about it?</p>
+                </section>
 
+                <section>
+                    <h4>I could code it as</h4>
+                    <p class="fragment">...which will work...</p>
+                    <pre><code class="python" data-trim>
+sum_i = 0
+N = 50
+
+for i in range(N + 1):
+    
+    sum_i += i
+
+print(sum_i)
+                    </code></pre>
+                    <p class="fragment">but what happens when I want to calculate many different values of $N$?</p>
+                    <p class="fragment" style="color: crimson">it would be inefficient to copy and paste this code every single time!</p>
+                </section>
+
+                <section>
+                    <p>it would be more efficient to make this a function</p>
+                    <pre><code class="python" data-trim>
+def iter_sum(N):
+    """
+    iteratively sums numbers from 1 to N
+    """
+    sum_i = 0
+
+    for i in range(N + 1):
+        sum_i += i
+
+    return sum_i
+                    </code></pre>
+                    <span class="fragment">
+                    <p>I can now call this whenever I want an answer</p>
+                    <pre><code class="ipython" data-trim>
+In : iter_sum(50)
+Out: 1275
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section>
+                    <p>and do some cool things with it!</p>
+                    <span class="fragment">
+                    <pre><code class="python" data-trim>
+end = 50
+
+for n in range(end + 1):
+
+    csum = iter_sum(n)
+
+    print(csum)
+                    </code></pre>
+                    <p>like calculate the cumulative sum for $M = 0\rightarrow 10$</p>
+                    </span>
+                    <pre class="fragment"><center><code class="python" data-notrim>
+0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55
+                    </code></center></pre>
+                    <p class="fragment">heck, let's make <b>this process</b> a function!</p>
+                </section>
+
+                <section>
+                    <p>all our new function needs to do is call &rarr; <code>iter_sum()</code></p>
+                    <span class="fragment">
+                    <pre><code class="python" data-trim>
+def cumul_sum(end):
+    """calculates the cumulative sum for numbers 0 to M"""
+    sum_list = []
+
+    for n in range(end + 1):
+
+        csum = iter_sum(n)
+
+        sum_list.append(csum)
+
+    return sum_list
+                    </code></pre>
+                    <span class="fragment">
+                    <p>and I can now deploy this in my code wherever I want</p>
+                    <pre class="fragment"><code class="python" data-trim>
+In : cumul_sum(10)
+Out: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section>
+                    <div class="highblock" style="background-color: orange">
+                    <p style="font-weight: bold">functions fulfill the need to efficiently repeat tasks</p>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <p style="color: white">...</p>
+                    <p class="fragment">a lot of the functions you create, may be useful in other programs/tasks</p>
+                    <p class="fragment">&rarr; which introduces our next concept...</p>
+                </section>
+            </section>
+
+<!-- MODULES --> 
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h1>modules</h1>
+                </section>
+
+                <section>
+                    <p>modules allow you to store functions separately from the main body of your code (or notebook)</p>
+                    <font size="6"><code style="color: blue">sum_functions.py</code></font>
+                    <br />
+                    <br />
+                    <iframe data-src="/home/rhys/Repositories/python_school/notebooks/examples/sum_functions.py" 
+                        style="background-color: lightgray; transform: scale(1.4); width: 600px; height: 150px"></iframe>
+                    <br />
+                    <br />
+                    <p class="fragment">by saving them in a separate python script</p>
+                    <p class="fragment">and we can access them using...</p>
+                </section>
+
+                <section data-background="orange">
+                    <h1 style="color: white">import</h1>
+                </section>
+
+                <section>
+                    <p><code>import</code> ... loads your <i>custom functions</i> as a <b>module</b> into a notebook (or program) like so</p>
+                    <pre class="fragment"><code class="python" data-trim>
+import sum_functions
+                    </code></pre>
+                    <p class="fragment">filename = <b>module</b> name</p>
+                    <span class="fragment">
+                    <pre><code class="python" data-trim>
+sum_functions.iter_sum(10)
+                    </code></pre>
+                    <p>and any functions in the file are referred to as <b>methods</b></p>
+                    <p class="fragment">and are accessed using <b>dot notation</b></p>
+                    </span>
+                </section>
+
+                <section>
+                    <p>your module/filename is likely to be quite long, but Python allows us to abbreviate to a shorter reference name</p>
+                    <span class="fragment">
+                    <pre><code class="python" data-trim>
+import sum_functions as sf
+                    </code></pre>
+                    <p>using the <code class="fragment highlight-red">as</code> statement after the <code>import</code></p>
+                    </span>
+                    <span class="fragment">
+                    <pre><code class="python" data-trim>
+sf.iter_sum(10)
+                    </code></pre>
+                    <p>we can then call our specific method(s) as per normal</p>
+                    <p class="fragment"> &rarr; much cleaner &larr; </p>
+                    </span>
+                </section>
+
+                <section>
+                    <p>lastly, we don't always have to import the entire file!</p>
+                    <p>maybe we just want the <code>iter_sum()</code> function</p>
+                    <span class="fragment">
+                    <pre><code class="python" data-trim>
+from sum_functions import iter_sum
+                    </code></pre>
+                    <p>by using <code class="fragment highlight-red">from</code> we can easily do this</p>
+                    </span>
+                    <span class="fragment">
+                    <pre><code class="python" data-trim>
+iter_sum(10)
+                    </code></pre>
+                    <p>then call the function as per normal</p>
+                    </span>
+                </section>
+
+                <section data-background="orange" style="color: white; font-weight: bold">
+                    <p>organising your functions into modules is an efficient</p>
+                    <h2 style="color: white">and recommended</h2>
+                    <p>way of building your program</p>
+                </section>
+
+            </section>
+
+<!-- ARGS AND KWARGS --> 
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h3>a few more things to be aware of</h3>
+                </section>
+
+                <section>
+                    <h5>functions can accept and return</h5>
+                    <h2>anything</h2>
+                    <p class="fragment">numbers, strings, lists, dicts, even other functions</p>
+                </section>
+
+                <section>
+                    <h4>example</h4>
+                    <p>here we accept a <b>number</b> and return a <u>dict</u></p>
+                    <pre class='fragment'><code class="python" data-trim data-noescape>
+def sphere_object(radius):
+    """
+    determine sphere attributes
+    """
     # define pi (I would usually import this)
     pi = 3.14159265359
 
-    # calculate area
-    area = pi*radius**2
-
-    # return value
-    return area
-                        </code></pre>
-                </section>
-
-                <section>
-                    <p>we can also <b>call</b> functions from inside other functions</p>
-                        <pre class='fragment'><code class="python" data-trim data-noescape>
-def cylinder_volume(height, radius):
-    """
-    Calculates the volume of a cylinder
-    """
-    
-    # calculate area
-    x_area = <span class="fragment highlight-red">circle_area</span>(radius)
-
     # calculate volume
-    volume = x_area*height
+    volume = 4/3*pi*radius**3
+    # calculate surface area
+    surf_area = 4*pi*radius**2
 
     # return value
-    return volume
-                        </code></pre>
+    return {'volume': volume, 'surf_area': surf_area}
+                    </code></pre>
                 </section>
 
                 <section>
-                    
+                    <h3>argument versatility</h3>
+                    <p>this behaviour that functions that can take an arbitrary number of inputs, leads us to our next set of concepts</p>
+                </section>
+
+                <section data-background="#2f4f4f">
+                    <h1 class="low" syntax="color: white">*args</h1>
+                    <h4 class="low" syntax="color: white">and</h4>
+                    <h1 class="low" syntax="color: white">**kwargs</h1>
                 </section>
 
                 <section>
