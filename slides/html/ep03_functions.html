@@ -278,7 +278,7 @@ def quadratic(x):
 <!-- Local -->
 
             <section>
-                <section data-background="orange">
+                <section data-background="#2f4f4f">
                     <h1 style="color: white">local</h1> 
                     <h4 style="color: white">variables</h4>
                 </section>
@@ -452,7 +452,7 @@ def shifted_quadratic(x):
 <!-- Global -->
 
             <section>
-                <section data-background="orange">
+                <section data-background="#2f4f4f">
                     <h1 style="color: white">GLOBAL</h1>
                     <h4 style="color: white">variables</h4>
                 </section>
@@ -854,6 +854,75 @@ plt.ylabel("Y-axis")
                 </section>
 
                 <section>
+                    <h2>the order</h2>
+                    <p>of passed variables is important</p>
+                    <pre><code class="python" data-trim>
+def linear_model(x, a, b):
+    """describes a linear relationship"""
+    y = a * x + b
+    return y
+                    </code></pre>
+                    <div id="left" class="fragment">
+                        <center><p style="color: darkgreen; font-weight: bold"> &#10004;correct order</p></center>
+                    <pre><code class="ipython" data-trim>
+In : linear_model(1, 2, 3):
+Out: 5
+                    </code></pre>
+                    </div>
+                    <div id="right" class="fragment">
+                        <center><p style="color: crimson; font-weight: bold"> &#10007;wrong order</p></center>
+                    <pre><code class="ipython" data-trim>
+In : linear_model(3, 2, 1):
+Out: 7
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>however</h3>
+                    <p>you can explicitly tell your function what you're passing</p>
+                    <pre><code class="ipython" data-trim>
+In : linear_model(b=3, a=2, x=1)
+Out: 5
+                    </code></pre>
+                    <br />
+                    <p class="fragment">although I'd recommend you pass arguments in the order your function is expecting them</p>
+
+                </section>
+
+                <section>
+                    <p>functions can also have</p>
+                    <h2>default values</h2>
+                    <pre><code class="python" data-trim data-noescape>
+def linear_model(x, <span class="fragment highlight-green" data-fragment-index="1">a=1, b=0</span>):
+    """describes a linear relationship"""
+    y = a * x + b
+    return y
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1">but <b>MUST</b> be defined at the tail end of passed arguments</p>
+                    <div id="left" class="fragment" data-fragment-index="2">
+                    <pre><code class="ipython" data-trim>
+In : linear_model(9):
+Out: 9
+                    </code></pre>
+                    <pre><code class="ipython" data-trim>
+In : linear_model(9, 2):
+Out: 18
+                    </code></pre>
+                    </div>
+                    <div id="right" class="fragment" data-fragment-index="2">
+                    <pre><code class="ipython" data-trim>
+In : linear_model(9, b=2):
+Out: 11
+                    </code></pre>
+                    <pre><code class="ipython" data-trim>
+In : linear_model(9, 2, 2):
+Out: 20
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
                     <h5>functions can accept and return</h5>
                     <h2>anything</h2>
                     <p class="fragment">numbers, strings, lists, dicts, even other functions</p>
@@ -903,8 +972,8 @@ def sphere_object(radius):
 
 
                 <section>
-                    <h4>CLOSURES</h4>
-                    <p>or we can return an incomplete function to be used later</p>
+                    <p>we can also return incomplete functions with</p>
+                    <h2>CLOSURES</h2>
                     <pre class='fragment'><code class="python" data-trim data-noescape>
                     def linear_model(a, b):
                         """y = a*x + b"""
@@ -929,7 +998,11 @@ def sphere_object(radius):
 
                 <section>
                     <h3>argument versatility</h3>
-                    <p>this behaviour of functions leads us to our next set of concepts</p>
+                    <p>Python functions can accept any number of arguments</p>
+                    <span class="fragment">
+                    <hr />
+                    <p class="python">which allows us to exploit a behaviour called</p>
+                    </span>
                 </section>
 
                 <section data-background="#2f4f4f">
@@ -939,7 +1012,177 @@ def sphere_object(radius):
                 </section>
 
                 <section>
-                    <h4>some conventions</h4>
+                    <p>we can define our functions to accept any number of</p>
+                    <h3>arbitrary arguments</h3>
+                    <span class="fragment">
+                    <hr />
+                    <p>where they can be just <span style="color: crimson">values</span> &rarr; <code>*args</code></p>
+                    <p>or <span style="color: crimson">key-value pairs</span> &rarr; <code>**kwargs</code></p>
+                    </span>
+                </section>
+
+                <section>
+                    <h3 class="low">*args</h3>
+                    <p>say I want a function that adds any numbers I pass to it</p>
+                    <pre class="fragment"><code class="python" data-trim>
+def add_me(*numbers):
+    """adds all numbers together"""
+
+    total = 0
+    for num in numbers:
+        total += num
+
+    return total
+                    </code></pre>
+                    <span class="fragment">
+                    <p>I can do that quite easily</p>
+                    <pre><code class="ipython" data-trim>
+In : add_me(2, 4, 5, 6)
+Out: 17
+
+In : add_me(12)
+Out: 12
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h3>hot potato!</h3>
+                    <p><code>*args</code> is also quite useful at passing arguments through a chain of functions</p>
+                    <div id="left" style="transform: translateX(-50px)">
+                    <pre><code class="python" data-trim style="width: 500px; height: 450px">
+def predict_linear(x_series, a, b):
+    """
+    predicts Y for a series of X 
+    given parameters (a, b)
+    """
+    y_series = []
+
+    for x in x_series:
+
+        y = linear_model(x, a, b)
+        y_series.append(y)
+
+    return y_series
+                    </code></pre>
+                    </div>
+                    <div id="right">
+                    <pre><code class="python" data-trim style="width: 500px; height: 450px">
+def linear_model(x, a, b):
+    """
+    linear relationship
+    """
+    y = a*x + b
+
+    return y
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h3>hot potato!</h3>
+                    <p>we can remove the <code>a</code>, <code>b</code> repeated syntax using <code>*args</code> for <i>clarity</i></p>
+                    <div id="left" style="transform: translateX(-50px)">
+                    <pre><code class="python" data-trim data-noescape style="width: 500px; height: 450px">
+def predict_linear(x_series, <mark>*pars</mark>):
+    """
+    predicts Y for a series of X 
+    given parameters (a, b)
+    """
+    y_series = []
+
+    for x in x_series:
+
+        y = linear_model(x, <mark>*pars</mark>)
+        y_series.append(y)
+
+    return y_series
+                    </code></pre>
+                    </div>
+                    <div id="right">
+                    <pre><code class="python" data-trim style="width: 500px; height: 450px">
+def linear_model(x, a, b):
+    """
+    linear relationship
+    """
+    y = a*x + b
+
+    return y
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>under the hood</h3>
+                    <p><code>*args</code> will take the arbitrary arguments you're passing to the function</p>
+                    <pre><code class="python" data-trim data-noescape>
+my_function(3, 4, 'a')
+                    </code></pre>
+                    <span class="fragment" data-fragment-index="1">
+                    <p>and pack them into a tuple, which is then unpacked in the function</p>
+                    <pre><code class="python" data-trim data-noescape>
+my_function(<span class="fragment highlight-green" data-fragment-index="2">(3, 4, 'a')</span>)
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section>
+                    <h3 class="low">**kwargs</h3>
+                    <p>works similarly to <code>*args</code> but uses <code>key:value</code> pairing instead</p>
+                    <pre class="fragment"><code class="python" data-trim>
+def database_entry(name, **ancilliary):
+    """adds a new entry to a database"""
+    entry = {}
+    entry['name'] = name
+
+    for (key, value) in ancilliary.items():
+        entry[key] = value
+
+    return entry
+                    </code></pre>
+                    <pre class="fragment"><code class="ipython" data-trim>
+In : database_entry("Belinda")
+Out: {'name': 'Belinda'}
+
+In : database_entry("Belinda", sex="F", weight=65)
+Out: {'name': 'Belinda', 'sex': 'F', 'weight': 65}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>under the hood</h3>
+                    <p><code>**kwargs</code> will take the arbitrary <code>key:value</code> pairs you're passing to the function</p>
+                    <pre><code class="python" data-trim data-noescape>
+my_function("John", height=190, weight=80)
+                    </code></pre>
+                    <span class="fragment" data-fragment-index="1">
+                    <p>and pack them into a <code>dict</code>, and then unpacked within the function</p>
+                    <pre><code class="python" data-trim data-noescape>
+my_function("John", <span class="fragment highlight-green" data-fragment-index="2">{height=190, weight=80}</span>)
+                    </code></pre>
+                    </span>
+                </section>
+
+            </section>
+
+<!--- Summary -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h3>summary</h3>
+                </section>
+
+                <section>
+                    <h4>functions are invaluable</h4>
+                    <p class="fragment">we can break down a program into much smaller parts, which can:</p>
+                    <p class="fragment"> &#10004; be repeatedly executed or on demand</p>
+                    <p class="fragment"> &#10004; allows testing of processes in isolation</p>
+                    <p class="fragment"> &#10004; overall, simplifies a much larger problem</p>
+                </section>
+
+                <section>
+                    <h4>some conventions to remember</h4>
                     <hr />
                     <p class='fragment' data-fragment-index="1">the name should <u>clearly state</u> what it does</p>
                     <p class='fragment' data-fragment-index="2" style="line-height: 0.5em; color: crimson">&diams;</p>
@@ -949,7 +1192,6 @@ def sphere_object(radius):
                     <p class='fragment' data-fragment-index="4" style="line-height: 0.5em; color: crimson">&diams;</p>
                     <p class='fragment' data-fragment-index="4" style="line-height: 1.0em">anyone should be able to use it</p>
                 </section>
-
 
                 <section>
                     <h4>note</h4>
@@ -965,43 +1207,51 @@ In : help(circle_area)
                 </section>
 
                 <section>
-                    <h4>why use functions?</h4>
-                    <p>we can break down a program into much smaller parts, which can:</p>
-                    <p>be repeatedly executed</p>
-                    <p>tested in isolation</p>
-                    <p>overall, simplify a much larger problem</p>
+                    <span class="fragment">
+                    <p>in fact if you're ever lost about what a function does
+                    Python's <code>help()</code> function helps you get an idea</p>
+                    <pre><code class="bash" data-trim>
+help(range)
+
+        |
+...verbose output...
+        |
+                    </code></pre>
+                    </span>
+                    <span class="fragment">
+                    <p>but when all fails seek out your best friends</p>
+                    <a class="fragment" href="https://www.google.com">Google</a>
+                    <br />
+                    <a class="fragment" href="https://www.google.com">Stack Exchange</a>
+                    </span>
                 </section>
 
-            </section>
+                <section data-background="img/python_kaa.gif" style="color: white">
+                    <div style="position: relative; width: 250px;">
 
-<!--- Summary -->
+                      <div style="position: absolute; top: -80px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="1" style="font-size: 80px">
+                            we <span style="color: purple">&hearts; </span>functions</p>
+                      </div>
 
-            <section>
-                <section data-background="#2f4f4f">
-                    <h3>summary</h3>
-                </section>
+                      <div style="position: absolute; top: 0px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="2" style="font-size: 60px">
+                            we <span style="color: hotpink">&hearts; </span>modules</p>
+                      </div>
 
-                <section data-background="img/python_kaa.gif">
-                    <hr class="fragment" data-fragment-index="5" />
-                    <p class="fragment" data-fragment-index="3">
-                        we <span style="color: purple">&hearts;</span> for</p>
-                    <p class="fragment" data-fragment-index="3">
-                        we <span style="color: hotpink">&hearts;</span> while</p>
-                    <p class="fragment" data-fragment-index="4">
-                        we <span style="color: salmon">&hearts;</span> if else statements</p>
-                    <hr class="fragment" data-fragment-index="5" />
-                    <p class="fragment" data-fragment-index="5">
-                        we <span style="color: red">&hearts;</span> Python</p>
+                      <div style="position: absolute; bottom: -600px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="3" style="font-size: 90px">
+                            we <span style="color: red">&hearts;</span> Python</p>
+                      </div>
+
+                    </div>
                 </section>
 
                 <section data-background="#2f4f4f">
                     <h2>Next time</h2>
                 </section>
 
-                <section>
-                    <font size="8">
-                        PROGRAM IO
-                    </font>
+                <section data-background="img/Lesson_3/pandas.jpg">
                 </section>
 
             </section>
