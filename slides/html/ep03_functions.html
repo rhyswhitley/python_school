@@ -48,7 +48,7 @@
                 <p style="line-height: 1em; color: black; font-weight: bold">Lesson 3</p>
                 </font>
                 <font size="6">
-                <p style="line-height: 0.5em; color: #000000; font-weight: bold">13 April 2017</p>
+                <p style="line-height: 0.5em; color: #000000; font-weight: bold"><s>13 April 2017</s> 28 April 2017</p>
                 </font>
                 <br />
                 <br />
@@ -57,6 +57,7 @@
 <!--- Recap -->
 
             <section>
+
                 <section data-background="#2f4f4f">
                     <h3>Previously on Python School</h3>
                 </section>
@@ -69,8 +70,66 @@
                     <p class="fragment"><span style="color: crimson">ifelse</span> statements</p>
                 </section>
 
-                <section>
+                <section data-background="white">
+                    <p style="color: black">
                     Statements that allow us to <b>control</b> processes and <b>repeat</b> them many times
+                    </p>
+                    <span class="fragment">
+                    <p>allowing</p>
+                    <h3 style="line-height: 0.5em">automation</h3>
+                    </span>
+                </section>
+
+                <section>
+                    <p>while automating our code in this way is powerful</p>
+                    <hr />
+                    <p class="fragment">for our code to be effective it needs to be</p>
+                    <h4 class="fragment">tractable</h4>
+                    <h4 class="fragment">coherent</h4>
+                    <h4 class="fragment">simple</h4>
+                </section>
+
+                <section>
+                    <h3>for example</h3>
+                    <p>writing this out every time I need to import a file would be repetitive</p>
+                    <pre><code class="python" data-trim data-noescape style=" font-size: 10pt; line-height: 1.3em">
+# need to load in one CSV file
+with open("my_file.csv") as file:
+    dataset1 = []
+    for (i, line) in enumerate(file):
+        data_row = line.strip().split(",")
+        if i > 0:
+            dataset1.append(data_row)
+        else:
+            header = data_row
+
+# then do it again for a tab-delimited file
+with open("my_file2.txt") as file2:
+    dataset2 = []
+    for (i, line) in enumerate(file2):
+        data_row = line.strip().split("\t")
+        if i > 0:
+            dataset2.append(data_row)
+        else:
+            header2 = data_row
+                    </code></pre>
+                    <p class="fragment">
+                        it also makes it difficult to see what is happening
+                    </p>
+                </section>
+
+                <section>
+                    <p>I could throw this into another loop, with some ifelse statements</p>
+                    <span class="fragment">
+                    <p style="background-color: orange; color: white">but it would still be complicated and hard to read</p>
+                    </span>
+                    <span class="fragment">
+                    <br />
+                    <p>what if i could encapsulate this process...?</p>
+                    </span>
+                    <span class="fragment">
+                    <p style="background-color: #2f4f4f; color: white">and just call it when I need it</p>
+                    </span>
                 </section>
 
             </section>
@@ -78,17 +137,17 @@
 <!--- Functions -->
 
             <section>
+
                 <section data-background="img/Lesson_3/functions_green.jpg">
                     <h1 style="color: white">functions</h1>
-                    <!--<h4 class="fragment" style="color: white">&amp; classes</h4>-->
                 </section>
 
                 <section>
                     <h3>what is a function?</h3>
-                    <p>anything that <span class="fragment highlight-blue" data-fragment-index="1">operates</span> on an 
-                        <span class="fragment highlight-red" data-fragment-index="1">input</span></p> 
+                    <p>anything that <span class="fragment highlight-blue" data-fragment-index="1">operates</span> on an
+                        <span class="fragment highlight-red" data-fragment-index="1">input</span></p>
                     <p style="font-size: 120px">
-                    <font face="Verdana">                
+                    <font face="Verdana">
                         <span class="fragment" data-fragment-index="1">
                         <i>
                             <span class="fragment highlight-red" data-fragment-index="1">x</span> &rarr;
@@ -115,33 +174,38 @@
 
                 <section>
                     <h4>for example</h4>
-                    <p>say I have this quadratic solution for $x$</p>
+                    <p>say I have an equation for calcluating compound interest</p>
                     <p style="line-height: 0.1em; color: white">..</p>
                     \[
-                    x={\frac {-b\pm {\sqrt {b^{2}-4ac\ }}}{2a}}
+                    P' = P \left(1 + \frac{r}{n}\right)^{nt}
                     \]
                     <p style="line-height: 0.1em; color: white">..</p>
-                    <p class="fragment">it would laborious to write this out every time I have some different permutation of $a$, $b$, and $c$</p>
+                    <p style="font-size: 20pt">where $P$ = principal sum
+                    , $P'$ = new sum
+                    , $r$ = nominal interest rate
+                    , $n$ = compounding frequency
+                    , $t$ = time of investment</p>
+                    <p class="fragment">it would laborious to write this out every time I have some different permutation of inputs</p>
                 </section>
 
 
                 <section>
                     <p>rather I would be better defining it like so</p>
                     \[
-                    f(a,b,c)={\frac {-b\pm {\sqrt {b^{2}-4ac\ }}}{2a}}
+                    f(P, r, n, t) = P \left(1 + \frac{r}{n}\right)^{nt}
                     \]
                     <p style="line-height: 0.1em; color: white">..</p>
                     <p class="fragment" data-fragment-index="1">so that we can just write</p>
                     <span class="fragment" data-fragment-index="1">
                     \[
-                    x = f(a,b,c)
+                    P' = f(P, r, n, c)
                     \]
                     </span>
                 </section>
 
                 <section>
                     <p>this mathematical abstraction</p>
-                    <p>to <b>encapsulate</b> and <u>execute</u> any arbitrary process at will</p> 
+                    <p>to <b>encapsulate</b> and <u>execute</u> any arbitrary process at will</p>
                     <h3>applies to programming as well</h3>
                     <hr />
                 </section>
@@ -149,7 +213,7 @@
                 <section data-transition="fade-in">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def quadratic(x):
+def square_number(x):
     """
     determines the square of a number
     """
@@ -164,7 +228,7 @@ def quadratic(x):
                 <section data-transition="fade-in">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-<mark>def</mark> quadratic(x):
+<mark>def</mark> square_number(x):
     """
     determines the square of a number
     """
@@ -179,7 +243,7 @@ def quadratic(x):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def <mark>quadratic</mark>(x):
+def <mark>square_number</mark>(x):
     """
     determines the square of a number
     """
@@ -194,7 +258,7 @@ def <mark>quadratic</mark>(x):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                 <pre><code class="python" data-trim data-noescape>
-def quadratic(<mark>x</mark>):
+def square_number(<mark>x</mark>):
     """
     determines the square of a number
     """
@@ -209,7 +273,7 @@ def quadratic(<mark>x</mark>):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def quadratic(x):
+def square_number(x):
     """
     determines the square of a number
     """
@@ -224,7 +288,7 @@ def quadratic(x):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def quadratic(x):
+def square_number(x):
     """
     determines the square of a number
     """
@@ -239,7 +303,7 @@ def quadratic(x):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def quadratic(x):
+def square_number(x):
     <mark>"""</mark>
     <mark>determines the square of a number</mark>
     <mark>"""</mark>
@@ -279,7 +343,7 @@ def quadratic(x):
 
             <section>
                 <section data-background="#2f4f4f">
-                    <h1 style="color: white">local</h1> 
+                    <h1 style="color: white">local</h1>
                     <h4 style="color: white">variables</h4>
                 </section>
 
@@ -336,7 +400,7 @@ def shifted_quadratic(x):
 
     ans = quadratic(x)
 
-    return ans 
+    return ans
                     </code></pre>
                     <p class="fragment" data-fragment-index="1"><code>quadratic()</code> can see <code>shift</code></p>
                 </section>
@@ -357,7 +421,7 @@ def shifted_quadratic(x):
 
     ans = quadratic(x)
 
-    return ans 
+    return ans
                     </code></pre>
                     <p>but <code>shifted_quadratic()</code> can <b>NOT</b> see <code>y</code></p>
                 </section>
@@ -382,7 +446,7 @@ def shifted_quadratic(x):
     shift = 10
     ans = quadratic(x)
 
-    return ans 
+    return ans
                     </code></pre>
                     </div>
                     <div id="right">
@@ -410,7 +474,7 @@ def shifted_quadratic(x):
     shift = 10
     ans = quadratic(x)
 
-    return ans 
+    return ans
                     </code></pre>
                     </div>
                     <div id="right">
@@ -438,7 +502,7 @@ def shifted_quadratic(x):
     shift = 10
     ans = quadratic(x, <span style="color: lime">shift</span>)
 
-    return ans 
+    return ans
                     </code></pre>
                     </div>
                     <div id="right">
@@ -533,7 +597,7 @@ sum_i = 0
 N = 50
 
 for i in range(N + 1):
-    
+
     sum_i += i
 
 print(sum_i)
@@ -623,8 +687,9 @@ Out: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
                 </section>
             </section>
 
-<!-- MODULES --> 
-
+<!-- MODULES -->
+<!--                    data-src="/home/rhys/Repositories/python_school/notebooks/examples/sum_functions.py"
+-->
             <section>
 
                 <section data-background="#2f4f4f">
@@ -636,8 +701,9 @@ Out: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
                     <font size="6"><code style="color: blue">sum_functions.py</code></font>
                     <br />
                     <br />
-                    <iframe data-src="/home/rhys/Repositories/python_school/notebooks/examples/sum_functions.py" 
-                        style="background-color: lightgray; transform: scale(1.4); width: 600px; height: 150px"></iframe>
+                    <iframe
+                    data-src="\\int\UserData\HomeCustDevelUser\U392113\Repositories\python_school\notebooks\examples\sum_functions.py"
+                    style="background-color: lightgray; transform: scale(1.4); width: 600px; height: 150px"></iframe>
                     <br />
                     <br />
                     <p class="fragment">by saving them in a separate python script</p>
@@ -808,7 +874,7 @@ Out: array([[ 1,  2,  3,  4,  5],
            [ 4,  8, 12, 16, 20],
            [ 5, 10, 15, 20, 25],
            [ 6, 12, 18, 24, 30],
-           [ 7, 14, 21, 28, 35]])                    
+           [ 7, 14, 21, 28, 35]])
                     </code></pre>
                     </span>
                 </section>
@@ -845,7 +911,7 @@ plt.ylabel("Y-axis")
 
             </section>
 
-<!-- ARGS AND KWARGS --> 
+<!-- ARGS AND KWARGS -->
 
             <section>
 
@@ -982,7 +1048,7 @@ def sphere_object(radius):
                             return a*x + b
 
                         return x_response
-                    
+
                     # define two models
                     model_1 = linear_model(3, 0)
                     model_2 = linear_model(1, 6)
@@ -1053,7 +1119,7 @@ Out: 12
                     <pre><code class="python" data-trim style="width: 500px; height: 450px">
 def predict_linear(x_series, a, b):
     """
-    predicts Y for a series of X 
+    predicts Y for a series of X
     given parameters (a, b)
     """
     y_series = []
@@ -1086,7 +1152,7 @@ def linear_model(x, a, b):
                     <pre><code class="python" data-trim data-noescape style="width: 500px; height: 450px">
 def predict_linear(x_series, <mark>*pars</mark>):
     """
-    predicts Y for a series of X 
+    predicts Y for a series of X
     given parameters (a, b)
     """
     y_series = []
@@ -1207,9 +1273,9 @@ In : help(circle_area)
                 </section>
 
                 <section>
-                    <span class="fragment">
                     <p>in fact if you're ever lost about what a function does
                     Python's <code>help()</code> function helps you get an idea</p>
+                    <span class="fragment">
                     <pre><code class="bash" data-trim>
 help(range)
 
@@ -1251,7 +1317,7 @@ help(range)
                     <h2>Next time</h2>
                 </section>
 
-                <section data-background="img/Lesson_3/pandas.jpg">
+                <section data-background="img/Lesson_3/class.jpeg">
                 </section>
 
             </section>
