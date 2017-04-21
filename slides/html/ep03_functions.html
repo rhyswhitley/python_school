@@ -213,14 +213,14 @@ with open("my_file2.txt") as file2:
                 <section data-transition="fade-in">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def square_number(x):
+def compound_interest(P, r, n, t):
     """
-    determines the square of a number
+    calculates compound interest
     """
 
-    y = x**2
+    P_new = P*(1 + r/n)**(n*t)
 
-    return y
+    return P_new
                     </code></pre>
                     <p style="color: white">...</p>
                 </section>
@@ -228,14 +228,14 @@ def square_number(x):
                 <section data-transition="fade-in">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-<mark>def</mark> square_number(x):
+<mark>def</mark> compound_interest(P, r, n, t):
     """
-    determines the square of a number
+    calculates compound interest
     """
 
-    y = x**2
+    P_new = P*(1 + r/n)**(n*t)
 
-    return y
+    return P_new
                     </code></pre>
                     <p>use <code>def</code> to tell Python we're creating a function</p>
                 </section>
@@ -243,14 +243,14 @@ def square_number(x):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def <mark>square_number</mark>(x):
+def <mark>compound_interest</mark>(P, r, n, t):
     """
-    determines the square of a number
+    calculates compound interest
     """
 
-    y = x**2
+    P_new = P*(1 + r/n)**(n*t)
 
-    return y
+    return P_new
                     </code></pre>
                     <p>we also have to give the function a name, for reference</p>
                 </section>
@@ -258,14 +258,14 @@ def <mark>square_number</mark>(x):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                 <pre><code class="python" data-trim data-noescape>
-def square_number(<mark>x</mark>):
+def compound_interest(<mark>P, r, n, t</mark>):
     """
-    determines the square of a number
+    calculates compound interest
     """
 
-    y = x**2
+    P_new = P*(1 + r/n)**(n*t)
 
-    return y
+    return P_new
                     </code></pre>
                     <p>and tell it what <b>input variables</b> it accepts</p>
                 </section>
@@ -273,14 +273,14 @@ def square_number(<mark>x</mark>):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def square_number(x):
+def compound_interest(P, r, n, t):
     """
-    determines the square of a number
+    calculates compound interest
     """
 
-    <mark>y = x**2</mark>
+    <mark>P_new = P*(1 + r/n)**(n*t)</mark>
 
-    return y
+    return P_new
                     </code></pre>
                     <p>the input(s) are then operated on in some way</p>
                 </section>
@@ -288,14 +288,14 @@ def square_number(x):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def square_number(x):
+def compound_interest(P, r, n, t):
     """
-    determines the square of a number
+    calculates compound interest
     """
 
-    y = x**2
+    P_new = P*(1 + r/n)**(n*t)
 
-    <mark>return y</mark>
+    <mark>return P_new</mark>
                     </code></pre>
                     <p>to determine an outcome, which is <b>returned</b> to the user</p>
                 </section>
@@ -303,24 +303,24 @@ def square_number(x):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def square_number(x):
+def compound_interest(P, r, n, t):
     <mark>"""</mark>
-    <mark>determines the square of a number</mark>
+    <mark>calculates compound interest</mark>
     <mark>"""</mark>
 
-    y = x**2
+    P_new = P*(1 + r/n)**(n*t)
 
-    return y
+    return P_new
                     </code></pre>
                     <p>lastly, we define what the function does for reference</p>
                 </section>
 
                 <section data-background="orange">
                     <p style="color: white; font-weight: bold">variables in functions can only affect that specific process</p>
-                    <hr class="fragment" data-fragment-index="1" style="line-color: white">
-                    <p class="fragment" data-fragment-index="1">&there4; outside the function, they hold no purpose</p>
-                    <p class="fragment" data-fragment-index="2">...</p>
-                    <p class="fragment" data-fragment-index="2">this leads on to our next concept</p>
+                    <hr class="fragment" data-fragment-inde(P, r, n, t)="1" style="line-color: white">
+                    <p class="fragment" data-fragment-inde(P, r, n, t)="1">&there4; outside the function, they hold no purpose</p>
+                    <p class="fragment" data-fragment-inde(P, r, n, t)="2">...</p>
+                    <p class="fragment" data-fragment-inde(P, r, n, t)="2">this leads on to our next concept</p>
                 </section>
 
 <!-- LEXICAL SCOPING -->
