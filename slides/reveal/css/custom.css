@@ -67,15 +67,15 @@
 }
 
 .reveal div.banner {
-    background-color: #2f4f4f;
-    color: white;
-    padding: 5px;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    left: 0;
-
+  background-color: #2f4f4f;
+  color: white;
+  font-size: 30pt;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 15px;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .reveal #title-footer {
@@ -118,9 +118,12 @@
     border-top-color: gold;
 }
 
-.reveal pre code mark {
-  color: black !important;
-  background-color: yellow !important;
+.reveal mark {
+  color: black;
+}
+
+.reveal pre code.special {
+    max-height: 600px;
 }
 
 
@@ -160,6 +163,28 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+.reveal div.left-block {
+  background-color: white;
+  color: black;
+  width: 100%;
+  height: 200%;
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+}
+
+.reveal div.right-block {
+  background-color: green;
+  color: black;
+  width: 100%;
+  height: 1000%;
+  position: fixed;
+  top: -50%;
+  right: -50%;
+  z-index: -1;
 }
 
 #left {

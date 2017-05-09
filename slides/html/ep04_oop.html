@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="Lesson 4 on objected oriented programming">
+    <meta name="author" content="Rhys Whitley">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lesson 1b</title>
+
+    <link rel="stylesheet" href="../reveal/css/reveal.css">
+    <link rel="stylesheet" href="../reveal/css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../reveal/plugin/title-footer/title-footer.css">
+
+    <link rel="stylesheet" href="../reveal/css/custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-background="img/grass-bg.jpg">
+                <br />
+                <br />
+                <img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 50px' />
+                <br />
+                <img class=noborder src="img/title.png" alt="presentation title" style='height: 100px' />
+                <font size="18">
+                <p style="line-height: 1em; color: black; font-weight: bold">Lesson 4</p>
+                </font>
+                <font size="6">
+                <p style="line-height: 0.5em; color: #000000; font-weight: bold">10 May 2017</p>
+                </font>
+                <br />
+                <br />
+            </section>
+
+<!--- RECAP -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h3>Previously on Python School</h3>
+                </section>
+
+                <section data-transition="fade">
+                    <h4>We looked at</h4>
+                    <h2>functions!</h2>
+                    <span class="fragment">
+                    \[
+                    x \rightarrow f(x) \rightarrow y
+                    \]
+                    </span>
+                    <span class="fragment">
+                    <pre style="width: 300px"><code class="python" data-trim data-noescape><center>
+                    def function(x):
+                     y = x + 1
+                    return y
+                    <center></code></pre>
+                        ...
+                        <p><b>Input</b> &rarr; <i>do something with it</i> &rarr; <b>Output</b></p>
+                    </span>
+                </section>
+
+                <section>
+                    <p>it was a</p>
+                    <h2>revelation!</h2>
+                    <p class="fragment">
+                    simplifying our code-base by
+                    <br />
+                    breaking down a <i>complex</i> program into simpler parts
+                    </p>
+                    <p class="fragment">
+                    &downarrow; <br />
+                    many processes can be encapsulated and called on demand
+                    </p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>we also learnt how to store our functions in</p>
+                    <h2>modules</h2>
+                    <p class="fragment">which can be <code>import</code>-ed as we need them</p>
+                    <p class="fragment">allowing for a more programmatic style</p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <div class="highblock" style="background-color: darkorange; bottom: 60%">
+                        <div style="width: 50%; color: white; font-weight: bold">
+                            <p>we're now going to put a lot of what we've learnt so far to approach a new concept</p>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <p class="fragment">one that allows you to package <br />
+                    <span style='font-weight:bold; font-size: 35pt; color: #2f4f4f'>data-types</span> and 
+                    <span style='font-weight:bold; font-size: 35pt; color: #2f4f4f'>functions</span> <br />
+                    <span style='font-weight:bold; font-size: 48pt; color: black'>TOGETHER</span></p>
+                </section>
+
+            </section>
+
+<!-- INTRO -->
+
+            <section>
+                <section data-background="img/Lesson_4/OOP.jpg" data-state="dim-background">
+                    <h2 style="color: black; position: absolute; width: 100%; background: rgba(256, 256, 256, 0.2);">
+                        objected oriented programming
+                    </h2>
+                </section>
+
+                <section>
+                    <h2 style="color: crimson; font-weight: bold">what the hell is that?</h2>
+                    <p class="fragment" data-fragment-index="0">it's programming paradigm that 
+                    <span class="fragment highlight-blue" data-fragment-index="1">structures data</span> 
+                    into an abstract collection of 
+                    <span class="fragment highlight-blue" data-fragment-index="1">attributes</span> and 
+                    <span class="fragment highlight-blue" data-fragment-index="1">behaviors</span></p>
+                </section>
+
+                <section>
+                    <h4>to demonstrate, let's recall</h4>
+                    <h2 style="color: dimgray"><code>Strings</code></h2>
+                    <p class="fragment">Can you recall what makes them unique?</p>
+                    <p class="fragment" style="color: green">&#10004; initialised by quotation marks</p>
+                    <p class="fragment" style="color: green">&#10004; have size (number of characters)</p>
+                    <p class="fragment" style="color: green">&#10004; can be transformed (e.g. uppercase, split, etc.)</p>
+                    <p class="fragment" style="color: red">&#10007; but are not mutable</p>
+                </section>
+
+                <section>
+                    <h2>So...</h2>
+                    <p class="fragment"><code>strings</code> have a specific behaviour,</p>
+                    <span class="fragment">
+                        <p>and the data is whatever you've set it to be</p>
+                        <pre style="width: 60%"><code class="ipython" data-trim data-noescape><center>
+message = "Go jump in the lake!"
+                        </center>
+                        </code></pre>
+                    </span>
+                    <br />
+                    <div class="banner fragment">Now just hold on to that thought</div>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 class="low" style="color: white">Central to</h4>
+                    <h3 class="low" style="color: white">Object-Oriented Programming</h3>
+                    <h3 class="low" style="color: white">are...</h4>
+                </section>
+
+                <section data-transition="fade-in" data-background="black">
+                    <div class="left-block">
+                        <img src="img/Lesson_4/class.jpg" style="position: absolute; width: 100%; left: 5%; top: 20%; height: 750px"/>
+                    </div>
+                    <h1 style="position: absolute; right: 0%; color: white">Classes</h1>
+                </section>
+
+                <section data-transition="fade-in" data-background="black">
+                    <div class="left-block">
+                        <img src="img/Lesson_4/objects2.jpg" style="position: absolute; max-width: 120%; left: -20%; top: 20%;"/>
+                    </div>
+                    <h1 style="position: absolute; right: 0%; color: white">Objects</h1>
+                </section>
+
+
+                <section>
+                    <h2>Classes</h2>
+                    <p>can be effectively thought of as a blueprint that describes</p>
+                    <div class="fragment" id="left" style="background-color: #008080; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>STATE</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="right" style="background-color: darkorange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>BEHAVIOUR</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="left" style="background-color: #20b2aa; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>data</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="right" style="background-color: orange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>methods</p>
+                        </center>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Objects</h2>
+                    <p>are <span style="font-size: 40pt; font-weight: bold">instances</span> of a class</p>
+                    <p class="fragment">i.e. they are a <b>realisation</b> of the <span style="color: blue"><i>blueprint</i></span></p>
+                    <div class="fragment" id="left" style="text-align: right">
+                        <img src="img/Lesson_4/home_blueprint.jpg" alt="blueprint" height="250px" />
+                    </div>
+                    <div class="fragment" id="right" style="text-align: left">
+                        <img src="img/Lesson_4/home_realised.jpg" alt="realisation" height="250px" />
+                    </div>
+                    <p class="fragment">or the interaction between the data and methods</p>
+                </section>
+
+                <section data-background="img/Lesson_4/home_realised.jpg" data-background-size="100px" data-background-repeat="repeat">
+                    <div style="position: absolute; width: 100%; background: rgba(0, 0, 0, 0.5);">
+                    <p style="font-weight: bold; color: white">much like any blueprint, I can realise it</p> 
+                    <h1 style="color: orange">many times</h1>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>classes are commonly referred to as</h4>
+                    <h2>data structures</h2>
+                    <p>and you've actually been using them since the first lesson</p>
+                </section>
+
+                <section>
+                    <h5>going back to </h5>
+                    <h2 class="low">the <code>string</code> data type</h2>
+                    <div id="left">
+                    <pre class="fragment"><code class="ipython" data-trim data-noescape>
+In : name = "Garry"
+In : dir(name)
+Out:
+['__add__',
+ '__class__',
+ '__contains__',
+ '__doc__',
+ '__format__',
+ '__hash__',
+
+ ...,
+
+ 'split',
+ 'startswith',
+ 'strip',
+ 'swapcase',
+ 'title',
+ 'upper',]          
+                    </code></pre>
+                    </div>
+                    <div id="right">
+                    <p class="fragment"><code>name</code> is a realisation of the "<code>string</code> class"</p>
+                    <p>
+                    <span class="fragment">with methods and</span><br />
+                    <span class="fragment">behaviours</span>
+                    </p>
+                    <p class="fragment">and we can create as many strings as we want</p>
+                    </div>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 style="color: white">so let's create some of our own</h3>
+                </section>
+
+            </section>
+
+<!-- EXAMPLES -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>Defining Classes in Python</h2>
+                    <p class="fragment">Let's create one to describe a customer</p>
+                </section>
+
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-y customer</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+class Customer:
+    """
+    Data structure to describe a customer with the business
+    """
+    def __init__(self, name, deposit):
+        # customer attributes
+        self.name = name
+        self.deposit = deposit
+
+    def customer_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s has $%i" % (self.name, self.deposit)
+        print(message)
+
+
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-ier customer</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+class Customer:
+    """
+    Data structure to describe a customer for the business
+    """
+    _num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # keep track of customers
+        Customer._num_customers += 1
+
+        # attributes
+        self.name = name
+        self.accnum = Customer._num_customers
+        self.deposit = deposit
+
+    def compound_interest(self, rate, freq, term):
+        """
+        calculates compound interest
+        """
+        P_new = self.deposit*(1 + rate/freq)**(freq*term)
+
+        return P_new
+
+                    </code></pre>
+                </section>
+
+            </section>
+
+<!-- SUMMARY -->
+
+            <section>
+
+                <section data-background="img/python_kaa.gif" style="color: white">
+                    <div style="position: relative; width: 250px;">
+
+                      <div style="position: absolute; top: -80px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="1" style="font-size: 80px">
+                            we <span style="color: purple">&hearts; </span>functions</p>
+                      </div>
+
+                      <div style="position: absolute; top: 0px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="2" style="font-size: 60px">
+                            we <span style="color: hotpink">&hearts; </span>modules</p>
+                      </div>
+
+                      <div style="position: absolute; bottom: -600px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="3" style="font-size: 90px">
+                            we <span style="color: red">&hearts;</span> Python</p>
+                      </div>
+
+                    </div>
+                </section>
+
+                <section data-background="#2f4f4f">
+                    <h2>Next time</h2>
+                </section>
+
+                <section data-background="img/Lesson_3/class.jpeg">
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../reveal/lib/js/head.min.js"></script>
+    <script src="../reveal/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [{
+                src: '../reveal/plugin/markdown/marked.js'
+            }, {
+                src: '../reveal/plugin/markdown/markdown.js'
+            }, {
+                src: '../reveal/plugin/math/math.js',
+                async: true
+            }, {
+                src: '../reveal/plugin/title-footer/title-footer.js',
+                async: true,
+                callback: function() {
+                    title_footer.initialize(
+                        // Change footer here
+                        'Rhys Whitley • Python School • 30 March 2017', '#2f4f4f'
+                    );
+                }
+            }, {
+                src: '../reveal/plugin/notes/notes.js',
+                async: true
+            }, {
+                src: '../reveal/plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }]
+        });
+    </script>
+</body>
+
+</html>
