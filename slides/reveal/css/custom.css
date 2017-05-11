@@ -203,3 +203,13 @@
   z-index:-10;
   width:50%;
 }
+
+.reveal .slides section .fragment.highlight-current-green.current-fragment {
+    width: 100%;
+    background-color: #00663b;
+}
+
+.reveal .slides section .fragment.highlight-green {
+    width: 100%;
+    background-color: #00663b;
+}

@@ -49,3 +49,7 @@ Thumbs.db
 .DS_Store
 __pycache__
 *.db
+
+# ignore pdf exporters
+decktape.js
+phantomjs

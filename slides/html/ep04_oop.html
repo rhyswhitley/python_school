@@ -278,62 +278,428 @@ Out:
 
                 <section data-background="#2f4f4f">
                     <h2>Defining Classes in Python</h2>
-                    <p class="fragment">Let's create one to describe a customer</p>
+                    <p class="fragment">Let's create one to describe a customer account with a bank</p>
                 </section>
 
 
                 <section data-background="orange">
                     <h3 style="color: white">a <code>class</code>-y customer</h3>
                     <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
-class Customer:
-    """
+class Account:
+    <span class="fragment" data-fragment-index="1">"""
     Data structure to describe a customer with the business
-    """
-    def __init__(self, name, deposit):
+    """</span>
+    <span class="fragment" data-fragment-index="2">def __init__(<span class="fragment zoom-in highlight-current-green" data-fragment-index="5">self</span>, name, deposit):
         # customer attributes
-        self.name = name
-        self.deposit = deposit
+        <span class="fragment zoom-in highlight-current-green" data-fragment-index="5">self</span>.name = name
+        <span class="fragment zoom-in highlight-current-green" data-fragment-index="5">self</span>.savings = deposit</span>
 
-    def customer_detail(self):
+    <span class="fragment" data-fragment-index="3">def account_detail(<span class="fragment zoom-in highlight-current-green" data-fragment-index="5">self</span>):
         """
         Print current financial position of customer
         """
-        message = "Customer: %s has $%i" % (self.name, self.deposit)
-        print(message)
+        message = "Customer: %s has $%i" % (<span class="fragment zoom-in highlight-current-green" data-fragment-index="5">self</span>.name, <span class="fragment zoom-in highlight-current-green" data-fragment-index="5">self</span>.deposit)
+        print(message)</span>
+                    </code></pre>
+                </section>
 
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-y customer</h3>
+                    <pre class="stretch"><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : c1 = Account("Garry", 1000)
 
+<span class="fragment" data-fragment-index="1">In : c1
+Out: <__main__.Customer at 0x7f605c04e550></span>
+
+<span class="fragment" data-fragment-index="2">In : c1<span class="fragment zoom-in highlight-current-green" data-fragment-index="3">.</span>name
+Out: "Garry"</span>
+
+<span class="fragment" data-fragment-index="4">In : c1.savings
+Out: 1000</span>
+
+<span class="fragment" data-fragment-index="5">In : c1.account_detail<span class="fragment zoom-in highlight-current-green" data-fragment-index="6">()</span>
+Out: Customer: Garry has $1000</span>
+
+<span class="fragment" data-fragment-index="7">In : c1.account_detail
+Out: &lt;bound method Account.account_detail of &lt;__main__.Account object at 0x7f605c04e550&gt;&gt;</span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-y customer</h3>
+                    <p>Having created this new data structure, I can create as many as I want!</p>
+                    <pre class="fragment"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+d1 = Account("Mathew", 2003)
+d2 = Account("Mark", 4000)
+d3 = Account("Luke", 1350)
+d4 = Account("John", 10420)
+d5 = Account("Judas", 30)
+                    </code></pre>
+                    <p class="fragment">and do it in a more <i>pythonic</i> way</p>
+                    <pre class="fragment"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+disciples = {'names': ["Mathew", "Mark", "Luke", "John", "Judas"], \
+                'deposit': [2003, 4000, 1350, 10420, 30]}
+accounts = []
+
+# add customer information to accounts list
+for (name, deposit) in disciples.items():
+
+    acc_obj = Account(name, deposit)
+    accounts.append(acc_obj)
                     </code></pre>
                 </section>
 
                 <section data-background="orange">
                     <h3 style="color: white">a <code>class</code>-ier customer</h3>
                     <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
-class Customer:
+class Account:
     """
-    Data structure to describe a customer for the business
+    Data structure to describe a customer bank account
     """
-    _num_customers = 0
+    <span class="fragment" data-fragment-index="1">num_customers = 0</span>
     
     def __init__(self, name, deposit):
-        # keep track of customers
-        Customer._num_customers += 1
-
         # attributes
         self.name = name
-        self.accnum = Customer._num_customers
-        self.deposit = deposit
+        self.savings = deposit
+        <span class="fragment" data-fragment-index="1"># keep track of customers
+        <span class="fragment zoom-in highlight-current-green" data-fragment-index="3">Customer</span>.num_customers += 1
+        self.accnum = <span class="fragment zoom-in highlight-current-green" data-fragment-index="3">Customer</span>.num_customers</span>
 
-    def compound_interest(self, rate, freq, term):
+    <span class="fragment" data-fragment-index="2">def account_detail(self):
         """
-        calculates compound interest
+        Print current financial position of customer
         """
-        P_new = self.deposit*(1 + rate/freq)**(freq*term)
-
-        return P_new
-
+        message = "Customer: %s [AC: %s] has $%i" \
+                         % (self.name, self.accnum, self.savings)
+        print(message)</span>
                     </code></pre>
                 </section>
 
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-ier customer</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : c1 = Account("John", 10420)
+
+<span class="fragment" data-fragment-index="1">In : c1.account_detail()
+Out: Customer: John [AC: 1] has $10420</span>
+
+<span class="fragment" data-fragment-index="2">In : c2 = Account("Judas", 30)</span>
+
+<span class="fragment" data-fragment-index="3">In : c2.account_detail()
+Out: Customer: Judas [AC: 2] has $30</span>
+                    </code></pre>
+                    <p class="fragment">Every time we create a new Account object</p>
+                    <p class="fragment">an account number is assigned according to the counter</p>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">an even <code>class</code>-ier customer</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 12pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # attributes
+        self.name = name
+        self.savings = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+
+    def account_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s [AC: %s] has $%i" \
+                         % (self.name, self.accnum, self.savings)
+        print(message)</span>
+
+    <span class="fragment" data-fragment-index="1">def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        <span class="fragment zoom-in highlight-current-green" data-fragment-index="3">new_pos</span> = self.savings*(1 + rate/freq)**(freq*term)
+
+        return <span class="fragment zoom-in highlight-current-green" data-fragment-index="3">new_pos</span></span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">an even <code>class</code>-ier customer</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : a1 = Account("Mark", 4000)
+
+<span class="fragment" data-fragment-index="1">In : a1.account_detail()
+Out: Customer: Mark has $4000</span>
+
+<span class="fragment" data-fragment-index="2">In : a1.<span class="fragment zoom-in highlight-current-green" data-fragment-index="6">compound_interest</span>(0.05, 4, 10)
+Out: 5154.7267</span>
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="3">However, we are not changing the state of the object</p>
+                    <pre class="fragment" data-fragment-index="4"><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : a1.account_detail()
+Out: Customer: Mark has $4000
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="5">the Class <span class="fragment zoom-in highlight-current-green" data-fragment-index="6"><code>method</code></span> is just returning a value</p>
+                </section>
+
+                <section data-background="orange" data-transition="fade-in">
+                    <h3 class="low" style="color: white">to change the state of the object</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 12pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # attributes
+        self.name = name
+        self.savings = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+
+    def account_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s [AC: %s] has $%i" \
+                         % (self.name, self.accnum, self.savings)
+        print(message)
+
+    def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        new_pos = self.savings*(1 + rate/freq)**(freq*term)
+
+        return new_pos
+                    </code></pre>
+                </section>
+
+                <section data-background="orange" data-transition="fade-in">
+                    <h3 class="low" style="color: white">to change the state of the object</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 12pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # attributes
+        self.name = name
+        <span class="fragment zoom-in highlight-current-green" data-fragment-index="1">self.savings</span> = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+
+    def account_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s [AC: %s] has $%i" \
+                         % (self.name, self.accnum, <span class="fragment zoom-in highlight-current-green" data-fragment-index="1">self.savings</span>)
+        print(message)
+
+    def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        <span class="fragment zoom-in highlight-current-green" data-fragment-index="1">self.savings</span> = <span class="fragment zoom-in highlight-current-green" data-fragment-index="1">self.savings</span>*(1 + rate/freq)**(freq*term)
+
+        return <span class="fragment zoom-in highlight-current-green" data-fragment-index="1">self.savings</span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">an even <code>class</code>-ier customer</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : <span class="fragment zoom-in highlight-current-green" data-fragment-index="5">a1</span> = Account("Mark", 4000)
+
+<span class="fragment" data-fragment-index="1">In : a1.account_detail()
+Out: Customer: Mark has $4000</span>
+
+<span class="fragment" data-fragment-index="2">In : a1.<span class="fragment zoom-in highlight-current-green" data-fragment-index="4">compound_interest</span>(0.05, 4, 10)
+Out: 5154.7267</span>
+
+<span class="fragment" data-fragment-index="3">In : a1.account_detail()
+Out: Customer: Mark has $5154.7267</span>
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="3">the <span class="fragment zoom-in highlight-current-green" data-fragment-index="4">method</span> now directly interacts with the <span class="fragment zoom-in highlight-current-green" data-fragment-index="5">object</span></p>
+                    <p class="fragment" data-fragment-index="6">this kind of object manipulation leads to our next topic</p>
+                </section>
+
+            </section>
+
+<!-- PIPING -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>method chaining</h2>
+                    <p class="fragment">or piping</p>
+                </section>
+
+                <section>
+                    <h3>what is chaining or piping?</h3>
+                    <p class="fragment">Originates from Unix</p> 
+                    <span class="fragment">
+                    \[
+                    x \rightarrow f(x) \rightarrow g(x) \rightarrow h(x) \rightarrow y
+                    \]
+                    <p>where some data could be fed through a sequence of processes to change it</p>
+                    </span>
+                    <pre class="fragment"><code class="sh" data-noescape data-notrim><center>
+data | <span style="color: hotpink">group</span> | <i>then</i> <span style="color: skyblue">sort</span> | <i>then</i> <span style="color: lime">average</span>
+                    </center></code></pre>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h4>chaining in Python</h4>
+                    <p>we can achieve the same behaviour with our class objects</p>
+                    <span class="fragment">
+                    <pre><code class="special python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    # other stuff usually here
+
+    def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        self.savings = self.savings*(1 + rate/freq)**(freq*term)
+
+        return self.savings
+                    </code></pre>
+                    <p>we just need to make a slight change to our code</p>
+                    </span>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h4>chaining in Python</h4>
+                    <p>we can achieve the same behaviour with our class objects</p>
+                    <pre><code class="special python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    # other stuff usually here
+
+    def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        self.savings = self.savings*(1 + rate/freq)**(freq*term)
+
+        <span class="fragment zoom-in highlight-current-green">return self</span>
+                    </code></pre>
+                    <p>we just need to make a slight change to our code</p>
+                </section>
+
+                <section data-background="orange">
+                    <h4 style="color: white">Let's add some other methods</h4>
+                    <pre><code class="special python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    # other stuff usually here
+
+    def <span class="fragment zoom-in highlight-current-green" data-fragment-index="1">withdraw(self, amount)</span>:
+        """
+        Charge an account keeping fee
+        """
+        self.savings -= amount
+        
+        <span class="fragment zoom-in highlight-current-green" data-fragment-index="2">return self</span>
+
+    def <span class="fragment zoom-in highlight-current-green" data-fragment-index="1">deposit(self, amount)</span>:
+        """
+        Increase savings by deposit amount
+        """
+        self.savings += amount
+
+        <span class="fragment zoom-in highlight-current-green" data-fragment-index="2">return self</span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">and chain these together</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : a1 = Account("Mark", 4000)
+
+In : a1.account_detail()
+<span class="fragment" data-fragment-index="2">Out: Customer: Mark has $4000</span>
+
+<span class="fragment" data-fragment-index="3">In : a1.compound_interest(0.05, 4, 10)<span class="fragment zoom-in highlight-current-green" data-fragment-index="8"><span class="fragment" data-fragment-index="4">.withdraw(500)</span><span class="fragment" data-fragment-index="5">.deposit(100)</span></span>
+
+<span class="fragment" data-fragment-index="6">In : a1.account_detail()
+Out: Customer: Mark has $4854</span>
+
+<span class="fragment" data-fragment-index="7">In : a1.savings
+Out: 4854</span>
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="9">we use the <code>dot</code> notation to connect the methods together</p>
+                </section>
+
+                <section>
+                    <h3>now, just one more thing to look at with classes</h3>
+                </section>
+
+            </section>
+
+<!-- BEHAVIOUR -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>behaviour</h2>
+                </section>
+
+                <section>
+                    <h4 class="low" style="color: darkorange">notice with <code>string</code> data types</h4>
+                    <h3>we have this behaviour</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : string1 = "Hello "
+In : string2 = "world!"
+
+In : string1 <span class="fragment zoom-in highlight-current-green" data-fragment-index="1">+</span> string2
+Out: "Hello world!"
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1">the addition symbol <span class="fragment zoom-in highlight-green" data-fragment-index="1">&nbsp;+&nbsp;</span> is used to join two string together as one</p>
+                    <p class="fragment" data-fragment-index="2">under the hood, the interpreter is joining the objects together</p>
+                </section>
+
+                <section>
+                    <h3>we can add similar behaviour to our own objects</h3>
+                    <p class="fragment">for instance, imagine I have two customers</p>
+                    <div class="fragment" id="left" style="background-color: #20b2aa; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>Mark</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="right" style="background-color: orange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>Judas</p>
+                        </center>
+                    </div>
+                    <br />
+                    <br />
+                    <p class="fragment">who want to create a join account
+                    <br />
+                    <span class="fragment">
+                    &downarrow; <br />
+                    Can I give my <b>Account objects</b> behaviour to do this?</span></p>
+                </section>
+                
             </section>
 
 <!-- SUMMARY -->
