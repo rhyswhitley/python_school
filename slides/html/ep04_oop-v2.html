@@ -1,0 +1,1102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="Lesson 4 on objected oriented programming">
+    <meta name="author" content="Rhys Whitley">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lesson 1b</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-background="img/grass-bg.jpg">
+                <br />
+                <br />
+                <img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 50px' />
+                <br />
+                <img class=noborder src="img/title.png" alt="presentation title" style='height: 100px' />
+                <font size="18">
+                <p style="line-height: 1em; color: black; font-weight: bold">Lesson 4</p>
+                </font>
+                <font size="6">
+                <p style="line-height: 0.5em; color: #000000; font-weight: bold">10 May 2017</p>
+                </font>
+                <br />
+                <br />
+            </section>
+
+<!--- RECAP -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h3>Previously on Python School</h3>
+                </section>
+
+                <section data-transition="fade">
+                    <h4>We looked at</h4>
+                    <h2>functions!</h2>
+                    <span class="fragment">
+                    \[
+                    x \rightarrow f(x) \rightarrow y
+                    \]
+                    </span>
+                    <span class="fragment">
+                    <pre style="width: 300px"><code class="python" data-trim data-noescape><center>
+                    def function(x):
+                     y = x + 1
+                    return y
+                    <center></code></pre>
+                        ...
+                        <p><b>Input</b> &rarr; <i>do something with it</i> &rarr; <b>Output</b></p>
+                    </span>
+                </section>
+
+                <section>
+                    <p>it was a</p>
+                    <h2>revelation!</h2>
+                    <p class="fragment">
+                    simplifying our code-base by
+                    <br />
+                    breaking down a <i>complex</i> program into simpler parts
+                    </p>
+                    <p class="fragment">
+                    &downarrow; <br />
+                    many processes can be encapsulated and called on demand
+                    </p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>we also learnt how to store our functions in</p>
+                    <h2>modules</h2>
+                    <p class="fragment">which can be <code>import</code>-ed as we need them</p>
+                    <p class="fragment">allowing for a more programmatic style</p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <!--div class="highblock" style="background-color: darkorange; bottom: 60%">
+                        <div style="width: 50%; color: white; font-weight: bold">
+                            <p>we're now going to put a lot of what we've learnt so far to approach a new concept</p>
+                        </div>
+                    </div>
+                    <br />
+                    <br /-->
+                    <h4 class="low" style="color: darkorange">we're now going to put a lot of what we've learnt so far to approach a new concept</h4>
+                    <p class="fragment">one that allows you to package <br />
+                    <span style='font-weight:bold; font-size: 35pt; color: #2f4f4f'>data-types</span> and 
+                    <span style='font-weight:bold; font-size: 35pt; color: #2f4f4f'>functions</span> <br />
+                    <span style='font-weight:bold; font-size: 48pt; color: black'>TOGETHER</span></p>
+                </section>
+
+            </section>
+
+<!-- INTRO -->
+
+            <section>
+                <section data-background="img/Lesson_4/OOP.jpg">
+                    <h2 style="color: black; position: absolute; width: 100%; background: rgba(256, 256, 256, 0.2);">
+                        objected oriented programming
+                    </h2>
+                </section>
+
+                <section>
+                    <h2 style="color: crimson; font-weight: bold">what the hell is that?</h2>
+                    <p class="fragment" data-fragment-index="0">it's programming paradigm that 
+                    <span class="fragment highlight-blue" data-fragment-index="1">structures data</span> 
+                    into an abstract collection of 
+                    <span class="fragment highlight-blue" data-fragment-index="1">attributes</span> and 
+                    <span class="fragment highlight-blue" data-fragment-index="1">behaviors</span></p>
+                </section>
+
+                <section>
+                    <h4>to demonstrate, let's recall</h4>
+                    <h2 style="color: dimgray"><code>Strings</code></h2>
+                    <p class="fragment">Can you recall what makes them unique?</p>
+                    <p class="fragment" style="color: green">&#10004; initialised by quotation marks</p>
+                    <p class="fragment" style="color: green">&#10004; have size (number of characters)</p>
+                    <p class="fragment" style="color: green">&#10004; can be transformed (e.g. uppercase, split, etc.)</p>
+                    <p class="fragment" style="color: red">&#10007; but are not mutable</p>
+                </section>
+
+                <section>
+                    <h2>So...</h2>
+                    <p class="fragment"><code>strings</code> have a specific behaviour,</p>
+                    <span class="fragment">
+                        <p>and the data is whatever you've set it to be</p>
+                        <pre style="width: 60%"><code class="ipython" data-trim data-noescape><center>
+message = "Go jump in the lake!"
+                        </center>
+                        </code></pre>
+                    </span>
+                    <br />
+                    <div class="banner fragment">Now just hold on to that thought</div>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 class="low" style="color: white">so let's start with</h3> 
+                    <h2 style="color: white">the basics of OOP</h2>
+                </section>
+
+
+                <section data-transition="fade-in" data-background="img/Lesson_4/class.jpg">
+                    <h1 style="color: white; position: absolute; width: 100%; background: rgba(0, 0, 0, 0.2);">
+                        Classes
+                    </h1>
+                </section>
+
+                <section>
+                    <h2>Classes</h2>
+                    <p>can be effectively thought of as a blueprint that describes</p>
+                    <div class="fragment" id="left" style="background-color: #008080; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>STATE</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="right" style="background-color: darkorange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>BEHAVIOUR</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="left" style="background-color: #20b2aa; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>data</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="right" style="background-color: orange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>methods</p>
+                        </center>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>pick some object around you</h3>
+                    <p class="fragment">now try to describe some of its defining attributes</p>
+                    <p class="fragment">and it's behaviour</p>
+                    <br />
+                    <h4 class="fragment" style="color: darkorange">a class attempts to achieve a similar goal</h4>
+                    <p class="fragment">but within the Python environment</p>
+                </section>
+
+                <section data-transition="fade-in" data-background="img/Lesson_4/objects2.jpg">
+                    <h1 style="color: white; position: absolute; width: 100%; background: rgba(0, 0, 0, 0.4);">
+                        Objects
+                    </h1>
+                </section>
+
+                <!--section data-transition="fade-in" data-background="black">
+                    <div class="left-block">
+                        <img src="img/Lesson_4/class.jpg" style="position: absolute; height: 100vh; top: 10%; left: 6%;"/>
+                    </div>
+                    <h1 style="position: absolute; right: 0%; color: white">Classes</h1>
+                </section>
+
+                <section data-transition="fade-in" data-background="black">
+                    <div class="left-block">
+                        <img src="img/Lesson_4/objects2.jpg" style="position: absolute; height: 100vh; top: 10%; left: 6%;"/>
+                    </div>
+                    <h1 style="position: absolute; right: 0%; color: white">Objects</h1>
+                </section-->
+
+                <section>
+                    <h2>Objects</h2>
+                    <p>are <span style="font-size: 40pt; font-weight: bold">instances</span> of a class</p>
+                    <p class="fragment">i.e. they are a <b>realisation</b> of the <span style="color: blue"><i>blueprint</i></span></p>
+                    <div class="fragment" id="left" style="text-align: right">
+                        <img src="img/Lesson_4/home_blueprint.jpg" alt="blueprint" height="250px" />
+                    </div>
+                    <div class="fragment" id="right" style="text-align: left">
+                        <img src="img/Lesson_4/home_realised.jpg" alt="realisation" height="250px" />
+                    </div>
+                    <p class="fragment">e.g. a house built from a set of defined plans</p>
+                </section>
+
+                <section data-background="img/Lesson_4/home_realised.jpg" data-background-size="100px" data-background-repeat="repeat">
+                    <div style="position: absolute; width: 100%; background: rgba(0, 0, 0, 0.5);">
+                    <p style="font-weight: bold; color: white">much like any blueprint, I can realise it</p> 
+                    <h1 style="color: orange">many times</h1>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>classes are commonly referred to as</h4>
+                    <h2>data structures</h2>
+                    <p>and you've actually been using them since the first lesson</p>
+                </section>
+
+                <section>
+                    <h5>going back to </h5>
+                    <h2 class="low">the <code>string</code> data type</h2>
+                    <div id="left">
+                    <pre class="fragment"><code class="ipython" data-trim data-noescape>
+In : name = "Garry"
+In : dir(name)
+Out:
+['__add__',
+ '__class__',
+ '__contains__',
+ '__doc__',
+ '__format__',
+ '__hash__',
+
+ ...,
+
+ 'split',
+ 'startswith',
+ 'strip',
+ 'swapcase',
+ 'title',
+ 'upper',]          
+                    </code></pre>
+                    </div>
+                    <div id="right">
+                    <p class="fragment"><code>name</code> is a realisation of the "<code>string</code> class"</p>
+                    <p>
+                    <span class="fragment">with methods and</span><br />
+                    <span class="fragment">behaviours</span>
+                    </p>
+                    <p class="fragment">and we can create as many strings as we want</p>
+                    </div>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 style="color: white">so let's create some of our own</h3>
+                </section>
+
+            </section>
+
+<!-- EXAMPLES -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>Defining Classes in Python</h2>
+                    <p class="fragment">Let's create one to describe a customer account with a bank</p>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-y account</h3>
+                    <p class="fragment">classes are defined like this</p>
+                    <pre class="fragment"><code class="special python" data-trim data-noescape>
+class Account:
+
+    # attributes defined here
+
+    # behaviour defined here
+                    </code></pre>
+                    <p class="fragment">and to create a realisation (object) of this class</p>
+                    <pre class="fragment"><code class="special ipython" data-trim data-noescape>
+ac1 = Account()
+                    </code></pre>
+                    <p class="fragment">the process of creating an object is called</p>
+                    <h2 class="fragment" style="color: white">instantiation</h2>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-y account</h3>
+                    <pre class="stretch" style="max-height: 400px"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+class Account:
+    <span class="fragment" data-fragment-index="0">"""
+    Data structure to describe a customer with the business
+    """</span>
+    <span class="fragment" data-fragment-index="2">def __init__(self, name, deposit):
+        # customer attributes
+        self.name = name
+        self.savings = deposit</span>
+
+    <span class="fragment" data-fragment-index="3">def account_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s has $%i" % (self.name, self.savings)
+        print(message)</span>
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="4">now let's put it to action!</p>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-y account</h3>
+                    <pre class="stretch" style="max-height: 450px"><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : ac1 = Account("Peter", 1000)
+
+<span class="fragment" data-fragment-index="1">In : ac1
+Out: <__main__.Customer at 0x7f605c04e550></span>
+
+<span class="fragment" data-fragment-index="2">In : ac1<span class="fragment highlight-current-green" data-fragment-index="3">.</span>name
+Out: "Peter"</span>
+
+<span class="fragment" data-fragment-index="4">In : ac1.savings
+Out: 1000</span>
+
+<span class="fragment" data-fragment-index="5">In : ac1.account_detail<span class="fragment highlight-current-green" data-fragment-index="6">()</span>
+Out: "Customer: Peter has $1000"</span>
+
+<span class="fragment" data-fragment-index="7">In : ac1.account_detail
+Out: &lt;bound method Account.account_detail of 
+        &lt;__main__.Account object at 0x7f605c04e550&gt;&gt;</span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-y account</h3>
+                    <pre class="stretch" style="max-height: 400px"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer with the business
+    """
+    def <span class="fragment highlight-current-green" data-fragment-index="6">__</span>init<span class="fragment highlight-current-green" data-fragment-index="6">__</span>(<span class="fragment highlight-current-green" data-fragment-index="5">self</span>, name, deposit):
+        # customer attributes
+        <span class="fragment highlight-current-green" data-fragment-index="5">self</span>.name = name
+        <span class="fragment highlight-current-green" data-fragment-index="5">self</span>.savings = deposit
+
+    def account_detail(<span class="fragment highlight-current-green" data-fragment-index="5">self</span>):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s has $%i" % (<span class="fragment highlight-current-green" data-fragment-index="5">self</span>.name, <span class="fragment highlight-current-green" data-fragment-index="5">self</span>.savings)
+        print(message)
+                    </code></pre>
+                    <p>there are a couple of things that will be new to you</p>
+                </section>
+
+                <section>
+                    <h5 class="low"><code>self</code></h5>
+                    <p>
+                    means it is referencing itself
+                    <span class="fragment">
+                    <br />&downarrow;<br />
+                    i.e. when the object is created, such attributes and methods will automatically refer to it
+                    </span>
+                    </p>
+                    <pre class="fragment"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+ac1 = Account("Peter", 1000)
+
+# this is the same
+<span class="fragment highlight-current-green">ac1.account_detail()</span>
+
+# as this
+<span class="fragment highlight-current-green">Account.account_detail(ac1)</span>
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h5><code>__init__</code></h5>
+                    <p class="fragment"><b>two things are going on here</b></p>
+                    <p class="fragment"><b>1.</b> when an object is created, variables (and their values) are automatically assigned to the object</p>
+                    <p class="fragment">
+                    <b>2.</b> the leading and trailing double underscore, refer to a <b>reserved</b> Python method
+                    <span class="fragment">
+                    <br />&downarrow;<br />
+                    i.e. Python knows what to do when it sees it
+                    </span>
+                    </p>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-y account</h3>
+                    <p>Having created this new data structure, I can create as many as I want!</p>
+                    <pre class="fragment"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+ac1 = Account("Mathew", 2003)
+ac2 = Account("Mark", 4000)
+ac3 = Account("Luke", 1350)
+ac4 = Account("John", 10420)
+ac5 = Account("Judas", 30)
+                    </code></pre>
+                    <p class="fragment">and do it in a more <i>pythonic</i> way</p>
+                    <pre class="fragment"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+disciples = [("Mathew", 2003), ("Mark", 4000), ("Luke", 1350), \
+                ("John", 10420), ("Judas", 30)]
+accounts = []
+
+# add customer information to accounts list
+for (name, deposit) in disciples:
+
+    acc_obj = Account(name, deposit)
+    accounts.append(acc_obj)
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-ier account</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    <span class="fragment" data-fragment-index="1">num_customers = 0</span>
+    
+    def __init__(self, name, deposit):
+        # attributes
+        self.name = name
+        self.savings = deposit
+        <span class="fragment" data-fragment-index="1"># keep track of customers
+        <span class="fragment highlight-current-green" data-fragment-index="3">Account</span>.num_customers += 1
+        self.accnum = <span class="fragment highlight-current-green" data-fragment-index="3">Account</span>.num_customers</span>
+
+    <span class="fragment" data-fragment-index="2">def account_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s [AC: %s] has $%i" \
+                         % (self.name, self.accnum, self.savings)
+        print(message)</span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a <code>class</code>-ier account</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : ac1 = Account("John", 10420)
+
+<span class="fragment" data-fragment-index="1">In : ac1.account_detail()
+Out: "Customer: John [AC: 1] has $10420"</span>
+
+<span class="fragment" data-fragment-index="2">In : ac2 = Account("Judas", 30)</span>
+
+<span class="fragment" data-fragment-index="3">In : ac2.account_detail()
+Out: "Customer: Judas [AC: 2] has $30"</span>
+                    </code></pre>
+                    <p class="fragment">Every time we create a new Account object</p>
+                    <p class="fragment">an account number is assigned according to the counter</p>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">an even <code>class</code>-ier account</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 12pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # attributes
+        self.name = name
+        self.savings = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+
+    def account_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s [AC: %s] has $%i" \
+                         % (self.name, self.accnum, self.savings)
+        print(message)</span>
+
+    <span class="fragment" data-fragment-index="1">def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        <span class="fragment highlight-current-green" data-fragment-index="3">new_pos</span> = self.savings*(1 + rate/freq)**(freq*term)
+
+        return <span class="fragment highlight-current-green" data-fragment-index="3">new_pos</span></span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">an even <code>class</code>-ier account</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : ac1 = Account("Mark", 4000)
+
+<span class="fragment" data-fragment-index="1">In : ac1.account_detail()
+Out: "Customer: Mark has $4000"</span>
+
+<span class="fragment" data-fragment-index="2">In : ac1.<span class="fragment highlight-current-green" data-fragment-index="6">compound_interest</span>(0.05, 4, 10)
+Out: 5154.7267</span>
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="3">However, we are not changing the state of the object</p>
+                    <pre class="fragment" data-fragment-index="4"><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : ac1.account_detail()
+Out: "Customer: Mark has $4000"
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="5">the Class <span class="fragment highlight-current-green" data-fragment-index="6"><code>method</code></span> is just returning a value</p>
+                </section>
+
+                <section data-background="orange" data-transition="fade-in">
+                    <h3 class="low" style="color: white">to change the state of the object</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 12pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # attributes
+        self.name = name
+        self.savings = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+
+    def account_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s [AC: %s] has $%i" \
+                         % (self.name, self.accnum, self.savings)
+        print(message)
+
+    def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        new_pos = self.savings*(1 + rate/freq)**(freq*term)
+
+        return new_pos
+                    </code></pre>
+                </section>
+
+                <section data-background="orange" data-transition="fade-in">
+                    <h3 class="low" style="color: white">to change the state of the object</h3>
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 12pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # attributes
+        self.name = name
+        <span class="fragment highlight-current-green" data-fragment-index="1">self.savings</span> = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+
+    def account_detail(self):
+        """
+        Print current financial position of customer
+        """
+        message = "Customer: %s [AC: %s] has $%i" \
+                         % (self.name, self.accnum, <span class="fragment highlight-current-green" data-fragment-index="1">self.savings</span>)
+        print(message)
+
+    def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        <span class="fragment highlight-current-green" data-fragment-index="1">self.savings</span> = <span class="fragment highlight-current-green" data-fragment-index="1">self.savings</span>*(1 + rate/freq)**(freq*term)
+
+        return <span class="fragment highlight-current-green" data-fragment-index="1">self.savings</span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">an even <code>class</code>-ier account</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : <span class="fragment highlight-current-green" data-fragment-index="5">ac1</span> = Account("Mark", 4000)
+
+<span class="fragment" data-fragment-index="1">In : ac1.account_detail()
+Out: "Customer: Mark has $4000"</span>
+
+<span class="fragment" data-fragment-index="2">In : ac1.<span class="fragment highlight-current-green" data-fragment-index="4">compound_interest</span>(0.05, 4, 10)
+Out: 5154.7267</span>
+
+<span class="fragment" data-fragment-index="3">In : ac1.account_detail()
+Out: "Customer: Mark has $5154.7267"</span>
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="3">the <span class="fragment highlight-current-green" data-fragment-index="4">method</span> now directly interacts with the <span class="fragment highlight-current-green" data-fragment-index="5">object</span></p>
+                    <p class="fragment" data-fragment-index="6">this kind of object manipulation leads to our next topic</p>
+                </section>
+
+            </section>
+
+<!-- PIPING -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>method chaining</h2>
+                    <p class="fragment">or piping</p>
+                </section>
+
+                <section>
+                    <h3>what is chaining or piping?</h3>
+                    <p class="fragment">Originates from Unix</p> 
+                    <span class="fragment">
+                    \[
+                    x \rightarrow f(x) \rightarrow g(x) \rightarrow h(x) \rightarrow y
+                    \]
+                    <p>where some data could be fed through a sequence of processes to change it</p>
+                    </span>
+                    <pre class="fragment"><code class="sh" data-noescape data-notrim><center>
+data | <span style="color: hotpink">group</span> | <i>then</i> <span style="color: skyblue">sort</span> | <i>then</i> <span style="color: lime">average</span>
+                    </center></code></pre>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h4>chaining in Python</h4>
+                    <p>we can achieve the same behaviour with our class objects</p>
+                    <span class="fragment">
+                    <pre><code class="special python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    # other stuff usually here
+
+    def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        self.savings = self.savings*(1 + rate/freq)**(freq*term)
+
+        return self.savings
+                    </code></pre>
+                    <p>we just need to make a slight change to our code</p>
+                    </span>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h4>chaining in Python</h4>
+                    <p>we can achieve the same behaviour with our class objects</p>
+                    <pre><code class="special python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    # other stuff usually here
+
+    def compound_interest(self, rate, freq, term):
+        """
+        Calculates compound interest
+        """
+        self.savings = self.savings*(1 + rate/freq)**(freq*term)
+
+        <span class="fragment highlight-current-green">return self</span>
+                    </code></pre>
+                    <p>we just need to make a slight change to our code</p>
+                </section>
+
+                <section data-background="orange">
+                    <h4 style="color: white">Let's add some other methods</h4>
+                    <pre><code class="special python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    # other stuff usually here
+
+    def <span class="fragment highlight-current-green" data-fragment-index="1">withdraw(self, amount)</span>:
+        """
+        Charge an account keeping fee
+        """
+        self.savings -= amount
+        
+        <span class="fragment highlight-current-green" data-fragment-index="2">return self</span>
+
+    def <span class="fragment highlight-current-green" data-fragment-index="1">deposit(self, amount)</span>:
+        """
+        Increase savings by deposit amount
+        """
+        self.savings += amount
+
+        <span class="fragment highlight-current-green" data-fragment-index="2">return self</span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">and chain these together</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : ac1 = Account("Mark", 4000)
+
+In : ac1.account_detail()
+<span class="fragment" data-fragment-index="2">Out: "Customer: Mark has $4000"</span>
+
+<span class="fragment" data-fragment-index="3">In : ac1.compound_interest(0.05, 4, 10)<span class="fragment highlight-current-green" data-fragment-index="8"><span class="fragment" data-fragment-index="4">.withdraw(500)</span><span class="fragment" data-fragment-index="5">.deposit(100)</span></span>
+
+<span class="fragment" data-fragment-index="6">In : ac1.account_detail()
+Out: "Customer: Mark has $4854"</span>
+
+<span class="fragment" data-fragment-index="7">In : ac1.savings
+Out: 4854</span>
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="9">we use the <code>dot</code> notation to connect the methods together</p>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 style="color: white">now, just one more thing to look at with classes</h3>
+                </section>
+
+            </section>
+
+<!-- BEHAVIOUR -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>behaviour</h2>
+                </section>
+
+                <section>
+                    <h4 class="low" style="color: darkorange">notice with <code>string</code> data types</h4>
+                    <h3>we have this behaviour</h3>
+                    <pre><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : string1 = "Hello "
+In : string2 = "world!"
+
+In : string1 <span class="fragment highlight-current-green" data-fragment-index="1">+</span> string2
+Out: "Hello world!"
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1">the addition symbol <span class="fragment highlight-green" data-fragment-index="1">&nbsp;+&nbsp;</span> is used to join two string together as one</p>
+                    <p class="fragment" data-fragment-index="2">under the hood, Python is joining the objects together</p>
+                </section>
+
+                <section>
+                    <h3>we can add similar behaviour to our own objects</h3>
+                    <p class="fragment">for instance, imagine I have two customers</p>
+                    <div class="fragment" id="left" style="background-color: #20b2aa; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>Mark</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="right" style="background-color: orange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>Judas</p>
+                        </center>
+                    </div>
+                    <br />
+                    <br />
+                    <p class="fragment">who want to create a join account
+                    <br />
+                    <span class="fragment">
+                    &downarrow; <br />
+                    Can I give my <b>Account objects</b> behaviour to do this?</span></p>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a first <code>class</code> account</h3>
+                    <pre><code class="special python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # attributes
+        <span class="fragment highlight-current-green" data-fragment-index="2">self.name</span> = name
+        <span class="fragment highlight-current-green" data-fragment-index="2">self.savings</span> = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+
+    def <span class="fragment highlight-current-green" data-fragment-index="0">__add__</span>(self, <span class="fragment highlight-current-green" data-fragment-index="1">other</span>):
+
+        <span class="fragment highlight-current-green" data-fragment-index="3">self.joint_name</span> = "%s and %s" % (<span class="fragment highlight-current-green" data-fragment-index="2">self.__name</span>, <span class="fragment highlight-current-green" data-fragment-index="1">other.__name</span>)
+        <span class="fragment highlight-current-green" data-fragment-index="4">self.joint_savings</span> = <span class="fragment highlight-current-green" data-fragment-index="2">self.__savings</span> + <span class="fragment highlight-current-green" data-fragment-index="1">other.__savings</span>
+
+        return <span class="fragment highlight-current-green" data-fragment-index="5">Account(self.joint_name, self.joint_savings)</span>
+
+    # other stuff usually here
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="0">Let's go through this step-by-step</p>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a first <code>class</code> account</h3>
+                    <p class="fragment">First, create two different accounts</p>
+                    <pre class="fragment"><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : ac1 = Account("Mark", 4000)
+In : ac1.account_detail()
+Out: "Customer: Mark [AC: 1] has $4000"
+
+In : ac2 = Account("Judas", 30)
+In : ac2.account_detail()
+Out: "Customer: Judas [AC: 2] has $30"
+                    </code></pre>
+                    <p class="fragment">Now add them together to create a joint account</p>
+                    <pre class="fragment"><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : ac3 = ac1 + ac2
+Out: "Customer: Mark and Judas [AC: 3] has $4030"
+                    </code></pre>
+                    <p class="fragment">How cool is that!</p>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">finally</h3>
+                    <p>let's have our account object be represented by something</p>
+                    <pre class="fragment" data-fragment-index="0"><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+class Account:
+    """
+    Data structure to describe a customer bank account
+    """
+    num_customers = 0
+    
+    def __init__(self, name, deposit):
+        # attributes
+        self.name = name
+        self.savings = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+
+    def <span class="fragment highlight-current-green" data-fragment-index="1">__repr__</span>(self):
+        <span class="fragment highlight-current-green" data-fragment-index="2">state</span> = "ACC: %s | NAME: %s | SAVINGS: %s" \
+                    % (self.__accnum, self.__name, self.__savings)
+        return <span class="fragment highlight-current-green" data-fragment-index="2">state</span>
+                    </code></pre>
+                </section>
+
+                <section data-background="orange">
+                    <h3 style="color: white">a first <code>class</code> account</h3>
+                    <p class="fragment">Our objects now have a direct output!</p>
+                    <pre class="fragment"><code class="special ipython" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+In : ac1 = Account("Mark", 4000)
+In : print(ac1)
+Out: "ACC: 1 | NAME: Mark | SAVINGS: 4000"
+
+<span class="fragment">In : ac2 = Account("Judas", 30)
+In : print(ac2)
+Out: "ACC: 2 | NAME: Judas | SAVINGS: 30"</span>
+
+<span class="fragment">In : ac3 = ac1 + ac2
+In : print(ac3)
+Out: "ACC: 3 | NAME: Mark and Judas | SAVINGS: 4030"</span>
+
+<span class="fragment">In : ac2.compound_interest(0.05, 4, 10)
+Out: "ACC: 2 | NAME: Judas | SAVINGS: 49.31"</span>
+
+<span class="fragment">In : ac1.withdraw(100).deposit(500)
+Out: "ACC: 1 | NAME: Mark | SAVINGS: 4400"</span>
+                    </code></pre>
+                    <p class="fragment">How cool is that!</p>
+                </section>
+
+                <!--section data-background="darkorange">
+                    <h2 syntax="color: white">finally</h2>
+                    <h3 class="fragment" syntax="color: white">one more concept before we finish</h3>
+                </section-->
+
+            </section>
+
+<!-- SUMMARY -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>SUMMARY</h2>
+                </section>
+
+                <section>
+                    <h3>classes are incredibly powerful</h3>
+                    <p class="fragment">with objects:</p>
+                    <p class="fragment"> &#10004; nearly anything can be conceived as a data structure</p>
+                    <p class="fragment"> &#10004; we can group related data as an abstract type</p>
+                    <p class="fragment"> &#10004; which can act and behave like any other Python variable</p>
+                </section>
+
+                <section>
+                    <h4>some conventions to remember</h4>
+                    <hr />
+                    <p class='fragment' data-fragment-index="1">Class names are generally given an UPPERCASE title</p>
+                    <p class='fragment' data-fragment-index="2" style="line-height: 0.5em; color: crimson">&diams;</p>
+                    <p class='fragment' data-fragment-index="2">alternatively objects are given lowercase names</p>
+                    <p class='fragment' data-fragment-index="3" style="line-height: 0.5em; color: crimson">&diams;</p>
+                    <p class='fragment' data-fragment-index="3"><b>always</b> have <i>docstrings</i> <u>throughout the class definition</u></p>
+                    <p class='fragment' data-fragment-index="4" style="line-height: 0.5em; color: crimson">&diams;</p>
+                    <p class='fragment' data-fragment-index="4" style="line-height: 1.0em">keep it simple</p>
+                </section>
+
+                <section data-background="img/python_kaa.gif" style="color: white">
+                    <div style="position: relative; width: 250px;">
+
+                      <div style="position: absolute; top: -80px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="1" style="font-size: 80px">
+                            we <span style="color: purple">&hearts; </span>Classes</p>
+                      </div>
+
+                      <div style="position: absolute; top: 0px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="2" style="font-size: 60px">
+                            we <span style="color: hotpink">&hearts; </span>&amp; objects</p>
+                      </div>
+
+                      <div style="position: absolute; bottom: -600px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="3" style="font-size: 90px">
+                            we <span style="color: red">&hearts;</span> Python</p>
+                      </div>
+
+                    </div>
+                </section>
+
+                <section data-background="#2f4f4f">
+                    <h2>Next time</h2>
+                </section>
+
+                <section data-background="img/Lesson_3/pandas.jpg">
+                </section>
+
+            </section>
+
+<!-- INHERITANCE -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h4>bonus round</h4>
+                    <h2>inheritance</h2>
+                </section>
+
+                <section>
+                    <h3 class="low">Classes being derived from other Classes!</h3>
+                    <p class="fragment" data-fragment-index="0">think of it in terms of there being sub-classes, e.g.</p>
+                    <div class="fragment" data-fragment-index="1" id="left" style="background-color: #20b2aa; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>tree</p>
+                        </center>
+                    </div>
+                    <div class="fragment" data-fragment-index="3" id="right" style="background-color: orange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>circle</p>
+                        </center>
+                    </div>
+                    <div class="fragment" data-fragment-index="2" id="left" style="background-color: #008080; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>PLANT</p>
+                        </center>
+                    </div>
+                    <div class="fragment" data-fragment-index="4" id="right" style="background-color: darkorange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>SHAPE</p>
+                        </center>
+                    </div>
+                </section>
+
+                <section data-background="orange">
+                    <h3 class="low" style="color: white">Here, the Account class</h3>
+                    <pre class="fragment" data-fragment-index="0"><code class="special ipython" data-trim data-noescape style="font-size: 13pt; line-height: 1.2em">
+class Customer:
+    """
+    Data structure to describe bank customer
+    """
+    def __init__(self, name, dob)
+        self.name = name
+        self.dob = dob
+
+class Account(Customer):
+    """
+    Data structure to describe a customer account
+    """
+    num_customers = 0
+
+    def __init__(self, name, dob, deposit):
+        # give the account object access to Customer attributes
+        Customer.__init__(name, dob)
+
+        # attributes
+        self.savings = deposit
+        # keep track of customers
+        Account.num_customers += 1
+        self.accnum = Account.num_customers
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1" style="color: white; font-weight: bold">
+                        inherits the attributes and behaviours of Customer
+                    </p>
+                </section>
+
+                <section>
+                    <p style="color: black">For one class to inherit another you need to pass it like so</p>
+                    <pre class="fragment"><code class="special ipython" data-trim data-noescape style="font-size: 13pt; line-height: 1.2em">
+class Account(<span class="fragment highlight-green">Customer</span>):
+                    </code></pre>
+                    <p class="fragment" style="color: #2f4f4f">so <code>Account</code> will have the <code>name</code> and <code>dob</code> attributes of <code>Customer</code></p>
+                    <pre class="fragment"><code class="special ipython" data-trim data-noescape style="font-size: 13pt; line-height: 1.2em">
+In : ac1 = Account("Judas", "03-04-30BC", 30)
+
+In : ac1.dob
+Out: "03-04-30BC"
+                    </code></pre>
+                    <p class="fragment" style="color: black">even though they are defined separately</p>
+                </section>
+
+                <section>
+                    <p>a good way to think about this is as a</p>
+                    <h3>Parent-child relationship</h3>
+                    <p class="fragment">where the child inherits everything from the parent</p>
+                </section>
+
+                <section>
+                    <h4 class="low">consequently, we can break Classes down into a chain of relations</h4>
+                    <p class="fragment">e.g.</p>
+                    <p class="fragment"><code>Bank &rarr; Customer &rarr; Account</code></p>
+                    <p class="fragment"><code>Animal &rarr; Fish &rarr; Shark</code></p>
+                    <p class="fragment"><code>Forest &rarr; Tree &rarr; Leaf</code></p>
+                    <p class="fragment">and so forth</p>
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [{
+                src: 'plugin/markdown/marked.js'
+            }, {
+                src: 'plugin/markdown/markdown.js'
+            }, {
+                src: 'plugin/math/math.js',
+                async: true
+            }, {
+                src: 'plugin/title-footer/title-footer.js',
+                async: true,
+                callback: function() {
+                    title_footer.initialize(
+                        // Change footer here
+                        'Rhys Whitley • Python School • 30 March 2017', '#2f4f4f'
+                    );
+                }
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }]
+        });
+    </script>
+</body>
+
+</html>
