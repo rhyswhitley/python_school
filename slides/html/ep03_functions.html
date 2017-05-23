@@ -7,8 +7,8 @@
 
     <title>Lesson 1b</title>
 
-    <link rel="stylesheet" href="../reveal/css/reveal.css">
-    <link rel="stylesheet" href="../reveal/css/theme/white.css">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/white.css">
 
     <meta name="description" content="Lesson 3 on functions and classes">
     <meta name="author" content="Rhys Whitley">
@@ -19,16 +19,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
-    <link rel="stylesheet" href="../reveal/plugin/title-footer/title-footer.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../reveal.js/plugin/title-footer/title-footer.css">
 
-    <link rel="stylesheet" href="../reveal/css/custom.css">
+    <link rel="stylesheet" href="../reveal.js/css/custom.css">
     <!-- Printing and PDF exports -->
     <script>
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal/css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 
@@ -121,7 +121,7 @@ with open("my_file2.txt") as file2:
                 <section>
                     <p>I could throw this into another loop, with some ifelse statements</p>
                     <span class="fragment">
-                    <p style="background-color: orange; color: white">but it would still be complicated and hard to read</p>
+                    <p style="background-color: darkorange; color: white">but it would still be complicated and hard to read</p>
                     </span>
                     <span class="fragment">
                     <br />
@@ -228,7 +228,7 @@ def compound_interest(P, r, n, t):
                 <section data-transition="fade-in">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-<mark>def</mark> compound_interest(P, r, n, t):
+<span class="fragment highlight-current-green">def</span class="fragment highlight-current-green"> compound_interest(P, r, n, t):
     """
     calculates compound interest
     """
@@ -243,7 +243,7 @@ def compound_interest(P, r, n, t):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
-def <mark>compound_interest</mark>(P, r, n, t):
+def <span class="fragment highlight-current-green">compound_interest</span>(P, r, n, t):
     """
     calculates compound interest
     """
@@ -258,7 +258,7 @@ def <mark>compound_interest</mark>(P, r, n, t):
                 <section data-transition="fade">
                     <p>functions are expressed in Python as follows:</p>
                 <pre><code class="python" data-trim data-noescape>
-def compound_interest(<mark>P, r, n, t</mark>):
+def compound_interest(<span class="fragment highlight-current-green">P, r, n, t</span>):
     """
     calculates compound interest
     """
@@ -278,7 +278,7 @@ def compound_interest(P, r, n, t):
     calculates compound interest
     """
 
-    <mark>P_new = P*(1 + r/n)**(n*t)</mark>
+    <span class="fragment highlight-current-green">P_new = P*(1 + r/n)**(n*t)</span>
 
     return P_new
                     </code></pre>
@@ -295,7 +295,7 @@ def compound_interest(P, r, n, t):
 
     P_new = P*(1 + r/n)**(n*t)
 
-    <mark>return P_new</mark>
+    <span class="fragment highlight-current-green">return P_new</span>
                     </code></pre>
                     <p>to determine an outcome, which is <b>returned</b> to the user</p>
                 </section>
@@ -304,9 +304,9 @@ def compound_interest(P, r, n, t):
                     <p>functions are expressed in Python as follows:</p>
                     <pre><code class="python" data-trim data-noescape>
 def compound_interest(P, r, n, t):
-    <mark>"""</mark>
-    <mark>calculates compound interest</mark>
-    <mark>"""</mark>
+<span class="fragment highlight-current-green">    """
+    calculates compound interest
+    """</span>
 
     P_new = P*(1 + r/n)**(n*t)
 
@@ -315,7 +315,7 @@ def compound_interest(P, r, n, t):
                     <p>lastly, we define what the function does for reference</p>
                 </section>
 
-                <section data-background="orange">
+                <section data-background="darkorange">
                     <p style="color: white; font-weight: bold">variables in functions can only affect that specific process</p>
                     <hr class="fragment" data-fragment-inde(P, r, n, t)="1" style="line-color: white">
                     <p class="fragment" data-fragment-inde(P, r, n, t)="1">&there4; outside the function, they hold no purpose</p>
@@ -350,7 +350,7 @@ def compound_interest(P, r, n, t):
                 <section>
                     <p><b>local</b> variables are those defined within a function</p>
                     <pre><code class="python" data-trim data-noescape>
-def quadratic(x)<mark>:</mark>
+def quadratic(x)<span class="fragment highlight-current-green">:</span>
     """
     determines the square of a number
     """
@@ -359,7 +359,7 @@ def quadratic(x)<mark>:</mark>
 
     return y
                     </code></pre>
-                    <p>exist <b>only within</b> the <u>scope</u> &rarr; <mark>code block</mark> of the function</p>
+                    <p>exist <b>only within</b> the <u>scope</u> &rarr; <span class="fragment highlight-current-green">code block</span> of the function</p>
                     <p class="fragment">once the function ends, the variable is <u>destroyed</u></p>
                 </section>
 
@@ -378,7 +378,7 @@ def quadratic(x):
                     <p>any reference to the <code>a</code> variable outside this function</p>
                     <pre class="fragment" data-fragment-index="1"><code class="ipython" data-trim data-noescape>
 In : print(a)
-Out: <span style="color: orangered">NameError:</span> name 'a' is not defined
+Out: <span style="color: darkorangered">NameError:</span> name 'a' is not defined
                     </code></pre>
                     <p class="fragment" data-fragment-index="1"><b style="color: crimson">will fail</b> &rarr; as it exists <b>ONLY</b> within the function</p>
                 </section>
@@ -539,7 +539,7 @@ def quadratic(x):
                     <p class="fragment" data-fragment-index="2">declared outside any function / top level</p>
                 </section>
 
-                <section data-background="orange">
+                <section data-background="darkorange">
                     <h5 style="color: white">so what is the best way to define your function?</h5>
                 </section>
 
@@ -675,13 +675,14 @@ Out: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
                 </section>
 
                 <section>
-                    <div class="highblock" style="background-color: orange">
+                    <!--div class="highblock" style="background-color: darkorange">
                     <p style="font-weight: bold">functions fulfill the need to efficiently repeat tasks</p>
                     </div>
                     <br />
                     <br />
                     <br />
-                    <p style="color: white">...</p>
+                    <p style="color: white">...</p-->
+                    <h3 class="low" style="font-weight: bold; color: darkdarkorange">functions fulfill the need to efficiently repeat tasks</h3>
                     <p class="fragment">a lot of the functions you create, may be useful in other programs/tasks</p>
                     <p class="fragment">&rarr; which introduces our next concept...</p>
                 </section>
@@ -702,7 +703,7 @@ Out: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
                     <br />
                     <br />
                     <iframe
-                    data-src="\\int\UserData\HomeCustDevelUser\U392113\Repositories\python_school\notebooks\examples\sum_functions.py"
+                    data-src="../../notebooks/examples/sum_functions.py"
                     style="background-color: lightgray; transform: scale(1.4); width: 600px; height: 150px"></iframe>
                     <br />
                     <br />
@@ -710,7 +711,7 @@ Out: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
                     <p class="fragment">and we can access them using...</p>
                 </section>
 
-                <section data-background="orange">
+                <section data-background="darkorange">
                     <h1 style="color: white">import</h1>
                 </section>
 
@@ -763,7 +764,7 @@ iter_sum(10)
                     </span>
                 </section>
 
-                <section data-background="orange" style="color: white; font-weight: bold">
+                <section data-background="darkorange" style="color: white; font-weight: bold">
                     <p>storing your functions in modules is an efficient</p>
                     <h4 style="color: white"> &amp; recommended</h4>
                     <p>way of building your program</p>
@@ -785,16 +786,18 @@ iter_sum(10)
                 </section>
 
                 <section>
-                    <div class="highblock" style="background-color: orange; bottom: 80%">
+                    <!--div class="highblock" style="background-color: darkorange; bottom: 80%">
                     <h4 style="color: black">Python already has impressive standard library</h4>
                     </div>
                     <br />
+                    <br /-->
+                    <h3 class="low" style="color: #2f4f4f">Python already has impressive standard library</h3>
                     <br />
-                    <h2>however</h2>
+                    <div class="banner fragment" style="background-color: darkorange; color: white; width:100%">
+                    that has been extended by the community, to provide modules for almost anything you can think of!
+                    </div>
                     <span class="fragment">
-                    <p style="background-color: gold; color: black">
-                    this has been extended by the community, to provide modules for almost anything you can think of!
-                    </p>
+                    &downarrow;
                     <font size="5">
                     <table style="background-color: white; color: white; width: 100%">
                         <tr style="border: none">
@@ -818,12 +821,9 @@ iter_sum(10)
                     </table>
                     </font>
                     </span>
-                    <center>
-                        <p class="fragment">and much much more!</p>
-                    </center>
                 </section>
 
-                <section data-background="orange">
+                <section data-background="darkorange">
                     <h4 style="color: white">here are some examples</h4>
                 </section>
 
@@ -904,7 +904,7 @@ plt.ylabel("Y-axis")
                     <img src="img/Lesson_3/quadplot.png" alt='hyperbola' />
                 </section>
 
-                <section data-background="orange">
+                <section data-background="darkorange">
                     <h3 style="color: white">and many many more</h3>
                     <a class="fragment" href="https://www.python.org">www.python.org</a>
                 </section>
@@ -1150,7 +1150,7 @@ def linear_model(x, a, b):
                     <p>we can remove the <code>a</code>, <code>b</code> repeated syntax using <code>*args</code> for <i>clarity</i></p>
                     <div id="left" style="transform: translateX(-50px)">
                     <pre><code class="python" data-trim data-noescape style="width: 500px; height: 450px">
-def predict_linear(x_series, <mark>*pars</mark>):
+def predict_linear(x_series, <span class="fragment highlight-current-green">*pars</span>):
     """
     predicts Y for a series of X
     given parameters (a, b)
@@ -1159,7 +1159,7 @@ def predict_linear(x_series, <mark>*pars</mark>):
 
     for x in x_series:
 
-        y = linear_model(x, <mark>*pars</mark>)
+        y = linear_model(x, <span class="fragment highlight-current-green">*pars</span>)
         y_series.append(y)
 
     return y_series
@@ -1267,7 +1267,7 @@ In : help(circle_area)
                     </code></pre>
                     <pre class="fragment"><code class="bash" data-trim data-noescape>
 <span style="color: limegreen">circle_area</span>(radius)
-    <span style="color: orangered">Calculates the area of a circle
+    <span style="color: darkorangered">Calculates the area of a circle
                     </code></pre>
                     <p class="fragment">incredibly important for &rarr; other people &rarr; future reference &rarr; your sanity</p>
                 </section>
@@ -1325,24 +1325,24 @@ help(range)
         </div>
     </div>
 
-    <script src="../reveal/lib/js/head.min.js"></script>
-    <script src="../reveal/js/reveal.js"></script>
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
 
     <script>
-        // More info https://github.com/hakimel/reveal.js#configuration
+        // More info https://github.com/hakim../reveal.js.js#configuration
         Reveal.initialize({
             history: true,
 
-            // More info https://github.com/hakimel/reveal.js#dependencies
+            // More info https://github.com/hakim../reveal.js.js#dependencies
             dependencies: [{
-                src: '../reveal/plugin/markdown/marked.js'
+                src: '../reveal.js/plugin/markdown/marked.js'
             }, {
-                src: '../reveal/plugin/markdown/markdown.js'
+                src: '../reveal.js/plugin/markdown/markdown.js'
             }, {
-                src: '../reveal/plugin/math/math.js',
+                src: '../reveal.js/plugin/math/math.js',
                 async: true
             }, {
-                src: '../reveal/plugin/title-footer/title-footer.js',
+                src: '../reveal.js/plugin/title-footer/title-footer.js',
                 async: true,
                 callback: function() {
                     title_footer.initialize(
@@ -1351,10 +1351,10 @@ help(range)
                     );
                 }
             }, {
-                src: '../reveal/plugin/notes/notes.js',
+                src: '../reveal.js/plugin/notes/notes.js',
                 async: true
             }, {
-                src: '../reveal/plugin/highlight/highlight.js',
+                src: '../reveal.js/plugin/highlight/highlight.js',
                 async: true,
                 callback: function() {
                     hljs.initHighlightingOnLoad();
