@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="Lesson 5 on working with data">
+    <meta name="author" content="Rhys Whitley">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lesson 1b</title>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../reveal.js/plugin/title-footer/title-footer.css">
+
+    <link rel="stylesheet" href="../reveal.js/css/custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = '../reveal.js/text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-background="img/grass-bg.jpg">
+                <br />
+                <br />
+                <img class=noborder src="img/one-suncorp-logo.png" alt='company logo' style='height: 50px' />
+                <br />
+                <img class=noborder src="img/title.png" alt="presentation title" style='height: 100px' />
+                <font size="18">
+                <p style="line-height: 1em; color: black; font-weight: bold">Lesson 5</p>
+                </font>
+                <font size="6">
+                <p style="line-height: 0.5em; color: #000000; font-weight: bold">Created: 8 June 2017</p>
+                </font>
+                <br />
+                <br />
+            </section>
+
+<!--- INTRO -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <p>first of all...</p>
+                    <h2 class="fragment">Congratulations!</h2>
+                    <p class="fragment">You have now learned the basics of programming in <br />
+                    <span style="color: deepskyblue; font-size: 48pt; font-weight: bold">Pyt</span><span style="color: gold; font-size: 48pt; font-weight: bold">hon</span></p>
+                </section>
+
+                <section data-background="darkorange">
+                    <h4 style="color: white">You should by now be familiar with the syntax</h4>
+                    <span class="fragment">
+                    <pre class="stretch"><code class="special python" data-trim data-noescape style="font-size: 15pt; line-height: 1.2em">
+name = "Frank"
+
+my_list = [0, 4, 1, 5, 6, 5, 1, 1]
+
+my_dict = {"name": "Jerry", "savings": 14242.5, "age": 25}
+
+for item in my_list:
+    new_item = item + 20
+    print(new_item)
+
+def linear_model(x, a, b):
+    """defines a linear model"""
+    # model definition
+    y = a*x + b
+    return y
+
+class Customer:
+    """an example class"""
+    def __init__(self, name, savings)
+        self.name = name
+        self.savings = savings
+
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section>
+                    <p>and the basic concepts of general purpose programming</p>
+                    <div class="fragment" id="left" style="background-color: #008080; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>Data Types</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="right" style="background-color: darkorange; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>Iteration</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="left" style="background-color: #20b2aa; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p>Functions</p>
+                        </center>
+                    </div>
+                    <div class="fragment" id="right" style="background-color: gray; color: white; font-weight: bold; font-size: 45pt">
+                        <center>
+                        <p><i>Classes: objects</i></p>
+                        </center>
+                    </div>
+                </section>
+
+                <section>
+                    <p>While you may not be entirely familiar <b>or confidant</b> with Python just yet</p>
+                    <h2 class="fragment">You will be!</h2>
+                    <h4 class="fragment">the more you use it!</h4>
+                    <br />
+                    <p class="fragment"><i>consequently you will need to use it ...<span class="fragment"> or lose it</span></i></p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>With this in mind, the next series of lessons are aimed at exposing you to Python's <b>powerful extended library</b></p>
+                    <div style="margin-bottom: 0.4em" class="banner fragment">data manipulation</div>
+                    <div style="margin-bottom: 0.4em" class="banner fragment">data visualisation</div>
+                    <div style="margin-bottom: 0.4em" class="banner fragment">mathematical modelling</div>
+                    <div style="margin-bottom: 0.4em" class="banner fragment">geospatial analysis</div>
+                </section>
+
+                <section data-transition="fade-in">
+                    <p>With this in mind, the next series of lessons are aimed at exposing you to Python's <b>powerful extended library</b></p>
+                    <div style="margin-bottom: 0.4em; background-color: darkorange" class="banner">data manipulation</div>
+                    <div style="margin-bottom: 0.4em" class="banner">data visualisation</div>
+                    <div style="margin-bottom: 0.4em" class="banner">mathematical modelling</div>
+                    <div style="margin-bottom: 0.4em" class="banner">geospatial analysis</div>
+                </section>
+
+                <section>
+                    <p>Python was not <i>specifically</i> designed to meet the demands of mathematical and scientific computing</p>
+                    <hr />
+                    <h4 class='fragment'>as such the standard library does not</h4>
+                    <p class='fragment'>efficiently represent <b>multi-dimensional datasets</b></p>
+                    <p class='fragment'>nor provide tools for <b>linear algebra</b></p>
+                </section>
+
+                <section>
+                    <h3><code>lists, tupes, dicts</code></h3>
+                    <p>while flexible data types (i.e. can be arbitrarily nested with any Python object)</p>
+                    <span class="fragment">
+                    &downarrow;
+                    <p>are rather poor at representing mathematical constructs such as,</p>
+                    <p style="font-weight: bold; color: darkorange; font-size: 40pt">
+                    VECTORS &amp; MATRICES
+                    </p>
+                    </span>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 style="color: white">for example</h3>
+                    <p style="color: white; line-height: 2em">imagine an arbitrary 2 x 4 matrix</p>
+                    <pre><code class="python" data-trim data-noescape>
+matrix = [[1, 3, 4, 5], [3, 0, 1, 1]]
+                    </code></pre>
+                    <span class="fragment">
+                        <p style="color: white; line-height: 2em">to +1 to all item values requires nesting two <code>for</code> loops</p>
+                    <pre><code class="python" data-trim data-noescape>
+mrow = len(matrix)
+mcol = len(matrix[0])
+
+for i in range(mrow):
+    for j in range(mcol):
+        matrix[i][j] += 1
+                    </code></pre>
+                    </span>
+                    <p class='fragment' style="color: white">now imagine doing a cross-product, row-reduce, transpose, etc.</p>
+                </section>
+
+
+                <section data-background="darkorange">
+                    <p style="color: white; font-weight: bold">being able to effectively manipulate data underpins the basic principles of modelling</p>
+                    <p><i>be it, empirical (statistical) or physical (process-based)</i></p>
+                    <span class="fragment">
+                        &downarrow;
+                        <p style="color: white; font-weight: bold">and so this capability has been extended into Python</p>
+                        <p class="fragment" style="color: black; font-style: italic">introducing...</p>
+                    </span>
+                </section>
+
+            </section>
+
+<!-- NUMPY -->
+
+            <section>
+                <section data-background="img/Lesson_5/maxresdefault.jpg">
+                    <h1 style="color: white; position: absolute; width: 100%; background: rgba(0, 0, 0, 0.4);"-->
+                        NUMPY
+                    </h1>
+                </section>
+
+                <section>
+                </section>
+
+            </section>
+
+<!-- PANDAS -->
+
+            <section>
+                <!--section data-background="img/Lesson_5/maxresdefault.jpg" data-state="dim-background"-->
+                <section data-background="img/Lesson_3/pandas.jpg">
+                    <h1 style="color: black; position: absolute; width: 100%; background: rgba(256, 256, 256, 0.4);"-->
+                        PANDAS
+                    </h1>
+                </section>
+            </section>
+
+<!-- SUMMARY -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>SUMMARY</h2>
+                </section>
+
+                <section data-background="img/python_kaa.gif" style="color: white">
+                    <div style="position: relative; width: 250px;">
+
+                      <div style="position: absolute; top: -80px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="1" style="font-size: 80px">
+                            we <span style="color: purple">&hearts; </span>Numpy</p>
+                      </div>
+
+                      <div style="position: absolute; top: 0px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="2" style="font-size: 60px">
+                            we <span style="color: hotpink">&hearts; </span>Pandas</p>
+                      </div>
+
+                      <div style="position: absolute; bottom: -600px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="3" style="font-size: 90px">
+                            we <span style="color: red">&hearts;</span> Python</p>
+                      </div>
+
+                    </div>
+                </section>
+
+                <section data-background="#2f4f4f">
+                    <h2>Next time</h2>
+                </section>
+
+                <section data-background="img/Lesson_5/geospatial.jpg">
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [{
+                src: '../reveal.js/plugin/markdown/marked.js'
+            }, {
+                src: '../reveal.js/plugin/markdown/markdown.js'
+            }, {
+                src: '../reveal.js/plugin/math/math.js',
+                async: true
+            }, {
+                src: '../reveal.js/plugin/title-footer/title-footer.js',
+                async: true,
+                callback: function() {
+                    title_footer.initialize(
+                        // Change footer here
+                        'Rhys Whitley • Python School • 30 March 2017', '#2f4f4f'
+                    );
+                }
+            }, {
+                src: '../reveal.js/plugin/notes/notes.js',
+                async: true
+            }, {
+                src: '../reveal.js/plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }]
+        });
+    </script>
+</body>
+
+</html>
