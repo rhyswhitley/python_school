@@ -205,19 +205,224 @@ for i in range(mrow):
                 </section>
 
                 <section>
+                    <!--p>Offers the capability to express multi-dimensional arrays in the Python environment</p-->
+                    <p>At the <span style="color: red; font-size: 48pt">&hearts;</span> of <code style="font-weight: bold;">numpy</code> is the n-dimensional array</p>
+                    <h3 class="low"><code>ndarray</code></h3>
+                    <p style="line-height: 0.7em; color: white">...</p>
+                    <p class="fragment">an incredibly efficient data structure, that can reach <code>Fortran/C</code>-level speeds in computation time</p>
+                    <p class="fragment"><i>that's very fast</i></p>
+                </section>
+
+                <section>
+                    <p>the base Python sequences (<code>lists</code>, <code>tuples</code>, etc.) do not represent multi-dimensional data all that well</p>
+                    <p class='fragment'>and this is to do with how they view memory</p>
+                </section>
+
+                <section>
+                    <h4 class='low'>for example, assume this simple list</h4>
+                    <pre><code class="python" data-trim data-noescape>
+my_list = [0, 1, 2, 3, 4, 5, 6]
+                    </code></pre>
+                    <div id="left" class='fragment'>
+                        <center>
+                            <p>the values do not sit in memory sequentially</p>
+                        <img src="img/Lesson_5/list_1.png" height="260px" />
+                        </center>
+                    </div>
+                    <div id="right" class='fragment'>
+                        <center>
+                            <p>rather, sit more like this*</p>
+                        <img src="img/Lesson_5/list_2.png" height="370px" />
+                        </center>
+                    </div>
+                    <p class='fragment' style="position: absolute; top: 590px; right: 150px; font-size: 20pt; color: slategray">*<i>exaggerated as an example</i></p>
+                </section>
+
+                <section>
+                    <p>Python sequences are structured this way so that they can store different 
+                    <b>data types</b> (float, string, etc.) and have <b>dynamic size</b> (grow, shrink).</p>
+                    <h3 class="fragment" style="color: darkorange">however</h3>
+                    <p class="fragment">this flexibility comes at a computational cost</p>
+                    <img class="fragment" src="img/Lesson_5/looping.gif" height="260px"/>
+                    <p class="fragment" style="position: absolute; top: 400px; left: 630px;" align="left">generally through nested looping</p>
+                </section>
+
+                <section>
+                    <p><code><span style="color: darkorange; font-weight: bold">ndarrays</span></code> on the other hand have <b>fixed size</b> and are <b>homogeneously typed</b> 
+                    &rarr; all values are <code>float</code>, <code>string</code>, etc.<br />&downarrow;<br />
+                    <span class="fragment">this means that <u>array items</u> sit in memory <b>contiguously</b><br />(i.e. next to each other)</span>
+                    <span class="fragment" style="color: black; font-weight: bold">
+                        <br />&downarrow;<br />
+                        let's look at this in detail</span>
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="low">assume a simple array</h4>
+                    <pre><code class="python" data-trim data-noescape>
+my_array = np.array([0, 1, 2, 3, 4, 5, 6])
+                    </code></pre>
+                    <div class="fragment" id="left">
+                        <center>
+                        <p>in memory this would be viewed as</p>
+                        <img src="img/Lesson_5/array_stride2.png" height="200px" alt='array view' />
+                        </center>
+                    </div>
+                    <div class="fragment" id="left">
+                        <center>
+                        <p>which is better organised than this</p>
+                        <img src="img/Lesson_5/list_2.png" height="330px" alt='list view' />
+                        </center>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Arrays have a permanent <b>start</b> position, and because every item is the <b>same type</b>, the <b>stride</b> between items is constant</p>
+                    <img src="img/Lesson_5/array_stride2.png" height="250px" alt='array view' />
+                    <p class="fragment">The <b>stride</b> is the size of bytes that we must step to <b>increment the array by one</b></p>
+                </section>
+
+                <section>
+                    <p>Knowing the <b>start position</b> and the <b>stride</b> of an array, means I can get to exactly where each item is</p>
+                    <h4 class="fragment" style="color: darkorange">Python is just doing simple arithmetic!</h4>
+                    <p style="line-height: 0.5em; color: white">...</p>
+                    <pre class="fragment"><code class="bash" data-trim data-noescape>
+                    I have an 64bit array, so each item => 8 bytes
+
+                    My array starts at the [memory address 0x0] => 0 bytes
+
+                    I want the item at position 3 => 3*(8 bytes)
+
+                    (0 + 24 = 24) => [memory address 0x18]
+                    </code></pre>
+                    <p style="line-height: 0.5em; color: white">...</p>
+                    <p class="fragment">Ergo, we can very quickly get to any item in the array no matter how large it gets</p>
+                </section>
+
+                <section>
+                    <p>Using this concept we can also create more complicated <br />N-dimensional constructs (e.g. matrices, cubes)</p>
+                    <hr />
+                    <div class='fragment'>
+                        <center>
+                            <p>With a <code>(2,3)</code> matrix</p>
+                            <img src="img/Lesson_5/matrix_view.png" height="150px" alt='matrix view' />
+                        </center>
+                    </div>
+                    <p class='fragment'>
+                    to increment through it we multiply our stride (8 bytes) by the number of columns (3)
+                    &rarr; 8 x 3 = 24 bytes
+                    </p>
+                </section>
+
+                <section>
+                    <p>The <i>strided</i> view of such a matrix looks like this in memory</p>
+                    <hr />
+                    <div id="left">
+                        <center>
+                            <p>so a <code>(2,3)</code> matrix</p>
+                            <img src="img/Lesson_5/matrix_view.png" height="150px" alt='matrix view' />
+                        </center>
+                    </div>
+                    <div id="right">
+                        <center>
+                            <p>is represented like so</p>
+                            <img src="img/Lesson_5/matrix_stride.png" height="220px" alt='matrix stride' />
+                        </center>
+                    </div>
+                    <br/>
+                    <br/>
+                </section>
+
+                <section>
+                    <p>This is how arrays in <code>C/C++</code> and <code>Fortran</code> work and allows us to exploit a concept known as</p>
+                    <p style="color: white; line-height: 0.3em">...</p>
+                    <h2 class='fragment'>vectorization</h2>
+                    <p style="color: white; line-height: 0.3em">...</p>
+                    <p class='fragment'>meaning that we can apply some operation on <br /><b>many values at once</b></p>
+                    <p class='fragment'>&downarrow;<br /> as we <i>a priori</i> know the <u>location of all values before execution</u></p>
+                </section>
+
+                <section>
+                    <h3>consequently</h3>
+                    <p>we can represent mathematical constructs like <code style="color: darkorange">vectors</code> and <code style="color: darkorange">matrices</code> more efficiently
+                    <span class="fragment"><br />&downarrow;<br />and expose these to a whole suite of linear algebra tools</span></p>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 class="low" style="color: white">let's now look at <code>numpy</code> in action</h3>
                 </section>
 
             </section>
 
-<!-- PANDAS -->
+<!-- BASICS -->
 
             <section>
-                <!--section data-background="img/Lesson_5/maxresdefault.jpg" data-state="dim-background"-->
-                <section data-background="img/Lesson_3/pandas.jpg">
-                    <h1 style="color: black; position: absolute; width: 100%; background: rgba(256, 256, 256, 0.4);"-->
-                        PANDAS
-                    </h1>
+
+                <section data-background="#2f4f4f">
+                    <h2>array creation</h2>
                 </section>
+
+                <section data-background="darkorange">
+                    <p style="color: white">before we begin...</p>
+                    <pre><code class="python" data-trim data-noescape><center>
+import numpy as np
+                    </center></code></pre>
+                    <p style="color: white">you will need to make sure you import the numpy library to use it</p>
+                </section>
+
+                <section>
+                    <p>simplest way to create an array, is to use <code>np.array()</code> and pass a list or tuple of values</p>
+                    <pre><code class="python" data-trim data-noescape>
+<span style="color:wheat">In:</span> np.array((1, 4, 5, 3, 1, 1))
+<span style="color:coral">Out:</span> array([1, 4, 5, 3, 1, 1])
+
+<span style="color:wheat">In:</span> np.array([[1, 4, 5], [3, 1, 1]])
+<span style="color:coral">Out:</span> array([[1, 4, 5], 
+            [3, 1, 1]])
+                    </code></pre>
+                    <p>where the level of <b>nesting</b> in the list/tuple denotes the number of <b>dimensions</b> of the array</p>
+                </section>
+
+                <section>
+                    <p>sometimes though you may not know what values pre-populate your array</p>
+                    <span class='fragment' data-fragment-index="0">
+                    <pre><code class="python" data-trim data-noescape>
+<span style="color:wheat">In:</span> np.zeros(<span class="fragment highlight-current-green" data-fragment-index="2">(3, 3)</span>)
+<span style="color:coral">Out:</span> array([[0, 0, 0], 
+            [0, 0, 0],
+            [0, 0, 0]])
+
+<span style="color:wheat">In:</span> np.ones(<span class="fragment highlight-current-green" data-fragment-index="2">(3, 3)</span>)
+<span style="color:coral">Out:</span> array([[1, 1, 1], 
+            [1, 1, 1],
+            [1, 1, 1]])
+                    </code></pre>
+                    <p>in such cases you can create arrays filled with <code>1</code>'s or <code>0</code>'s</p>
+                    </span>
+                    <p class='fragment' data-fragment-index="2">where we pass a tuple to denote <span class="fragment highlight-current-green" data-fragment-index="2">the size of the matrix</span></p>
+                </section>
+
+            </section>
+
+<!-- SIMPLE MATH -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>simple math</h2>
+                </section>
+
+            </section>
+
+<!-- LINEAR ALGEBRA -->
+
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>linear algebra</h2>
+                </section>
+
             </section>
 
 <!-- SUMMARY -->
@@ -227,6 +432,19 @@ for i in range(mrow):
                 <section data-background="#2f4f4f">
                     <h2>SUMMARY</h2>
                 </section>
+
+                <section>
+                    <h2>remember</h2>
+                    <p style="color: white; line-height: 0.3em">...</p>
+                    <p align="left">the <code><span style="color: darkorange; font-weight: bold">ndarray</span></code> has <span style="font-weight: bold; font-size: 45pt">fixed size</span>
+                    <br />
+                    and is of <span style="font-weight: bold; font-size: 45pt">one data type</span></p>
+                    <br />
+                    <p align="right"><code><span style="color: darkorange; font-weight: bold">lists</span></code> on the other hand have <br /><span style="font-weight: bold; font-size: 45pt">dynamic size</span> and can be
+                    <br />
+                    of <span style="font-weight: bold; font-size: 45pt">any data type</span>
+                </section>
+
 
                 <section data-background="img/python_kaa.gif" style="color: white">
                     <div style="position: relative; width: 250px;">
