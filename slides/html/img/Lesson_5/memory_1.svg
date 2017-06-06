@@ -29,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.2079439"
-     inkscape:cx="-263.55692"
+     inkscape:cx="-240.81678"
      inkscape:cy="597.61834"
      inkscape:document-units="px"
      inkscape:current-layer="g5413"
@@ -1606,7 +1606,9 @@
                    inkscape:connector-curvature="0"
                    id="path5439"
                    d="m -377.62571,384.21511 0,5.1181 224.91512,0 0,-5.1181"
-                   style="fill:none;fill-rule:evenodd;stroke:#165044;stroke-width:1.8468281;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+                   style="fill:none;fill-rule:evenodd;stroke:#165044;stroke-width:1.8468281;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                   inkscape:export-xdpi="360"
+                   inkscape:export-ydpi="360" />
                 <text
                    xml:space="preserve"
                    style="font-style:normal;font-weight:normal;font-size:11.49509716px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1658,7 +1660,9 @@
                      style="text-align:center;text-anchor:middle;fill:#165044;fill-opacity:1;">24 bytes</tspan></text>
               </g>
               <g
-                 id="g5549">
+                 id="g5549"
+                 inkscape:export-xdpi="360"
+                 inkscape:export-ydpi="360">
                 <g
                    id="g5461"
                    transform="translate(-69.961143,-97.40105)"
@@ -1736,7 +1740,9 @@
                 </g>
               </g>
               <g
-                 id="g5533">
+                 id="g5533"
+                 inkscape:export-xdpi="360"
+                 inkscape:export-ydpi="360">
                 <g
                    id="g5445"
                    transform="translate(-159.94281,-8.507615)"
@@ -1826,7 +1832,9 @@
               </g>
               <g
                  id="g5563"
-                 transform="translate(320.66032,-26.721693)">
+                 transform="translate(320.66032,-26.721693)"
+                 inkscape:export-xdpi="360"
+                 inkscape:export-ydpi="360">
                 <g
                    inkscape:export-ydpi="360"
                    inkscape:export-xdpi="360"
@@ -1916,7 +1924,9 @@
               </g>
               <g
                  id="g5593"
-                 transform="translate(185.5605,17.663492)">
+                 transform="translate(185.5605,17.663492)"
+                 inkscape:export-xdpi="360"
+                 inkscape:export-ydpi="360">
                 <g
                    inkscape:export-ydpi="360"
                    inkscape:export-xdpi="360"
