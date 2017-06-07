@@ -212,6 +212,17 @@ html.dim-background .slide-background {
   width:50%;
 }
 
+#outer {
+  position: relative;
+}
+
+#inner {
+  position: absolute;
+  top: 50%;
+  height: 6em;
+  margin-top: -3em;
+}
+
 .reveal .slides section .fragment.highlight-current-green.current-fragment {
     width: 100%;
     background-color: #00663b;
