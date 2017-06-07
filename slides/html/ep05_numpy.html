@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <meta name="description" content="Lesson 5 on working with data">
+    <meta name="description" content="Lesson 5 on NumPy">
     <meta name="author" content="Rhys Whitley">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -142,6 +142,18 @@ class Customer:
                     <div style="margin-bottom: 0.4em" class="banner">geospatial analysis</div>
                 </section>
 
+                <section data-background="img/Lesson_5/pandas.jpg" data-transition="fade-in">
+                    <h2 class='fragment low' style="color: white; position: absolute; width: 100%; background: rgba(0, 0, 0, 0.4);"-->
+                        While last lesson I hinted that we would look at Pandas next
+                    </h2>
+                </section>
+
+                <section data-background="img/Lesson_5/no_pandas.jpg" data-transition="fade-in">
+                    <h2 class='low' style="color: white; position: absolute; width: 100%; background: rgba(0, 0, 0, 0.4);"-->
+                        We need to look at another important library first
+                    </h2>
+                </section>
+
                 <section>
                     <p>Python was not <i>specifically</i> designed to meet the demands of mathematical and scientific computing</p>
                     <hr />
@@ -181,7 +193,6 @@ for i in range(mrow):
                     </span>
                     <p class='fragment' style="color: white">now imagine doing a cross-product, row-reduce, transpose, etc.</p>
                 </section>
-
 
                 <section data-background="darkorange">
                     <p style="color: white; font-weight: bold">being able to effectively manipulate data underpins the basic principles of modelling</p>
@@ -373,10 +384,10 @@ import numpy as np
                 <section>
                     <p>simplest way to create an array, is to use <code>np.array()</code> and pass a list or tuple of values</p>
                     <pre><code class="python" data-trim data-noescape>
-<span style="color:wheat">In:</span> np.array((1, 4, 5, 3, 1, 1))
+<span style="color:wheat">In :</span> np.array((1, 4, 5, 3, 1, 1))
 <span style="color:coral">Out:</span> array([1, 4, 5, 3, 1, 1])
 
-<span style="color:wheat">In:</span> np.array([[1, 4, 5], [3, 1, 1]])
+<span style="color:wheat">In :</span> np.array([[1, 4, 5], [3, 1, 1]])
 <span style="color:coral">Out:</span> array([[1, 4, 5], 
             [3, 1, 1]])
                     </code></pre>
@@ -387,12 +398,12 @@ import numpy as np
                     <p>sometimes though you may not know what values pre-populate your array</p>
                     <span class='fragment' data-fragment-index="0">
                     <pre><code class="python" data-trim data-noescape>
-<span style="color:wheat">In:</span> np.zeros(<span class="fragment highlight-current-green" data-fragment-index="2">(3, 3)</span>)
+<span style="color:wheat">In :</span> np.zeros(<span class="fragment highlight-current-green" data-fragment-index="2">(3, 3)</span>)
 <span style="color:coral">Out:</span> array([[0, 0, 0], 
             [0, 0, 0],
             [0, 0, 0]])
 
-<span style="color:wheat">In:</span> np.ones(<span class="fragment highlight-current-green" data-fragment-index="2">(3, 3)</span>)
+<span style="color:wheat">In :</span> np.ones(<span class="fragment highlight-current-green" data-fragment-index="2">(3, 3)</span>)
 <span style="color:coral">Out:</span> array([[1, 1, 1], 
             [1, 1, 1],
             [1, 1, 1]])
@@ -401,6 +412,253 @@ import numpy as np
                     </span>
                     <p class='fragment' data-fragment-index="2">where we pass a tuple to denote <span class="fragment highlight-current-green" data-fragment-index="2">the size of the matrix</span></p>
                 </section>
+
+                <section>
+                    <p>or similarly, you can create an empty one</p>
+                    <span class='fragment' data-fragment-index="0">
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.empty((3, 3))
+<span style="color:coral">Out:</span> array([[6.90516063e-310, 1.40744125e-316, 1.96086529e+243],
+            [4.65017363e-086, 1.15297798e-259, 6.01347002e-154],
+            [7.06652082e-096, 7.05479222e-308, 3.95252517e-322]])
+                    </code></pre>
+                    <p class='fragment'>which will be filled with <i>infinitely</i> small or large random numbers</p>
+                    <p style='color: crimson' class='fragment'><b>CAUTION:</b><br />you will then need to manually set all values</p>
+                </section>
+
+                <section>
+                    <h3 class="low"><code>dtypes</code></h3>
+                    <p>You can also set the data type for the array on creation<br />
+                    &downarrow; <br />
+                    Denoting the <b>stride</b> of the array
+                    </p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.array((2, 2), dtype=<span class="fragment highlight-current-green" data-fragment-index="2">np.float64</span>)
+<span style="color:coral">Out:</span> array([[0.0, 0.0], 
+            [0.0, 0.0]])
+
+<span style="color:wheat">In :</span> np.array((2, 2), dtype=<span class="fragment highlight-current-green" data-fragment-index="2">np.int32</span>)
+<span style="color:coral">Out:</span> array([[0, 0], 
+            [0, 0]])
+
+<span style="color:wheat">In :</span> np.array((2, 2), dtype=<span class="fragment highlight-current-green" data-fragment-index="2">complex</span>)
+<span style="color:coral">Out:</span> array([[0.+0.j,  0.+0.j], 
+            [0.+0.j,  0.+0.j]])
+                    </code></pre>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h3>sequences</h3>
+                    <p>we can also create linear sequences of numbers, using:</p>
+                    <p><code>np.arange(<span class="fragment highlight-current-green" data-fragment-index="1">start</span>, <span class="fragment highlight-current-green" data-fragment-index="2">stop</span>, <span class="fragment highlight-current-green" data-fragment-index="3">step</span>)</code></p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.arange(<span class="fragment highlight-current-green" data-fragment-index="1">5</span>)
+<span style="color:coral">Out:</span> array([0, 1, 2, 3, 4])
+
+<span style="color:wheat">In :</span> np.arange(3, <span class="fragment highlight-current-green" data-fragment-index="2">8</span>)
+<span style="color:coral">Out:</span> array([3, 4, 5, 6, 7])
+
+<span style="color:wheat">In :</span> np.arange(0, 10, <span class="fragment highlight-current-green" data-fragment-index="3">2</span>)
+<span style="color:coral">Out:</span> array([0, 2, 4, 6, 8])
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="3">where <span class="fragment highlight-current-green" data-fragment-index="3"><code>step</code></span> is the <b>step-size</b> of the sequence</p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h3>sequences</h3>
+                    <p>we can also create linear sequences of numbers, using:</p>
+                    <p><code>np.linspace(start, stop, <span class="fragment highlight-current-green" data-fragment-index="2">num</span>, <span class="fragment highlight-current-green" data-fragment-index="3">endpoint</span>)</code></p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.linspace(0, 5, <span class="fragment highlight-current-green" data-fragment-index="2">5</span>)
+<span style="color:coral">Out:</span> array([0.0, 1.25, 2.5, 3.75, 5.0])
+
+<span style="color:wheat">In :</span> np.linspace(0, 100, <span class="fragment highlight-current-green" data-fragment-index="2">5</span>)
+<span style="color:coral">Out:</span> array([0.0, 25.0, 50.0, 75.0, 100.0])
+
+<span style="color:wheat">In :</span> np.linspace(0, 10, <span class="fragment highlight-current-green" data-fragment-index="2">5</span>, <span class="fragment highlight-current-green" data-fragment-index="3">endpoint=False</span>)
+<span style="color:coral">Out:</span> array([0.0, 2.0, 4.0, 6.0, 8.0])
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="2">where <span class="fragment highlight-current-green" data-fragment-index="2"><code>num</code></span> equals the amount of <b>breaks</b> in the sequence</p>
+                </section>
+                
+                <section data-transition="fade-in">
+                    <h3>sequences</h3>
+                    <p>and also <b>log</b>-linear sequences of numbers, using:</p>
+                    <p style="color: #2f4f4f"><code>np.logspace(start, stop, num)</code></p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.logspace(<span class="fragment highlight-current-green" data-fragment-index="2">0, 4</span>, 5)
+<span style="color:coral">Out:</span> array([1.0, 10.0, 100.0, 1000.0, 10000.0])
+
+<span style="color:wheat">In :</span> np.logspace(<span class="fragment highlight-current-green" data-fragment-index="2">2, 3</span>, 5)
+<span style="color:coral">Out:</span> array([100.0, 177.827941, 316.22776602, 562.34132519, 1000.0])
+
+<span style="color:wheat">In :</span> np.logspace(<span class="fragment highlight-current-green" data-fragment-index="2">0, 0.5</span>, 5)
+<span style="color:coral">Out:</span> array([1.0,  1.33352143, 1.77827941, 2.37137371, 3.16227766])
+                    </code></pre>
+                    <p>where <span class="fragment highlight-current-green" data-fragment-index="2"><code>start</code> and <code>stop</code></span> are in terms of <b>base 10</b> powers</code></p>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 style="color: white">randomness</h3>
+                    <p>finally we can also create arrays of random numbers, using:</p>
+                    <p style="color: white; font-weight: bold"><code>np.random</code></p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h3 class="low">Uniformly randomly distributed</h3>
+                    <span class='fragment'>
+                    <p>You can create both vectors</p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.random.uniform(0, 1, size=(3,))
+<span style="color:coral">Out:</span> array([0.65310833, 0.2532916, 0.46631077])
+                    </code></pre>
+                    </span>
+                    <span class='fragment'>
+                    <p>and matrices</p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.random.uniform(0, 1, size=(3 ,3))
+<span style="color:coral">Out:</span> array([[0.12892630, 0.31542835, 0.36371077],
+            [0.57019677, 0.43860151, 0.98837384],
+            [0.10204481, 0.20887676, 0.16130952]]
+                    </code></pre>
+                    </span>
+                    <p class='fragment'>with values drawn from $U(z_{0}, z_{1})$</p>
+                </section>
+
+                <section data-transition="fade-in">
+                    <h3 class="low">Normally randomly distributed</h3>
+                    <p>You can create both vectors</p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.random.uniform(0, 1, size=(3,))
+<span style="color:coral">Out:</span> array([0.65310833, 0.2532916, 0.46631077])
+                    </code></pre>
+                    <p>and matrices</p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> np.random.uniform(0, 1, size=(3 ,3))
+<span style="color:coral">Out:</span> array([[4.36027736, 4.5205802, 5.3113635],
+            [4.22397953, 4.69263519, 4.63347606],
+            [6.11971196, 4.54207758, 5.4253934]]
+                    </code></pre>
+                    <p>with values drawn from $N(\mu, \sigma)$</p>
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 class='low' style="color: white">so let's do some powerful operations with these arrays</h3>
+                </section>
+
+            </section>
+
+<!-- SLICING -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>slicing, masking, shaping</h2>
+                </section>
+
+                <section>
+                    <p>accessing parts of <code style="color: darkorange">ndarrays</code> is done similarly as with lists</p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape>
+<span style="color:wheat">In :</span> my_array = np.arange(5) # array([0, 1, 2, 3, 4])
+
+<span class="fragment"><span style="color:wheat">In :</span> my_array[0]
+<span style="color:coral">Out:</span> 0.0</span>
+
+<span class="fragment"><span style="color:wheat">In :</span> my_array[1:-1]
+<span style="color:coral">Out:</span> array([1, 2, 3])</span>
+
+<span class="fragment"><span style="color:wheat">In :</span> my_array[::-1]
+<span style="color:coral">Out:</span> array([4, 3, 2, 1, 0])</span>
+                    </code></pre>
+                    <p class='fragment'>But there are a couple of cool things unique to <code>numpy</code></p>
+                </section>
+
+                <section>
+                    <h3 class='low'><code>.reshape</code></h3>
+                    <p><code style="color: darkorange">ndarrays</code> can be transformed to different n-dimensional spaces</p>
+                    <pre style="width: 950px"><code class="python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+<span style="color:wheat">In :</span> zeros_1d = np.zeros(12, dtype=np.int64)
+<span style="color:coral">Out:</span> array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+<span style="color:wheat">In :</span> zeros_2d = zeros_1d.<span class="fragment highlight-current-green" data-fragment-index="1">reshape(4, 3)</span>
+<span style="color:coral">Out:</span> array([[0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]])
+
+<span style="color:wheat">In :</span> zeros_3d = zeros_1d.<span class="fragment highlight-current-green" data-fragment-index="1">reshape(3, 2, 2)</span>
+<span style="color:coral">Out:</span> array([[0, 0],
+            [0, 0]],
+           [[0, 0],
+            [0, 0]],
+           [[0, 0],
+            [0, 0]]])
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="1">
+                    all you need do is pass the <span class="fragment highlight-current-green" data-fragment-index="1">shape</span> of the new dimension
+                    </p>
+                </section>
+
+                <section>
+                    <h3>masking</h3>
+                    <p>we can all perform tests on <code style="color: darkorange">ndarrays</code></p>
+                    <pre style="width: 980px"><code class="python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+<span style="color:wheat">In :</span> rand_mat = np.random.normal(loc=0, scale=1, size=(4, 4)); rand_mat
+<span style="color:coral">Out:</span> array([[-1.27698899,  0.83771977, -1.49011141, -1.070215  ],
+            [-0.20912862,  0.60457228, -1.74305823,  1.52422681],
+            [ 1.86357532,  1.29137792,  1.30069627,  0.91820283],
+            [-0.15880047, -0.96406336, -1.99077882,  0.08973073]])
+
+<span style="color:wheat">In :</span> mask = <span class="fragment highlight-current-green" data-fragment-index="2">rand_mat < 0</span>; mask
+<span style="color:coral">Out:</span> array([[ True,  False, True,  True  ],
+            [ True,  False, True,  False ],
+            [ False, False, False, False ],
+            [ True,  True,  True,  False ]], dtype=bool)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>we can then use these tests to subset our arrays</p>
+                    <pre class="fragment" data-fragment-index="1" style="width: 980px"><code class="python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+<span style="color:wheat">In :</span> rand_mat[mask]
+<span style="color:coral">Out:</span> array([-1.27698899, -1.49011141, -1.07021500, -0.20912862, 
+            -1.74305823, -0.15880047, -0.96406336, -1.99077882])
+                    </code></pre>
+
+                    <p class="fragment" data-fragment-index="2">or change their values</p>
+                    <pre class="fragment" data-fragment-index="2" style="width: 980px"><code class="python" data-trim data-noescape style="font-size: 14pt; line-height: 1.2em">
+<span style="color:wheat">In :</span> rand_mat[<span class="fragment highlight-current-green" data-fragment-index="3">~mask</span>] = np.nan
+<span style="color:coral">Out:</span> array([[ np.nan,     0.83771977,  np.nan,      np.nan    ],
+            [ np.nan,     0.60457228,  np.nan,      1.52422681],
+            [ 1.86357532, 1.29137792,  1.30069627,  0.91820283],
+            [ np.nan,     np.nan,      np.nan,      0.08973073]])
+                    </code></pre>
+                    <p class="fragment" data-fragment-index="3">The attaching a <span class="fragment highlight-current-green" data-fragment-index="3">tilde</span> to any <b>boolean</b> array inverts it</p>
+                    <p class="fragment" data-fragment-index="4">...speaking of <code style="color: darkorange">np.nan</code></p>
+                </section>
+
+                <section>
+                    <h3>NumPy gives you access to special data types</h3>
+                    <div id="left">
+                        <p align="right"><code style="color: darkorange">np.nan</code><br />
+                        <code style="color: darkorange">np.inf</code><br />
+                        <code style="color: darkorange">np.finite</code></p>
+                    </div>
+                    <div id="right">
+                        <p align="left">
+                        &rarr; represents a null value<br />
+                        &rarr; represents an infinite value<br />
+                        &rarr; represents a finite value<br />
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>tiling</h3>
+                    <p>we can also create multiples of our arrays, using</p>
+                    <h3 class='low'>.tile</h3>
+                </section>
+
 
             </section>
 
@@ -416,11 +674,21 @@ import numpy as np
 
 <!-- LINEAR ALGEBRA -->
 
-
             <section>
 
                 <section data-background="#2f4f4f">
                     <h2>linear algebra</h2>
+                </section>
+
+            </section>
+
+<!-- LINEAR REGRESSION -->
+
+            <section>
+
+                <section data-background="#2f4f4f">
+                    <h2>Case study</h2>
+                    <h4>linear regression</h4>
                 </section>
 
             </section>
