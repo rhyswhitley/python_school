@@ -990,7 +990,6 @@ help(np)
                     </div>
                 </section>
 
-
                 <section>
                     <h3>Be aware that</h3>
                     <p> 
@@ -1021,6 +1020,136 @@ ValueError: frames are not aligned
                     <h2>LINEAR ALGEBRA</h2>
                 </section>
 
+                <section>
+                    <h3>Imagine we have this dataset</h3>
+                    <p>which I want to explain using a linear model</p>
+                    <img src="img/Lesson_5/la_data.png" width="480px" />
+                </section>
+
+                <section>
+                    <h3>Dreaded Algebra</h3>
+                    <p>The relationship between $X$ and $Y$ appears linear, such that a simple linear model would be appropriate</p>
+                    <span class="fragment">
+                    \[
+                    y_{i} = \beta_{0} + \beta_{1}x_{1,i} + \beta_{2}x_{2,i} +\ldots \space\beta_{p}x_{p,i} + \varepsilon_{i}
+                    \]
+                    </span>
+                    <span class="fragment">
+                    <p><br />and having only one dimension</p>
+                    \[
+                    y_{i} = \beta_{0} + \beta_{1}x_{1,i} + \varepsilon_{i}
+                    \]
+                    </span>
+                </section>
+
+                <section>
+                    <h3>Dreaded Algebra</h3>
+                    <p>we can nicely re-express this in vector form</p>
+                    \[
+                    y_{i} = \beta_{0} + \beta_{1}x_{1,i}
+                    \]
+                    <br />
+                    <span class="fragment">
+                    <p>becomes this</p>
+                    \[
+                    Y = \beta X
+                    \]
+                    </span>
+                    <p class="fragment"><br />where for simplicity I'm going to assume $\varepsilon=0$</p>
+                </section>
+
+                <section>
+                    <h3>Dreaded Algebra</h3>
+                    <p>I have no idea what $\beta$ is, so I need to re-express the model in terms of it</p>
+                    \[
+                    Y = \beta X
+                    \]
+                    <p class="fragment">balancing both sides of the equation</p>
+                    <span class="fragment" style="font-size: 24pt">
+                    \[
+                    X'Y = \beta X'X \\
+                    (X'X)^{-1}X'Y = \beta(X'X)^{-1}X'X \\
+                    (X'X)^{-1}X'X = 1 \\
+                    \]
+                    </span>
+                    <p class="fragment"><span class="fragment highlight-current-green">$\beta = X'(X'X)^{-1}Y$</span></p>
+                </section>
+
+                <section>
+                    <h3>Breaking it down</h3>
+                    <p>So I have the solution to $\beta$ in vector form</p>
+                    <p class="fragment">$\beta = X'(X'X)^{-1}Y$</p>
+                    <p class="fragment">all I need to do is express these components</p>
+                    <p class="fragment">$X'$</p>
+                    <p class="fragment">$(X'X)^{-1}$</p>
+                    <p class="fragment">$Y$</p>
+                    <p class="fragment">using NumPy and determine the inner products</p>
+                </section>
+
+                <section>
+                    <h3 class="low">Now we can use NumPy</h3>
+                    <p>Here's the synthetic dataset</p>
+                    <pre class="fragment"><code class="python" data-trim data-noescape>
+x = np.arange(100)
+y = 0.1 + 0.5*x + np.random.normal(0, 4, (x.size))
+                    </code></pre>
+                    <p class="fragment">As you can see, we already have $Y$, however, we need to express $X = 1 + x$</p>
+                    <pre class="fragment"><code class="python" data-trim data-noescape>
+ones = np.ones(x.size)
+X_d = np.stack((ones, x)).T
+                    </code></pre>
+                    <p class="fragment"><code>T</code> means <b>transpose</b>, and I've done this just to get $X$ into the right shape</p>
+                </section>
+
+                <section>
+                    <p>$X'$ is just the transpose of $X$, so I'm effectively swapping it back again</p>
+                    <pre><code class="python" data-trim data-noescape>
+X_dt = X_d.T
+                    </code></pre>
+                    <span class="fragment">
+                    <p>to get $(X'X)$ I just take their inner product like so</p>
+                    <pre><code class="python" data-trim data-noescape>
+X_sq = np.dot(X_dt, X_d)
+                    </code></pre>
+                    </span>
+                    <span class="fragment">
+                    <p>and finally, to get its inverse it's just</p>
+                    <pre><code class="python" data-trim data-noescape>
+X_inv = np.linalg.inv(X_sq)
+                    </code></pre>
+                    </span>
+                </section>
+
+                <section>
+                    <p>all that's left to do is put it all together</p>
+                    <pre class="fragment"><code class="python" data-trim data-noescape style="font-size: 15pt">
+Xy = np.dot(X_dt, y)
+betas = np.dot(Xy, X_inv)
+
+<span style="color:wheat">In :</span> print("Our linear solution is:\n\ty = {0:.2f} + {1:.2f}x" \
+           .format(*tuple(betas)))
+<span style="color:coral">Out:</span> "Our linear solution is:
+        y = -0.56 + 0.52x"
+                    </code></pre>
+                    <p class="fragment">Let's see how well it works</p>
+                </section>
+
+                <section>
+                    <h3>the proof is in the pudding ...</h3>
+                    <p>our linear model describes our data quite appropriately</p>
+                    <img src="img/Lesson_5/la_model.png" width="450px" />
+                </section>
+
+                <section data-background="darkorange">
+                    <h3 class="low" style="color: white">Although this is just a simple example</h3>
+                    <p>The aim is to show the capability NumPy has at performing mathematical/scientific operations</p>
+                </section>
+
+                <section data-background="#2f4f4f">
+                    <h3 class="low" style="color: white">NumPy can do quite a lot that I haven't shown here</h3>
+                    <p>but it does form the basis for a lot of other packages I will be showing you in the coming weeks</p>
+                </section>
+
             </section>
 
 <!-- SUMMARY -->
@@ -1032,6 +1161,15 @@ ValueError: frames are not aligned
                 </section>
 
                 <section>
+                    <h3>some things to remember</h3>
+                    <p class="fragment"><code><span style="color: darkorange; font-weight: bold">ndarrays</span></code> have fixed size and type</p>
+                    <p class="fragment">You can always change types, just be careful that you <i>bit size</i> is big enough</p>
+                    <p class="fragment">When broadcasting arrays ensure that they have compatible shapes (well aligned)</p>
+                    <p class="fragment">Take advantage of the speed vectorisation offers you, <b>BUT</b></p>
+                    <p class="fragment">This doesn't mean you should abandon lists and looping &larr; sometimes these will be more powerful or appropriate</p>
+                </section>
+
+                <!--section>
                     <h2>remember</h2>
                     <p style="color: white; line-height: 0.3em">...</p>
                     <p align="left">the <code><span style="color: darkorange; font-weight: bold">ndarray</span></code> has <span style="font-weight: bold; font-size: 45pt">fixed size</span>
@@ -1041,7 +1179,7 @@ ValueError: frames are not aligned
                     <p align="right"><code><span style="color: darkorange; font-weight: bold">lists</span></code> on the other hand have <br /><span style="font-weight: bold; font-size: 45pt">dynamic size</span> and can be
                     <br />
                     of <span style="font-weight: bold; font-size: 45pt">any data type</span>
-                </section>
+                </section-->
 
 
                 <section data-background="img/python_kaa.gif" style="color: white">
@@ -1055,6 +1193,16 @@ ValueError: frames are not aligned
                       <div style="position: absolute; top: 0px; right: -600px; width: 800px; text-align:right;">
                         <p class="fragment" data-fragment-index="2" style="font-size: 60px">
                             we <span style="color: hotpink">&hearts; </span>Vectorization</p>
+                      </div>
+ 
+                      <div style="position: absolute; top: 60px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="2" style="font-size: 60px">
+                            we <span style="color: deeppink">&hearts; </span>Broadcasting</p>
+                      </div>
+
+                      <div style="position: absolute; top: 120px; right: -600px; width: 800px; text-align:right;">
+                        <p class="fragment" data-fragment-index="2" style="font-size: 60px">
+                            we <span style="color: pink">&hearts; </span>Linear algebra</p>
                       </div>
 
                       <div style="position: absolute; bottom: -600px; right: -600px; width: 800px; text-align:right;">
