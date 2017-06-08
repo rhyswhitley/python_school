@@ -1095,10 +1095,10 @@ y = 0.1 + 0.5*x + np.random.normal(0, 4, (x.size))
                     </code></pre>
                     <p class="fragment">As you can see, we already have $Y$, however, we need to express $X = 1 + x$</p>
                     <pre class="fragment"><code class="python" data-trim data-noescape>
-ones = np.ones(x.size)
-X_d = np.stack((ones, x)).T
+X_d = np.ones((x.size, 2)
+X_d[:, 1] = x
                     </code></pre>
-                    <p class="fragment"><code>T</code> means <b>transpose</b>, and I've done this just to get $X$ into the right shape</p>
+                    <p class="fragment">easy, I just make a 2-d array of <code>1</code>'s and replace the second column with $x$</p>
                 </section>
 
                 <section>
@@ -1121,6 +1121,7 @@ X_inv = np.linalg.inv(X_sq)
                 </section>
 
                 <section>
+                    <p>$\beta = X'Y(X'X)^{-1}$</p>
                     <p>all that's left to do is put it all together</p>
                     <pre class="fragment"><code class="python" data-trim data-noescape style="font-size: 15pt">
 Xy = np.dot(X_dt, y)
